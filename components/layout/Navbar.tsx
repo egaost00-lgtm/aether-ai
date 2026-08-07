@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 
 const links = [
-  "Home",
-  "Portfolio",
-  "Services",
-  "About",
-  "Contact",
+  { name: "Home", href: "/" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Services", href: "/services" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {const [scrolled, setScrolled] = useState(false);
@@ -38,46 +38,43 @@ useEffect(() => {
   }`}
 >
 
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 font-bold text-black">
-            A
-          </div>
+      {/* Logo */}
+<Link href="/" className="flex items-center gap-3">
+  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 font-bold text-black">
+    A
+  </div>
 
-          <div>
-            <h2 className="font-semibold text-white">
-              Aether AI
-            </h2>
+  <div>
+    <h2 className="font-semibold text-white">
+      Aether AI
+    </h2>
 
-            <p className="text-xs text-gray-400">
-              Solutions
-            </p>
-          </div>
-        </div>
+    <p className="text-xs text-gray-400">
+      Solutions
+    </p>
+  </div>
+</Link>
 
-        {/* Desktop Menu */}
-        <nav className="hidden gap-8 lg:flex">
-          {links.map((item) => (
-  <Link
-    key={item}
-    href={
-      item === "Home"
-        ? "/"
-        : item === "Portfolio"
-        ? "/portfolio"
-        : "#"
-    }
-    className="text-sm text-gray-300 transition hover:text-white"
-  >
-    {item}
-  </Link>
-))}
-        </nav>
+{/* Desktop Menu */}
+<nav className="hidden gap-8 lg:flex">
+  {links.map((item) => (
+    <Link
+      key={item.name}
+      href={item.href}
+      className="text-sm text-gray-300 transition hover:text-yellow-400"
+    >
+      {item.name}
+    </Link>
+  ))}
+</nav>
 
         {/* CTA */}
-        <button className="hidden rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105 lg:block">
-          Start Project
-        </button>
+        <Link
+  href="/contact"
+  className="hidden rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105 lg:block"
+>
+  Start Project
+</Link>
 
         {/* Mobile Icon */}
         <button className="text-white lg:hidden">

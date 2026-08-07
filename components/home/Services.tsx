@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Globe,
   Brain,
@@ -37,8 +38,9 @@ export default function Services() {
     <section className="py-28">
       <div className="mx-auto max-w-7xl px-6">
 
+        {/* Heading */}
         <div className="mb-16 text-center">
-          <p className="mb-3 text-yellow-400 uppercase tracking-[0.25em]">
+          <p className="mb-3 uppercase tracking-[0.25em] text-yellow-400">
             Services
           </p>
 
@@ -54,6 +56,7 @@ export default function Services() {
           </p>
         </div>
 
+        {/* Services Grid */}
         <div className="grid gap-8 md:grid-cols-2">
           {services.map((service) => {
             const Icon = service.icon;
@@ -63,7 +66,7 @@ export default function Services() {
                 key={service.title}
                 className="group rounded-3xl border border-white/10 bg-white/5 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-yellow-500/30 hover:bg-white/10"
               >
-                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-500 text-black">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-500 text-black transition group-hover:rotate-6">
                   <Icon size={30} />
                 </div>
 
@@ -74,9 +77,26 @@ export default function Services() {
                 <p className="leading-8 text-gray-400">
                   {service.description}
                 </p>
+
+                <Link
+                  href="/services"
+                  className="mt-8 inline-flex items-center font-semibold text-yellow-400 transition hover:translate-x-2"
+                >
+                  Learn More →
+                </Link>
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <Link
+            href="/services"
+            className="inline-flex rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black transition hover:scale-105"
+          >
+            Explore All Services
+          </Link>
         </div>
 
       </div>

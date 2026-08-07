@@ -10,7 +10,7 @@ import Pricing from "@/components/home/Pricing";
 import FAQ from "@/components/home/FAQ";
 import Contact from "@/components/home/Contact";
 import Footer from "@/components/home/Footer";
-
+import Stats from "@/components/home/Stats";
 export default function Home() {
   return (
     <>
@@ -21,12 +21,12 @@ export default function Home() {
       <Portfolio />
       <Process />
       <Technologies />
+      <Stats />
       <Testimonials />
       <Pricing />
       <FAQ />
       <Contact />
       <Footer />
-
     </>
   );
 }
