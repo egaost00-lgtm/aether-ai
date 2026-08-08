@@ -13,27 +13,20 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aetheraisolutions.in"),
-
-  title: {
-    default: "Aether AI Solutions | AI, Web & Digital Products",
-    template: "%s | Aether AI Solutions",
-  },
-
+  title: "Aether AI Solutions | AI, Web & Automation",
   description:
-    "Aether AI Solutions builds premium websites, AI applications, SaaS platforms, automation systems, and modern digital experiences for businesses.",
-
+    "Aether AI Solutions builds premium websites, AI applications, SaaS platforms, dashboards, and automation systems for startups and businesses.",
   keywords: [
     "Aether AI Solutions",
     "AI solutions",
-    "AI development",
     "website development",
+    "AI application development",
     "SaaS development",
-    "AI automation",
+    "business automation",
     "web development",
-    "UI UX design",
-    "digital solutions",
+    "AI automation",
   ],
+
 
   authors: [{ name: "Aether AI Solutions" }],
   creator: "Aether AI Solutions",
