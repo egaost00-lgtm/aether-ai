@@ -14,8 +14,10 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: "Aether AI Solutions | AI, Web & Automation",
+
   description:
     "Aether AI Solutions builds premium websites, AI applications, SaaS platforms, dashboards, and automation systems for startups and businesses.",
+
   keywords: [
     "Aether AI Solutions",
     "AI solutions",
@@ -25,12 +27,20 @@ export const metadata: Metadata = {
     "business automation",
     "web development",
     "AI automation",
+    "AI development company",
+    "web development company",
+    "automation solutions",
   ],
-
 
   authors: [{ name: "Aether AI Solutions" }],
   creator: "Aether AI Solutions",
   publisher: "Aether AI Solutions",
+
+  metadataBase: new URL("https://aetheraisolutions.in"),
+
+  alternates: {
+    canonical: "/",
+  },
 
   openGraph: {
     type: "website",
@@ -40,15 +50,46 @@ export const metadata: Metadata = {
     title: "Aether AI Solutions | AI, Web & Digital Products",
     description:
       "Premium websites, AI applications, SaaS platforms, automation systems, and modern digital experiences.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Aether AI Solutions | AI, Web & Automation",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Aether AI Solutions | AI, Web & Digital Products",
+    description:
+      "Premium websites, AI applications, SaaS platforms, and automation systems.",
+    images: ["/og-image.png"],
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  icons: {
+    icon: "/icon.png",
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="en"
