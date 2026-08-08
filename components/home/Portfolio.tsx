@@ -1,185 +1,206 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight, Code2 } from "lucide-react";
+
+const projects = [
+  {
+    title: "StreamFlix AI",
+    category: "AI Product",
+    description:
+      "An AI-powered streaming platform with a premium Netflix-inspired experience, intelligent movie discovery, and modern responsive UI.",
+    image: "/streamflix.png",
+    status: "Live",
+    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
+    tags: ["Next.js", "Tailwind", "AI"],
+    demo: "https://streamflix-ai.vercel.app",
+    github: "https://github.com/egaost00-lgtm/streamflix-ai",
+  },
+  {
+    title: "Healthcare Website",
+    category: "Web Development",
+    description:
+      "A premium responsive healthcare website designed to build trust, improve patient experience, and provide a clean digital presence.",
+    image: "/homeopathy.png",
+    status: "Live",
+    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
+    tags: ["Next.js", "Responsive", "SEO"],
+    demo: "https://neetikahomeopathy-kanpur.netlify.app",
+    github: null,
+  },
+  {
+    title: "AI Marketing Studio",
+    category: "AI SaaS",
+    description:
+      "An AI-powered marketing platform concept for creating product advertisements, social campaigns, commercial content, and premium brand assets.",
+    image: "/marketing.jpg",
+    status: "In Development",
+    statusStyle: "bg-yellow-500/15 text-yellow-400 border-yellow-500/20",
+    tags: ["AI", "SaaS", "Analytics"],
+    demo: null,
+    github: "https://github.com/egaost00-lgtm/aether-ai",
+  },
+];
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" className="py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section
+      id="portfolio"
+      className="relative overflow-hidden bg-[#050505] py-32 text-white"
+    >
+      {/* Background Glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/[0.035] blur-[180px]" />
 
-        <div className="mb-20 text-center">
-          <p className="mb-3 uppercase tracking-[0.3em] text-yellow-400">
-            Portfolio
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+
+        {/* Heading */}
+        <div className="mx-auto mb-20 max-w-3xl text-center">
+
+          <p className="mb-4 text-sm uppercase tracking-[0.35em] text-yellow-400">
+            Selected Work
           </p>
 
-          <h2 className="text-5xl font-bold text-white">
-            Selected Work
+          <h2 className="text-5xl font-black tracking-tight md:text-7xl">
+            Products built
+            <br />
+            <span className="text-yellow-400">with purpose.</span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-gray-400">
-            A collection of premium digital products we've designed
-            and developed.
+          <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-gray-400">
+            A selection of digital products, AI experiences, and
+            business solutions we've designed and developed.
           </p>
+
         </div>
 
+        {/* Projects */}
         <div className="grid gap-8 lg:grid-cols-3">
 
-          {/* StreamFlix AI */}
-          <div className="group overflow-hidden rounded-3xl border ...">
-            <div className="relative h-72 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-                <div className="absolute right-4 top-4 rounded-full bg-green-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
-  ● Live
-</div>
-              <Image
-                src="/streamflix.png"
-                alt="StreamFlix AI"
-                fill
-                className="object-contain bg-[#0B0B0B] p-2 transition duration-500 group-hover:scale-105"
-              />
-            </div>
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="group overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.035] transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/30 hover:bg-white/[0.055]"
+            >
 
-            <div className="p-8">
-              <h3 className="text-3xl font-bold text-white">
-                StreamFlix AI
-              </h3>
+              {/* Image */}
+              <div className="relative h-72 overflow-hidden bg-[#0B0B0B]">
 
-              <p className="mt-4 text-gray-400">
-                AI-powered streaming platform built with Next.js,
-                Tailwind CSS and a premium modern UI.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-  <span className="rounded-full bg-yellow-500/10 px-3 py-1 text-xs text-yellow-400">Next.js</span>
-  <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white">Tailwind</span>
-  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-xs text-blue-400">AI</span>
-</div>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-contain p-2 transition duration-700 group-hover:scale-105"
+                />
 
-              <div className="mt-8 flex gap-4">
-                <Link
-                  href="https://streamflix-ai.vercel.app"
-                  target="_blank"
-                  className="rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105"
+                {/* Image Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-70" />
+
+                {/* Category */}
+                <div className="absolute left-5 top-5 rounded-full border border-white/10 bg-black/50 px-4 py-2 text-xs font-medium text-gray-200 backdrop-blur-md">
+                  {project.category}
+                </div>
+
+                {/* Status */}
+                <div
+                  className={`absolute right-5 top-5 rounded-full border px-3 py-1.5 text-xs font-semibold backdrop-blur-md ${project.statusStyle}`}
                 >
-                  Live Demo
-                </Link>
+                  <span className="mr-1.5">●</span>
+                  {project.status}
+                </div>
 
-                <Link
-                  href="https://github.com/egaost00-lgtm/streamflix-ai"
-                  target="_blank"
-                  className="rounded-full border border-white/20 px-6 py-3 text-white transition hover:border-yellow-500"
-                >
-                  GitHub
-                </Link>
               </div>
-            </div>
+
+              {/* Content */}
+              <div className="p-8">
+
+                <div className="flex items-start justify-between gap-4">
+
+                  <h3 className="text-2xl font-bold tracking-tight">
+                    {project.title}
+                  </h3>
+
+                  <ArrowUpRight
+                    size={22}
+                    className="shrink-0 text-gray-500 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-yellow-400"
+                  />
+
+                </div>
+
+                <p className="mt-4 min-h-[112px] leading-7 text-gray-400">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition group-hover:border-yellow-500/20 group-hover:text-gray-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Buttons */}
+                <div className="mt-8 flex gap-3">
+
+                  {project.demo ? (
+                    <Link
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-yellow-500 px-5 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.03] hover:bg-yellow-400"
+                    >
+                      Live Demo
+                      <ArrowUpRight size={17} />
+                    </Link>
+                  ) : (
+                    <div className="flex-1 rounded-full border border-yellow-500/20 bg-yellow-500/10 px-5 py-3 text-center text-sm font-semibold text-yellow-400">
+                      Coming Soon
+                    </div>
+                  )}
+
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 font-medium text-white transition-all duration-300 hover:border-yellow-500/50 hover:text-yellow-400"
+                    >
+                      <Code2 size={17} />
+                      GitHub
+                    </Link>
+                  )}
+
+                </div>
+
+              </div>
+
+            </article>
+          ))}
+
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-20 flex flex-col items-center justify-between gap-6 rounded-[30px] border border-white/10 bg-white/[0.035] p-8 md:flex-row md:px-10">
+
+          <div>
+            <p className="text-2xl font-bold">
+              Want to see more?
+            </p>
+
+            <p className="mt-2 text-gray-400">
+              Explore our complete portfolio and discover what we can build.
+            </p>
           </div>
 
-          {/* Healthcare */}
-          <div className="group overflow-hidden rounded-3xl border ...">
-            <div className="relative h-72 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-                <div className="absolute right-4 top-4 rounded-full bg-green-500 px-3 py-1 text-xs font-semibold text-white shadow-lg">
-  ● Live
-</div>
-              <Image
-                src="/homeopathy.png"
-                alt="Healthcare Website"
-                fill
-                className="object-contain bg-[#0B0B0B] p-2 transition duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            <div className="p-8">
-              <h3 className="text-3xl font-bold text-white">
-                Healthcare Website
-              </h3>
-
-              <p className="mt-4 text-gray-400">
-                Premium responsive healthcare website featuring modern
-                UI, appointment booking, and optimized performance.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-  <span className="rounded-full bg-yellow-500/10 px-3 py-1 text-xs text-yellow-400">
-    Next.js
-  </span>
-
-  <span className="rounded-full bg-green-500/10 px-3 py-1 text-xs text-green-400">
-    Responsive
-  </span>
-
-  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-xs text-blue-400">
-    SEO
-  </span>
-</div>
-
-              <div className="mt-8 flex gap-4">
-                <Link
-                  href="https://neetikahomeopathy-kanpur.netlify.app"
-                  target="_blank"
-                  className="rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105"
-                >
-                  Live Demo
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* AI Marketing Studio */}
-          <div className="group overflow-hidden rounded-3xl border ...">
-            <div className="relative h-72 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
-                <div className="absolute right-4 top-4 rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold text-black shadow-lg">
-  In Development
-</div>
-              <Image
-                src="/marketing.jpg"
-                alt="AI Marketing Studio"
-                fill
-                className="object-contain bg-[#0B0B0B] p-2 transition duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            <div className="p-8">
-              <h3 className="text-3xl font-bold text-white">
-                AI Marketing Studio
-              </h3>
-
-              <p className="mt-4 text-gray-400">
-                AI-powered marketing platform for generating product ads,
-                social campaigns, commercial videos, and premium brand
-                assets with advanced analytics.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2">
-  <span className="rounded-full bg-purple-500/10 px-3 py-1 text-xs text-purple-400">
-    AI
-  </span>
-
-  <span className="rounded-full bg-yellow-500/10 px-3 py-1 text-xs text-yellow-400">
-    SaaS
-  </span>
-
-  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-xs text-blue-400">
-    Analytics
-  </span>
-</div>
-
-              <div className="mt-8 flex gap-4">
-                <Link
-                  href="#"
-                  className="rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105"
-                >
-                  Coming Soon
-                </Link>
-
-                <Link
-                  href="https://github.com/egaost00-lgtm/aether-ai-solutions"
-                  target="_blank"
-                  className="rounded-full border border-white/20 px-6 py-3 text-white transition hover:border-yellow-500"
-                >
-                  GitHub
-                </Link>
-              </div>
-            </div>
-          </div>
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-yellow-400"
+          >
+            View Full Portfolio
+            <ArrowUpRight size={18} />
+          </Link>
 
         </div>
 
