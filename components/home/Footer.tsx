@@ -86,13 +86,13 @@ export default function Footer() {
               design, engineering, and artificial intelligence.
             </p>
 
-            <a
-              href="mailto:hello@aetheraisolutions.com"
-              className="mt-6 inline-flex items-center gap-2 text-sm text-gray-400 transition hover:text-yellow-400"
-            >
-              <Mail size={16} />
-              aitherai.solutions@gmail.com
-            </a>
+          <a
+  href="mailto:aitherai.solutions@gmail.com?subject=Project%20Inquiry%20-%20Aether%20AI%20Solutions"
+  className="mt-6 inline-flex items-center gap-2 text-sm text-gray-400 transition hover:text-yellow-400"
+>
+  <Mail size={16} />
+  aitherai.solutions@gmail.com
+</a>
 
           </div>
 
