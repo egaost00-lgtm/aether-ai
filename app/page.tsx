@@ -11,6 +11,7 @@ import FAQ from "@/components/home/FAQ";
 import Contact from "@/components/home/Contact";
 import Footer from "@/components/home/Footer";
 import Stats from "@/components/home/Stats";
+import AetherAIChat from "@/components/AetherAIChat";
 export default function Home() {
   return (
     <>
@@ -27,6 +28,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
+      <AetherAIChat />
     </>
   );
 }
