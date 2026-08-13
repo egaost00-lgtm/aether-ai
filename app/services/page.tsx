@@ -91,15 +91,15 @@ export default function ServicesPage() {
               className="w-full rounded-3xl border border-white/10 shadow-2xl transition duration-500 hover:scale-105"
             />
 
-            <img
-              src="/homeopathy.png"
-              alt="Healthcare Website"
-              className="w-full rounded-3xl border border-white/10 shadow-2xl transition duration-500 hover:scale-105"
-            />
+          <img
+  src="/auracare.png"
+  alt="AURACARE Healthcare Platform"
+  className="w-full rounded-3xl border border-white/10 shadow-2xl transition duration-500 hover:scale-105"
+/>
 
             <p className="text-center text-gray-400">
-              Real client projects built using Next.js, React, AI,
-              Tailwind CSS and modern UI/UX principles.
+             Real digital products built using Next.js, React, AI,
+Tailwind CSS and modern UI/UX principles.
             </p>
 
           </div>
