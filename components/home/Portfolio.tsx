@@ -15,6 +15,18 @@ const projects = [
     demo: "https://streamflix-ai.vercel.app",
     github: "https://github.com/egaost00-lgtm/streamflix-ai",
   },
+    {
+    title: "AURACARE",
+    category: "Healthcare Platform",
+    description:
+      "A premium healthcare consultation platform with patient consultation requests, appointment assistance, consultation status tracking, and a modern responsive interface.",
+    image: "/auracare.png",
+    status: "Completed",
+    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
+    tags: ["Next.js", "Healthcare", "Responsive"],
+    demo: null,
+    github: "https://github.com/egaost00-lgtm/auracare",
+  },
   {
     title: "Healthcare Website",
     category: "Web Development",
