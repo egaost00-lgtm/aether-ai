@@ -27,18 +27,7 @@ const projects = [
     demo: null,
     github: "https://github.com/egaost00-lgtm/auracare",
   },
-  {
-    title: "Healthcare Website",
-    category: "Web Development",
-    description:
-      "A premium responsive healthcare website designed to build trust, improve patient experience, and provide a clean digital presence.",
-    image: "/homeopathy.png",
-    status: "Live",
-    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
-    tags: ["Next.js", "Responsive", "SEO"],
-    demo: "https://neetikahomeopathy-kanpur.netlify.app",
-    github: null,
-  },
+
   {
     title: "AI Marketing Studio",
     category: "AI SaaS",
