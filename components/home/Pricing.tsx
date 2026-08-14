@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Check, Sparkles, ArrowRight, ShieldCheck } from "lucide-react";
+import { Check, Sparkles, ArrowRight, ShieldCheck, Flag } from "lucide-react";
 import { motion } from "framer-motion";
 
 const plans = [
   {
     name: "Starter",
     eyebrow: "AI-READY DIGITAL PRESENCE",
-    price: "₹49K+",
+    price: "₹39K+",
+    originalPrice: "₹49K+",
     description:
       "A premium digital foundation for businesses ready to establish a strong online presence.",
     features: [
@@ -26,7 +27,8 @@ const plans = [
   {
     name: "Growth",
     eyebrow: "AI AUTOMATION",
-    price: "₹99K+",
+    price: "₹79K+",
+    originalPrice: "₹99K+",
     description:
       "For growing businesses that want to automate workflows and turn their website into an intelligent system.",
     features: [
@@ -46,7 +48,8 @@ const plans = [
   {
     name: "Professional",
     eyebrow: "AI SYSTEMS & AGENTS",
-    price: "₹1.99L+",
+    price: "₹1.59L+",
+    originalPrice: "₹1.99L+",
     description:
       "Advanced AI systems built for businesses that need intelligent automation, dashboards and scalable technology.",
     features: [
@@ -67,6 +70,7 @@ const plans = [
     name: "Enterprise",
     eyebrow: "CUSTOM AI INFRASTRUCTURE",
     price: "Custom",
+    originalPrice: null,
     description:
       "Enterprise-grade AI products and infrastructure designed around complex business requirements.",
     features: [
@@ -87,14 +91,61 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative overflow-hidden py-32">
+    <section
+      id="pricing"
+      className="relative overflow-hidden py-32"
+    >
       {/* Background Glow */}
-      <div className="absolute left-1/2 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/5 blur-[180px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/[0.045] blur-[180px]" />
 
       <div className="mx-auto max-w-7xl px-6">
 
+        {/* Independence Day Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-10 max-w-3xl"
+        >
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 backdrop-blur-xl">
+
+            {/* Flag glow */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-orange-500/[0.08] via-white/[0.02] to-green-500/[0.08]" />
+
+            <div className="relative flex flex-col items-center justify-center gap-2 text-center sm:flex-row sm:gap-4">
+
+              <div className="flex items-center gap-2">
+                <Flag
+                  size={18}
+                  className="text-orange-400"
+                />
+
+                <span className="text-sm font-bold uppercase tracking-[0.18em] text-white">
+                  Independence Day Special
+                </span>
+              </div>
+
+              <span className="hidden text-gray-600 sm:block">
+                •
+              </span>
+
+              <span className="text-sm font-semibold">
+                <span className="text-orange-400">20% OFF</span>
+                <span className="text-gray-400"> on selected plans</span>
+              </span>
+
+              <span className="rounded-full border border-green-500/20 bg-green-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-green-400">
+                15–20 Aug
+              </span>
+
+            </div>
+          </div>
+        </motion.div>
+
         {/* Heading */}
         <div className="mb-20 text-center">
+
           <p className="mb-4 uppercase tracking-[0.3em] text-yellow-400">
             Pricing
           </p>
@@ -109,6 +160,7 @@ export default function Pricing() {
             From AI-ready digital experiences to intelligent business systems,
             choose the level of technology your business needs.
           </p>
+
         </div>
 
         {/* Pricing Cards */}
@@ -134,6 +186,15 @@ export default function Pricing() {
               }`}
             >
 
+              {/* Independence Day Offer */}
+              {plan.originalPrice && (
+                <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-orange-400/20 bg-gradient-to-r from-orange-500/10 via-white/[0.04] to-green-500/10 px-3 py-1.5 backdrop-blur-md">
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-orange-300">
+                    🇮🇳 20% OFF
+                  </span>
+                </div>
+              )}
+
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-yellow-500 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-black">
@@ -143,7 +204,8 @@ export default function Pricing() {
               )}
 
               {/* Plan */}
-              <div className="mb-7">
+              <div className="mb-7 pt-10">
+
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-yellow-400/80">
                   {plan.eyebrow}
                 </p>
@@ -155,28 +217,55 @@ export default function Pricing() {
                 <p className="mt-4 min-h-[96px] text-sm leading-6 text-gray-400">
                   {plan.description}
                 </p>
+
               </div>
 
               {/* Price */}
               <div className="border-b border-white/10 pb-7">
-                <span className="text-4xl font-black text-yellow-400 md:text-5xl">
-                  {plan.price}
-                </span>
 
-                {plan.price !== "Custom" && (
-                  <span className="ml-2 text-xs text-gray-500">
-                    starting
-                  </span>
+                {plan.originalPrice && (
+                  <div className="mb-1 text-sm text-gray-500 line-through">
+                    {plan.originalPrice}
+                  </div>
                 )}
+
+                <div className="flex items-end gap-2">
+
+                  <span
+                    className={`text-4xl font-black md:text-5xl ${
+                      plan.originalPrice
+                        ? "bg-gradient-to-r from-orange-400 via-yellow-300 to-green-400 bg-clip-text text-transparent"
+                        : "text-yellow-400"
+                    }`}
+                  >
+                    {plan.price}
+                  </span>
+
+                  {plan.price !== "Custom" && (
+                    <span className="mb-1 text-xs text-gray-500">
+                      starting
+                    </span>
+                  )}
+
+                </div>
+
+                {plan.originalPrice && (
+                  <p className="mt-2 text-xs font-medium text-green-400">
+                    Independence Day offer applied
+                  </p>
+                )}
+
               </div>
 
               {/* Features */}
               <div className="flex-1 py-7">
+
                 <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
                   What&apos;s included
                 </p>
 
                 <ul className="space-y-3.5">
+
                   {plan.features.map((feature) => (
                     <li
                       key={feature}
@@ -189,7 +278,9 @@ export default function Pricing() {
                       <span>{feature}</span>
                     </li>
                   ))}
+
                 </ul>
+
               </div>
 
               {/* CTA */}
@@ -208,8 +299,9 @@ export default function Pricing() {
                 <ArrowRight size={17} />
               </Link>
 
-              {/* Bottom Glow */}
-              <div className="absolute -bottom-24 left-1/2 h-32 w-48 -translate-x-1/2 -translate-y-0 rounded-full bg-yellow-500/10 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
+              {/* Bottom Flag Glow */}
+              <div className="pointer-events-none absolute -bottom-24 left-1/2 h-32 w-56 -translate-x-1/2 rounded-full bg-gradient-to-r from-orange-500/10 via-white/5 to-green-500/10 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
+
             </motion.div>
           ))}
 
@@ -226,7 +318,9 @@ export default function Pricing() {
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
 
             <div className="max-w-2xl">
+
               <div className="mb-4 flex items-center gap-3">
+
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500/10 text-yellow-400">
                   <ShieldCheck size={20} />
                 </div>
@@ -234,6 +328,7 @@ export default function Pricing() {
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
                   AI Care & Optimization
                 </p>
+
               </div>
 
               <h3 className="text-2xl font-bold text-white md:text-3xl">
@@ -246,6 +341,7 @@ export default function Pricing() {
                 to keep your website, AI integrations and automation systems
                 secure, reliable and up to date.
               </p>
+
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3 lg:min-w-[520px]">
@@ -254,6 +350,7 @@ export default function Pricing() {
                 <p className="text-xs uppercase tracking-wider text-gray-500">
                   Starter
                 </p>
+
                 <p className="mt-2 text-2xl font-bold text-white">
                   ₹7.5K
                   <span className="text-sm font-normal text-gray-500">
@@ -266,6 +363,7 @@ export default function Pricing() {
                 <p className="text-xs uppercase tracking-wider text-yellow-400">
                   Growth
                 </p>
+
                 <p className="mt-2 text-2xl font-bold text-white">
                   ₹15K
                   <span className="text-sm font-normal text-gray-500">
@@ -278,6 +376,7 @@ export default function Pricing() {
                 <p className="text-xs uppercase tracking-wider text-gray-500">
                   Professional
                 </p>
+
                 <p className="mt-2 text-2xl font-bold text-white">
                   ₹30K+
                   <span className="text-sm font-normal text-gray-500">
@@ -290,6 +389,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-6">
+
             <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-500">
               <span>✓ System monitoring</span>
               <span>✓ Bug fixes</span>
@@ -298,11 +398,13 @@ export default function Pricing() {
               <span>✓ Performance optimization</span>
               <span>✓ Small improvements</span>
             </div>
+
           </div>
         </motion.div>
 
         {/* Bottom Note */}
         <div className="mt-12 text-center">
+
           <p className="text-sm text-gray-500">
             Need something different?{" "}
             <Link
@@ -312,6 +414,7 @@ export default function Pricing() {
               Let&apos;s build a custom AI solution →
             </Link>
           </p>
+
         </div>
 
       </div>
