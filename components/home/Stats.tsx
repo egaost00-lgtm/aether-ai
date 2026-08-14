@@ -29,10 +29,19 @@ export default function Stats() {
   return (
     <section
       id="stats"
-      className="relative overflow-hidden py-32"
+      className="relative overflow-hidden bg-[#050505] py-32 text-white"
     >
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/[0.05] blur-[150px]" />
+      {/* Tricolour Ambient Glow */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Saffron */}
+        <div className="absolute left-1/2 top-[-180px] h-[420px] w-[700px] -translate-x-1/2 rounded-full bg-orange-500/[0.045] blur-[150px]" />
+
+        {/* White */}
+        <div className="absolute left-1/2 top-1/2 h-[350px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-[150px]" />
+
+        {/* Green */}
+        <div className="absolute bottom-[-180px] left-1/2 h-[420px] w-[700px] -translate-x-1/2 rounded-full bg-green-500/[0.045] blur-[150px]" />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
 
@@ -44,13 +53,16 @@ export default function Stats() {
           transition={{ duration: 0.7 }}
           className="mb-20 text-center"
         >
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-yellow-400">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-orange-300">
             Our Track Record
           </p>
 
           <h2 className="text-5xl font-black tracking-tight text-white md:text-6xl">
             Results That
-            <span className="text-yellow-400"> Speak.</span>
+            <span className="bg-gradient-to-r from-orange-300 via-white to-green-400 bg-clip-text text-transparent">
+              {" "}
+              Speak.
+            </span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
@@ -73,11 +85,33 @@ export default function Stats() {
                 delay: index * 0.1,
               }}
               whileHover={{ y: -10 }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-8 text-center backdrop-blur-xl transition-all duration-500 hover:border-yellow-500/40 hover:bg-white/[0.06] hover:shadow-[0_20px_60px_rgba(234,179,8,0.15)]"
+              className="
+                group relative overflow-hidden rounded-3xl
+                border border-white/15
+                bg-gradient-to-b
+                from-orange-500/[0.07]
+                via-white/[0.025]
+                to-green-500/[0.07]
+                p-8 text-center
+                backdrop-blur-2xl
+                shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]
+                transition-all duration-500
+                hover:border-white/25
+                hover:from-orange-500/[0.11]
+                hover:via-white/[0.045]
+                hover:to-green-500/[0.11]
+                hover:shadow-[0_20px_70px_rgba(255,255,255,0.06)]
+              "
             >
 
-              {/* Glow */}
-              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-yellow-500/10 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
+              {/* Glass Shine */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent opacity-60" />
+
+              {/* Saffron Glow */}
+              <div className="pointer-events-none absolute -right-20 -top-20 h-44 w-44 rounded-full bg-orange-500/[0.12] opacity-0 blur-3xl transition duration-700 group-hover:opacity-100" />
+
+              {/* Green Glow */}
+              <div className="pointer-events-none absolute -bottom-20 -left-20 h-44 w-44 rounded-full bg-green-500/[0.12] opacity-0 blur-3xl transition duration-700 group-hover:opacity-100" />
 
               {/* Number */}
               <motion.h3
@@ -88,7 +122,12 @@ export default function Stats() {
                   duration: 0.5,
                   delay: index * 0.1 + 0.2,
                 }}
-                className="relative text-5xl font-black tracking-tight text-yellow-400 md:text-6xl"
+                className="
+                  relative text-5xl font-black tracking-tight
+                  bg-gradient-to-b from-orange-300 via-white to-green-400
+                  bg-clip-text text-transparent
+                  md:text-6xl
+                "
               >
                 {stat.value}
               </motion.h3>
@@ -99,12 +138,12 @@ export default function Stats() {
               </h4>
 
               {/* Description */}
-              <p className="relative mt-3 text-sm leading-6 text-gray-500">
+              <p className="relative mt-3 text-sm leading-6 text-gray-400">
                 {stat.description}
               </p>
 
-              {/* Accent */}
-              <div className="relative mx-auto mt-7 h-px w-12 bg-yellow-500 transition-all duration-500 group-hover:w-full" />
+              {/* Tricolour Accent */}
+              <div className="relative mx-auto mt-7 h-[2px] w-14 overflow-hidden rounded-full bg-gradient-to-r from-orange-400 via-white to-green-400 opacity-70 transition-all duration-500 group-hover:w-full group-hover:opacity-100" />
 
             </motion.div>
           ))}
@@ -117,17 +156,29 @@ export default function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-16 rounded-3xl border border-white/10 bg-white/[0.025] px-8 py-8 text-center backdrop-blur-xl"
+          className="
+            relative mt-16 overflow-hidden rounded-3xl
+            border border-white/10
+            bg-gradient-to-r
+            from-orange-500/[0.035]
+            via-white/[0.02]
+            to-green-500/[0.035]
+            px-8 py-8 text-center
+            backdrop-blur-2xl
+          "
         >
-          <p className="text-lg font-medium text-gray-300">
+          {/* Glass shine */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white/[0.04] via-transparent to-white/[0.04]" />
+
+          <p className="relative text-lg font-medium text-gray-300">
             Building better digital experiences,
-            <span className="text-yellow-400">
+            <span className="bg-gradient-to-r from-orange-300 via-white to-green-400 bg-clip-text text-transparent">
               {" "}
               one product at a time.
             </span>
           </p>
 
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="relative mt-2 text-sm text-gray-500">
             From concept and design to development, launch, and growth.
           </p>
         </motion.div>

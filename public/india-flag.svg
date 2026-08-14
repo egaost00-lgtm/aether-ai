@@ -1,0 +1,154 @@
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="saffron" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF9933"/>
+      <stop offset="0.45" stop-color="#FFB15C"/>
+      <stop offset="1" stop-color="#FF9933"/>
+    </linearGradient>
+
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#138808"/>
+      <stop offset="0.45" stop-color="#48A83D"/>
+      <stop offset="1" stop-color="#138808"/>
+    </linearGradient>
+
+    <linearGradient id="fabric" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="white" stop-opacity=".28"/>
+      <stop offset=".5" stop-color="white" stop-opacity="0"/>
+      <stop offset="1" stop-color="black" stop-opacity=".08"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+
+
+  <!-- SOFT FLAG SHADOW -->
+  <path
+    d="
+      M160 125
+      C330 65 470 150 620 120
+      C790 85 930 180 1110 135
+      C1190 115 1240 135 1290 155
+      L1290 700
+      C1120 735 970 650 810 700
+      C650 750 500 650 350 700
+      C270 725 210 715 160 690
+      Z
+    "
+    fill="#000"
+    opacity=".12"
+    filter="url(#shadow)"
+  />
+
+  <!-- SAFFRON -->
+  <path
+    d="
+      M160 115
+      C330 55 470 140 620 110
+      C790 75 930 170 1110 125
+      C1190 105 1240 125 1290 145
+      L1290 335
+      C1240 315 1190 295 1110 315
+      C930 360 790 265 620 300
+      C470 330 330 245 160 305
+      Z
+    "
+    fill="url(#saffron)"
+  />
+
+  <!-- WHITE -->
+  <path
+    d="
+      M160 305
+      C330 245 470 330 620 300
+      C790 265 930 360 1110 315
+      C1190 295 1240 315 1290 335
+      L1290 525
+      C1240 505 1190 485 1110 505
+      C930 550 790 455 620 490
+      C470 520 330 435 160 495
+      Z
+    "
+    fill="#FFFFFF"
+  />
+
+  <!-- GREEN -->
+  <path
+    d="
+      M160 495
+      C330 435 470 520 620 490
+      C790 455 930 550 1110 505
+      C1190 485 1240 505 1290 525
+      L1290 700
+      C1240 680 1190 660 1110 680
+      C930 725 790 630 620 665
+      C470 695 330 610 160 670
+      Z
+    "
+    fill="url(#green)"
+  />
+
+  <!-- ASHOKA CHAKRA -->
+  <g transform="translate(720 405)" fill="none" stroke="#000080">
+
+    <circle
+      r="105"
+      stroke-width="9"
+    />
+
+    <circle
+      r="15"
+      fill="#000080"
+      stroke="none"
+    />
+
+    <!-- 24 spokes -->
+    <g stroke-width="5">
+      <line x1="0" y1="-18" x2="0" y2="-98"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(15)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(30)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(45)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(60)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(75)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(90)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(105)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(120)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(135)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(150)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(165)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(180)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(195)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(210)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(225)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(240)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(255)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(270)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(285)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(300)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(315)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(330)"/>
+      <line x1="0" y1="-18" x2="0" y2="-98" transform="rotate(345)"/>
+    </g>
+  </g>
+
+  <!-- SUBTLE FABRIC LIGHT -->
+  <path
+    d="
+      M170 125
+      C340 65 470 150 620 120
+      C790 85 930 180 1110 135
+      C1190 115 1240 135 1280 150
+      L1280 680
+      C1100 715 970 635 810 685
+      C650 735 500 635 350 685
+      C270 710 210 700 170 680
+      Z
+    "
+    fill="url(#fabric)"
+  />
+
+</svg>

@@ -131,17 +131,20 @@ const response = await fetch("/api/chat", {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="absolute inset-0 rounded-full bg-yellow-400/30 blur-xl"
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/35 via-white/20 to-green-500/35 blur-xl"
             />
 
             <button
               type="button"
               onClick={() => setIsOpen(true)}
               aria-label="Open Aether AI assistant"
-              className="group relative flex h-16 w-16 items-center justify-center rounded-full border border-yellow-300/50 bg-black shadow-[0_0_35px_rgba(250,204,21,0.25)] transition-all duration-300 hover:scale-110 hover:border-yellow-300 hover:shadow-[0_0_50px_rgba(250,204,21,0.45)]"
-            >
-              {/* Orb */}
-              <motion.div
+              className="group relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border border-white/40 bg-gradient-to-br from-orange-500 via-white to-green-500 p-[2px] shadow-[0_0_35px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-110 hover:shadow-[0_0_55px_rgba(255,255,255,0.4)]"
+          >
+  {/* ✨ Glass Shine */}
+  <div className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-white/45 via-transparent to-transparent opacity-70" />
+
+  {/* Orb */}
+  <motion.div
                 animate={{
                   rotate: 360,
                 }}
@@ -153,7 +156,7 @@ const response = await fetch("/api/chat", {
                 className="absolute inset-2 rounded-full border border-yellow-400/30 border-t-yellow-300"
               />
 
-              <div className="relative flex h-11 w-11 items-center justify-center rounded-full bg-yellow-400 text-black shadow-[0_0_25px_rgba(250,204,21,0.45)]">
+              <div className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/75 text-white shadow-[0_0_25px_rgba(255,255,255,0.25)] backdrop-blur-xl">
                 <Bot size={23} strokeWidth={2.2} />
               </div>
 
@@ -178,18 +181,39 @@ const response = await fetch("/api/chat", {
       {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.94 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 30, scale: 0.94 }}
-            transition={{
-              duration: 0.25,
-              ease: "easeOut",
-            }}
-            className="fixed bottom-5 right-5 z-[999] flex h-[min(680px,calc(100vh-40px))] w-[min(420px,calc(100vw-40px))] flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#080808]/95 shadow-[0_25px_100px_rgba(0,0,0,0.65)] backdrop-blur-2xl"
-          >
+         <motion.div
+  initial={{ opacity: 0, y: 30, scale: 0.94 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  exit={{ opacity: 0, y: 30, scale: 0.94 }}
+  transition={{
+    duration: 0.25,
+    ease: "easeOut",
+  }}
+  className="fixed bottom-5 right-5 z-[999] flex h-[min(680px,calc(100vh-40px))] w-[min(420px,calc(100vw-40px))] flex-col overflow-hidden rounded-[28px] border border-white/15 bg-[#080808]/80 shadow-[0_25px_100px_rgba(0,0,0,0.65),0_0_60px_rgba(255,153,51,0.08),0_0_60px_rgba(19,136,8,0.08)] backdrop-blur-2xl"
+>
+  
+{/* 🇮🇳 Tricolour Glass Glow */}
+<div className="pointer-events-none absolute inset-0 overflow-hidden">
+
+  {/* Saffron Glow */}
+  <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-orange-500/20 blur-[90px]" />
+
+  {/* White Glow */}
+  <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.06] blur-[100px]" />
+
+  {/* Green Glow */}
+  <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-green-500/20 blur-[90px]" />
+
+  {/* Subtle Tricolour Sweep */}
+  <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-orange-500/[0.08] via-transparent to-transparent" />
+
+  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-green-500/[0.08] via-transparent to-transparent" />
+
+</div>
+
+  
             {/* Header */}
-            <div className="relative overflow-hidden border-b border-white/10 px-5 py-5">
+            <div className="relative z-10 overflow-hidden border-b border-white/10 px-5 py-5">
               {/* Header glow */}
               <div className="absolute -right-16 -top-20 h-44 w-44 rounded-full bg-yellow-400/15 blur-3xl" />
 
@@ -228,7 +252,7 @@ const response = await fetch("/api/chat", {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 space-y-4 overflow-y-auto px-4 py-5">
+            <div className="relative z-10 flex-1 space-y-4 overflow-y-auto px-4 py-5">
               {/* Intro badge */}
               {messages.length === 1 && (
                 <div className="mb-5 rounded-2xl border border-yellow-400/10 bg-yellow-400/[0.04] p-4">
@@ -313,7 +337,7 @@ const response = await fetch("/api/chat", {
             </div>
 
             {/* Input */}
-            <div className="border-t border-white/10 bg-black/20 p-4">
+            <div className="relative z-10 border-t border-white/10 bg-black/20 p-4">
               <form onSubmit={handleSubmit}>
                 <div className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] p-2 transition focus-within:border-yellow-400/40 focus-within:bg-white/[0.06]">
                   <MessageCircle

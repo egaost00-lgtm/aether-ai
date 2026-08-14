@@ -73,7 +73,7 @@ export default function Technologies() {
       className="relative overflow-hidden py-32"
     >
       {/* Background Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/[0.04] blur-[160px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-orange-500/[0.06] via-white/[0.02] to-green-500/[0.06] blur-[170px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
 
@@ -91,7 +91,9 @@ export default function Technologies() {
 
           <h2 className="text-5xl font-black tracking-tight text-white md:text-6xl">
             Built With
-            <span className="text-yellow-400"> Powerful Technology.</span>
+            <span className="bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text text-transparent">
+              {" "}Powerful Technology.
+            </span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-400">
@@ -117,17 +119,22 @@ export default function Technologies() {
               whileHover={{
                 y: -8,
               }}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-7 backdrop-blur-xl transition-all duration-500 hover:border-yellow-500/40 hover:bg-white/[0.06] hover:shadow-[0_20px_60px_rgba(234,179,8,0.12)]"
+              className="group relative overflow-hidden rounded-3xl border border-white/[0.14] bg-white/[0.055] p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl transition-all duration-500 hover:border-white/25 hover:bg-white/[0.085] hover:shadow-[0_25px_70px_rgba(255,255,255,0.08)]"
             >
 
-              {/* Hover Glow */}
-              <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-yellow-500/10 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
+              {/* Glass Shine */}
+              <div
+                className="pointer-events-none absolute -inset-y-full -left-1/2 w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 blur-md transition-all duration-1000 group-hover:left-[120%] group-hover:opacity-100"
+              />
+
+              {/* Tricolour Ambient Glow */}
+              <div className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-gradient-to-br from-orange-500/20 via-white/5 to-green-500/20 opacity-0 blur-3xl transition duration-700 group-hover:opacity-100" />
 
               {/* Top Row */}
               <div className="relative flex items-start justify-between">
 
                 {/* Logo */}
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] transition-all duration-500 group-hover:border-yellow-500/30 group-hover:bg-yellow-500/10 group-hover:shadow-[0_0_35px_rgba(234,179,8,0.18)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/[0.15] bg-white/[0.07] shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-xl transition-all duration-500 group-hover:border-white/30 group-hover:bg-white/[0.12] group-hover:shadow-[0_0_35px_rgba(255,255,255,0.12)]">
                   <Image
                     src={item.logo}
                     alt={`${item.name} logo`}
@@ -138,18 +145,18 @@ export default function Technologies() {
                 </div>
 
                 {/* Number */}
-                <span className="text-xs font-semibold tracking-widest text-gray-600">
+                <span className="text-xs font-semibold tracking-widest text-white/30">
                   {String(index + 1).padStart(2, "0")}
                 </span>
               </div>
 
               {/* Category */}
-              <p className="relative mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-400/80">
+              <p className="relative mt-7 text-xs font-semibold uppercase tracking-[0.2em] text-orange-300/80">
                 {item.category}
               </p>
 
               {/* Name */}
-              <h3 className="relative mt-2 text-2xl font-bold text-white transition-colors duration-300 group-hover:text-yellow-400">
+              <h3 className="relative mt-2 text-2xl font-bold text-white transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-orange-300 group-hover:via-white group-hover:to-green-300 group-hover:bg-clip-text group-hover:text-transparent">
                 {item.name}
               </h3>
 
@@ -159,9 +166,9 @@ export default function Technologies() {
                 experiences and scalable products.
               </p>
 
-              {/* Bottom Accent */}
-              <div className="relative mt-7 h-px w-full bg-white/10">
-                <div className="h-full w-10 bg-yellow-500 transition-all duration-500 group-hover:w-full" />
+              {/* Tricolour Bottom Accent */}
+              <div className="relative mt-7 h-[2px] w-full overflow-hidden rounded-full bg-white/10">
+                <div className="h-full w-12 rounded-full bg-gradient-to-r from-orange-400 via-white to-green-400 transition-all duration-700 group-hover:w-full" />
               </div>
 
             </motion.div>
@@ -175,17 +182,19 @@ export default function Technologies() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mt-16 rounded-3xl border border-yellow-500/20 bg-yellow-500/[0.04] px-8 py-8 text-center"
+          className="relative mt-16 overflow-hidden rounded-3xl border border-white/[0.12] bg-white/[0.045] px-8 py-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-2xl"
         >
-          <p className="text-lg font-medium text-gray-300">
+          {/* Subtle Tricolour Shine */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-orange-500/[0.05] via-transparent to-green-500/[0.05]" />
+
+          <p className="relative text-lg font-medium text-gray-300">
             The right technology isn't just about what's popular —
-            <span className="font-semibold text-yellow-400">
-              {" "}
-              it's about what works.
+            <span className="bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text font-semibold text-transparent">
+              {" "}it's about what works.
             </span>
           </p>
 
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="relative mt-2 text-sm text-gray-500">
             We choose the stack based on your product, goals,
             performance requirements, and scalability.
           </p>

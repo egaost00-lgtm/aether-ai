@@ -67,7 +67,7 @@ export default function Services() {
       className="relative overflow-hidden bg-[#050505] py-32 text-white"
     >
       {/* Background Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/[0.04] blur-[160px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-orange-500/[0.05] via-white/[0.015] to-green-500/[0.05] blur-[170px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
 
@@ -81,7 +81,9 @@ export default function Services() {
           <h2 className="text-5xl font-black tracking-tight md:text-7xl">
             Everything you need
             <br />
-            <span className="text-yellow-400">to grow digitally.</span>
+            <span className="bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text text-transparent">
+              to grow digitally.
+            </span>
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-gray-400">
@@ -101,35 +103,41 @@ export default function Services() {
             return (
               <div
                 key={service.title}
-                className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.035] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/30 hover:bg-white/[0.06]"
+                className="group relative overflow-hidden rounded-[30px] border border-white/[0.14] bg-white/[0.055] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-white/25 hover:bg-white/[0.085] hover:shadow-[0_25px_70px_rgba(255,255,255,0.07)]"
               >
 
+                {/* Glass Shine */}
+                <div className="pointer-events-none absolute -inset-y-full -left-1/2 w-1/2 rotate-12 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 blur-md transition-all duration-1000 group-hover:left-[120%] group-hover:opacity-100" />
+
+                {/* Tricolour Ambient Glow */}
+                <div className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full bg-gradient-to-br from-orange-500/20 via-white/5 to-green-500/20 opacity-0 blur-3xl transition duration-700 group-hover:opacity-100" />
+
                 {/* Number */}
-                <div className="absolute right-7 top-7 text-sm font-medium text-white/20 transition group-hover:text-yellow-400/50">
+                <div className="absolute right-7 top-7 text-sm font-medium text-white/25 transition group-hover:text-white/50">
                   {service.number}
                 </div>
 
                 {/* Icon */}
-                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-yellow-500 text-black shadow-[0_0_35px_rgba(234,179,8,0.12)] transition-all duration-500 group-hover:rotate-6 group-hover:scale-110">
+                <div className="relative mb-8 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/[0.15] bg-white/[0.07] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-xl transition-all duration-500 group-hover:rotate-3 group-hover:scale-110 group-hover:border-white/30 group-hover:bg-white/[0.12] group-hover:shadow-[0_0_35px_rgba(255,255,255,0.12)]">
                   <Icon size={29} strokeWidth={2} />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-bold tracking-tight">
+                <h3 className="relative text-2xl font-bold tracking-tight transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-orange-300 group-hover:via-white group-hover:to-green-300 group-hover:bg-clip-text group-hover:text-transparent">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-4 min-h-[96px] leading-7 text-gray-400">
+                <p className="relative mt-4 min-h-[96px] leading-7 text-gray-400">
                   {service.description}
                 </p>
 
                 {/* Tags */}
-                <div className="mt-7 flex flex-wrap gap-2">
+                <div className="relative mt-7 flex flex-wrap gap-2">
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition group-hover:border-yellow-500/20 group-hover:text-gray-300"
+                      className="rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-xs text-gray-400 backdrop-blur-md transition group-hover:border-white/20 group-hover:text-gray-300"
                     >
                       {tag}
                     </span>
@@ -139,17 +147,19 @@ export default function Services() {
                 {/* Learn More */}
                 <Link
                   href="/services"
-                  className="mt-8 inline-flex items-center gap-2 font-semibold text-yellow-400 transition-all duration-300 group-hover:gap-3"
+                  className="relative mt-8 inline-flex items-center gap-2 bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text font-semibold text-transparent transition-all duration-300 group-hover:gap-3"
                 >
                   Explore Service
                   <ArrowUpRight
                     size={17}
-                    className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                    className="text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
                   />
                 </Link>
 
-                {/* Bottom Glow */}
-                <div className="pointer-events-none absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-yellow-500/10 opacity-0 blur-[70px] transition duration-500 group-hover:opacity-100" />
+                {/* Tricolour Bottom Accent */}
+                <div className="relative mt-7 h-[2px] w-full overflow-hidden rounded-full bg-white/10">
+                  <div className="h-full w-12 rounded-full bg-gradient-to-r from-orange-400 via-white to-green-400 transition-all duration-700 group-hover:w-full" />
+                </div>
 
               </div>
             );
@@ -158,25 +168,32 @@ export default function Services() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 flex flex-col items-center justify-between gap-6 rounded-[30px] border border-white/10 bg-white/[0.035] p-8 md:flex-row md:px-10">
+        <div className="relative mt-20 overflow-hidden rounded-[30px] border border-white/[0.13] bg-white/[0.045] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-2xl md:px-10">
 
-          <div>
-            <p className="text-2xl font-bold">
-              Have a project in mind?
-            </p>
+          {/* CTA Glow */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-orange-500/[0.04] via-transparent to-green-500/[0.04]" />
 
-            <p className="mt-2 text-gray-400">
-              Let's turn your idea into a powerful digital product.
-            </p>
+          <div className="relative flex flex-col items-center justify-between gap-6 md:flex-row">
+
+            <div>
+              <p className="text-2xl font-bold">
+                Have a project in mind?
+              </p>
+
+              <p className="mt-2 text-gray-400">
+                Let's turn your idea into a powerful digital product.
+              </p>
+            </div>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/20 bg-gradient-to-r from-orange-400 via-white to-green-400 px-8 py-4 font-semibold text-black shadow-[0_10px_40px_rgba(255,255,255,0.08)] transition-all duration-300 hover:scale-105"
+            >
+              Start Your Project
+              <ArrowUpRight size={18} />
+            </Link>
+
           </div>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-yellow-400"
-          >
-            Start Your Project
-            <ArrowUpRight size={18} />
-          </Link>
 
         </div>
 
