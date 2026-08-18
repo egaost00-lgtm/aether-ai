@@ -21,7 +21,7 @@ export default function PortfolioPage() {
 
           <div className="mt-10 max-w-5xl">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-yellow-400">
-              AitherAI Solutions • Selected Work
+              Aether AI Solutions • Selected Work
             </p>
 
             <h1 className="mt-6 text-5xl font-black tracking-tight sm:text-6xl lg:text-8xl">
@@ -33,8 +33,8 @@ export default function PortfolioPage() {
 
             <p className="mt-8 max-w-3xl text-lg leading-8 text-gray-400 sm:text-xl">
               Explore AI-powered applications, modern web experiences,
-              analytics platforms, automation systems, and digital products
-              designed and developed by AitherAI Solutions.
+              healthcare platforms, automation systems, and digital products
+              designed and developed by Aether AI Solutions.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -58,6 +58,7 @@ export default function PortfolioPage() {
           <div className="mt-16 flex flex-wrap gap-3">
             {[
               "AI Products",
+              "AI Healthcare",
               "Web Applications",
               "SaaS Platforms",
               "Analytics",
@@ -97,7 +98,7 @@ export default function PortfolioPage() {
           </p>
         </div>
 
-        {/* STREAMFLIX */}
+        {/* STREAMFLIX AI */}
         <article className="group overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.035] transition duration-500 hover:border-yellow-400/30">
           {/* Project image */}
           <div className="relative overflow-hidden">
@@ -199,11 +200,12 @@ export default function PortfolioPage() {
 
                 <div className="mt-8 flex flex-col gap-3">
                   <Link
-  href="/portfolio/streamflix-ai"
-  className="rounded-full border border-yellow-400/40 bg-yellow-400/10 px-6 py-4 text-center font-semibold text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
->
-  View Case Study →
-</Link>
+                    href="/portfolio/streamflix-ai"
+                    className="rounded-full border border-yellow-400/40 bg-yellow-400/10 px-6 py-4 text-center font-semibold text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+                  >
+                    View Case Study →
+                  </Link>
+
                   <a
                     href="https://streamflix-ai.vercel.app"
                     target="_blank"
@@ -215,6 +217,132 @@ export default function PortfolioPage() {
 
                   <a
                     href="https://github.com/egaost00-lgtm/streamflix-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full border border-white/15 px-6 py-4 text-center font-semibold transition hover:border-yellow-400/50 hover:text-yellow-400"
+                  >
+                    View GitHub ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        {/* AURACARE */}
+        <article className="group mt-12 overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.035] transition duration-500 hover:border-yellow-400/30">
+          {/* Project image */}
+          <div className="relative overflow-hidden">
+            <img
+              src="/auracare.png"
+              alt="AURACARE AI-powered healthcare platform"
+              className="h-[320px] w-full object-cover transition duration-700 group-hover:scale-[1.03] sm:h-[480px]"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+
+            <div className="absolute left-6 top-6">
+              <span className="rounded-full border border-yellow-400/30 bg-black/60 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-yellow-400 backdrop-blur-md">
+                Healthcare AI
+              </span>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-7 sm:p-10 lg:p-14">
+            <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-400">
+                  AI Product • Healthcare Platform
+                </p>
+
+                <h3 className="mt-4 text-4xl font-black sm:text-6xl">
+                  AURACARE
+                </h3>
+
+                <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-400">
+                  A modern AI-powered healthcare platform designed around
+                  patient-first digital experiences. AURACARE brings
+                  consultation assistance, appointment workflows, healthcare
+                  information, and responsive digital design together in one
+                  streamlined platform.
+                </p>
+
+                {/* Features */}
+                <div className="mt-10">
+                  <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-300">
+                    What we built
+                  </h4>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {[
+                      "AI-powered healthcare experience",
+                      "Patient-first interface",
+                      "Consultation request workflow",
+                      "Appointment assistance",
+                      "Responsive healthcare platform",
+                      "Modern healthcare UI/UX",
+                    ].map((feature) => (
+                      <div
+                        key={feature}
+                        className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm text-gray-300"
+                      >
+                        <span className="mr-2 text-yellow-400">✦</span>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Project info */}
+              <div className="lg:border-l lg:border-white/10 lg:pl-10">
+                <p className="text-sm uppercase tracking-[0.25em] text-gray-500">
+                  Technology
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {[
+                    "Next.js",
+                    "React",
+                    "Tailwind CSS",
+                    "AI",
+                    "Responsive UI",
+                    "Modern UX",
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-gray-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <p className="text-sm uppercase tracking-[0.25em] text-gray-500">
+                    Project Type
+                  </p>
+
+                  <p className="mt-3 text-lg font-semibold">
+                    AI-Powered Healthcare Platform
+                  </p>
+                </div>
+
+                <div className="mt-8 flex flex-col gap-3">
+                  <Link
+                    href="/portfolio/auracare"
+                    className="rounded-full border border-yellow-400/40 bg-yellow-400/10 px-6 py-4 text-center font-semibold text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+                  >
+                    View Case Study →
+                  </Link>
+
+                  <div className="rounded-full border border-yellow-400/30 bg-yellow-400/10 px-6 py-4 text-center font-semibold text-yellow-400">
+                    Working on it 🚧
+                  </div>
+
+                  <a
+                    href="https://github.com/egaost00-lgtm/auracare"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="rounded-full border border-white/15 px-6 py-4 text-center font-semibold transition hover:border-yellow-400/50 hover:text-yellow-400"
@@ -241,7 +369,7 @@ export default function PortfolioPage() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-            From AI applications to modern digital products, AitherAI
+            From AI applications to modern digital products, Aether AI
             Solutions helps turn ambitious ideas into real experiences.
           </p>
 

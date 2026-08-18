@@ -150,25 +150,48 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <Link
-            href="/contact"
-            className="hidden rounded-full
-            border border-white/40
-            bg-gradient-to-r
-            from-orange-400
-            via-orange-500
-            to-green-500
-            px-6 py-3
-            font-semibold text-white
-            shadow-[0_6px_25px_rgba(255,140,0,0.20)]
-            transition duration-300
-            hover:scale-105
-            hover:shadow-[0_8px_30px_rgba(255,140,0,0.30)]
-            lg:block"
-          >
-            Start Project
-          </Link>
+          {/* Desktop Actions */}
+          <div className="hidden items-center gap-3 lg:flex">
+
+            {/* Client Portal */}
+            <Link
+              href="/signup"
+              className="rounded-full
+              border border-white/40
+              bg-gradient-to-r
+              from-orange-400
+              via-orange-500
+              to-green-500
+              px-6 py-3
+              font-semibold text-white
+              shadow-[0_6px_25px_rgba(255,140,0,0.20)]
+              transition duration-300
+              hover:scale-105
+              hover:shadow-[0_8px_30px_rgba(255,140,0,0.30)]"
+            >
+              Client Portal
+            </Link>
+
+            {/* Start Project */}
+            <Link
+              href="/contact"
+              className="rounded-full
+              border border-white/40
+              bg-gradient-to-r
+              from-orange-400
+              via-orange-500
+              to-green-500
+              px-6 py-3
+              font-semibold text-white
+              shadow-[0_6px_25px_rgba(255,140,0,0.20)]
+              transition duration-300
+              hover:scale-105
+              hover:shadow-[0_8px_30px_rgba(255,140,0,0.30)]"
+            >
+              Start Project
+            </Link>
+
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -198,6 +221,7 @@ export default function Navbar() {
             className="relative border-t border-white/30 px-6 pb-6 lg:hidden"
           >
             <nav className="flex flex-col pt-4">
+
               {links.map((item) => (
                 <Link
                   key={item.name}
@@ -214,19 +238,42 @@ export default function Navbar() {
                 </Link>
               ))}
 
+              {/* Mobile Client Portal */}
               <Link
-                href="/contact"
+                href="/signup"
                 onClick={() => setMenuOpen(false)}
                 className="mt-3 rounded-full
+                border border-white/40
                 bg-gradient-to-r
                 from-orange-500
                 to-green-500
                 px-6 py-4
                 text-center font-semibold text-white
-                shadow-lg"
+                shadow-lg
+                transition
+                hover:scale-[1.02]"
+              >
+                Client Portal
+              </Link>
+
+              {/* Mobile Start Project */}
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="mt-3 rounded-full
+                border border-white/40
+                bg-gradient-to-r
+                from-orange-500
+                to-green-500
+                px-6 py-4
+                text-center font-semibold text-white
+                shadow-lg
+                transition
+                hover:scale-[1.02]"
               >
                 Start Project
               </Link>
+
             </nav>
           </motion.div>
         )}

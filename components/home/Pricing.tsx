@@ -100,7 +100,7 @@ export default function Pricing() {
 
       <div className="mx-auto max-w-7xl px-6">
 
-        {/* Independence Day Banner */}
+        {/* Limited Launch Offer */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ export default function Pricing() {
               </span>
 
               <span className="rounded-full border border-green-500/20 bg-green-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-green-400">
-                15–20 Aug
+                LIMITED TIME
               </span>
 
             </div>
@@ -190,7 +190,7 @@ export default function Pricing() {
               {plan.originalPrice && (
                 <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-orange-400/20 bg-gradient-to-r from-orange-500/10 via-white/[0.04] to-green-500/10 px-3 py-1.5 backdrop-blur-md">
                   <span className="text-[9px] font-bold uppercase tracking-wider text-orange-300">
-                    🇮🇳 20% OFF
+                    🇮20% OFF
                   </span>
                 </div>
               )}
@@ -251,7 +251,7 @@ export default function Pricing() {
 
                 {plan.originalPrice && (
                   <p className="mt-2 text-xs font-medium text-green-400">
-                    Independence Day offer applied
+                    Launch offer applied
                   </p>
                 )}
 

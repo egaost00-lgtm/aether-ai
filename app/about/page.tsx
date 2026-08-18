@@ -11,7 +11,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-
 const stats = [
   {
     value: "50+",
@@ -40,25 +39,25 @@ const advantages: {
     icon: Zap,
     title: "Fast Performance",
     description:
-      "High-performance websites and applications optimized for speed, responsiveness, and SEO.",
+      "High-performance digital products engineered for speed, responsiveness, reliability, and strong technical foundations.",
   },
   {
     icon: Brain,
     title: "AI Powered",
     description:
-      "We integrate AI, intelligent automation, and modern APIs to create smarter digital products.",
+      "We combine artificial intelligence, intelligent automation, and modern APIs to turn ordinary digital experiences into smarter systems.",
   },
   {
     icon: Palette,
     title: "Premium Design",
     description:
-      "Clean, modern and conversion-focused interfaces designed to make your brand stand out.",
+      "Modern, refined, and conversion-focused interfaces designed to make businesses look credible, memorable, and ready to compete.",
   },
   {
     icon: Rocket,
     title: "Built to Scale",
     description:
-      "Flexible architectures designed to grow with startups, businesses, and ambitious products.",
+      "Scalable technology foundations designed to evolve from an initial idea into a growing digital product or business platform.",
   },
 ];
 
@@ -89,17 +88,17 @@ export default function AboutPage() {
               We build
               <br />
               <span className="text-yellow-400">
-                digital products
+                AI-powered products
               </span>
               <br />
-              with purpose.
+              that move businesses forward.
             </h1>
 
             <p className="mt-8 max-w-3xl text-lg leading-8 text-gray-400 sm:text-xl">
-              Aether AI Solutions combines premium design, modern
-              engineering, artificial intelligence, and automation to
-              help startups and businesses build better digital
-              experiences.
+              Aether AI Solutions combines artificial intelligence,
+              premium product design, modern software engineering,
+              automation, and analytics to help businesses turn ideas
+              into powerful digital products.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -133,22 +132,23 @@ export default function AboutPage() {
             </p>
 
             <h2 className="mt-5 text-4xl font-black tracking-tight sm:text-5xl">
-              We create digital experiences that make businesses
-              unforgettable.
+              We build intelligent digital experiences for ambitious
+              businesses.
             </h2>
 
             <p className="mt-8 text-lg leading-8 text-gray-400">
-              At Aether AI Solutions, we bring together premium UI/UX
-              design, AI technology, automation, and modern software
-              engineering to create digital products that are built
-              for real-world business needs.
+              Aether AI Solutions brings together AI, premium UI/UX
+              design, automation, analytics, and modern software
+              engineering to build digital products around real
+              business needs.
             </p>
 
             <p className="mt-6 text-lg leading-8 text-gray-400">
-              From high-performance websites to AI applications and
-              SaaS platforms, our focus is simple — create products
-              that look exceptional, perform reliably, and help
-              businesses grow.
+              From AI-powered applications and SaaS platforms to
+              high-performance websites and intelligent automation
+              systems, we focus on building technology that looks
+              exceptional, works reliably, and creates meaningful
+              business value.
             </p>
 
             {/* Mini Stats */}
@@ -207,8 +207,8 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-gray-400">
-              We believe technology should make businesses faster,
-              smarter, and more competitive.
+              We believe intelligent technology should make businesses
+              faster, smarter, more efficient, and ready for what comes next.
             </p>
           </div>
 
@@ -224,14 +224,14 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-3 text-3xl font-bold">
-                Build products that create real impact.
+                Turn ambitious ideas into products that matter.
               </h3>
 
               <p className="mt-6 text-lg leading-8 text-gray-400">
-                Our mission is to deliver premium websites, AI
-                applications, SaaS platforms, and automation systems
-                that solve real business problems and create measurable
-                value.
+                Our mission is to combine design, engineering, AI,
+                analytics, and automation to create digital products
+                that solve real problems and deliver measurable value
+                for businesses.
               </p>
             </div>
 
@@ -246,13 +246,15 @@ export default function AboutPage() {
               </p>
 
               <h3 className="mt-3 text-3xl font-bold">
-                Shape the future with intelligent technology.
+                Become the technology partner businesses trust to build
+                what&apos;s next.
               </h3>
 
               <p className="mt-6 text-lg leading-8 text-gray-400">
-                We aim to become a trusted technology partner for
-                ambitious businesses by combining exceptional design,
-                intelligent systems, and scalable engineering.
+                We aim to build a technology company where intelligent
+                systems, exceptional product design, and scalable
+                engineering come together to create the next generation
+                of digital businesses.
               </p>
             </div>
           </div>
@@ -272,8 +274,8 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-gray-400">
-              We combine strategy, design, engineering, and AI to
-              create complete digital experiences.
+              We bring strategy, design, engineering, AI, and
+              automation together to build complete digital solutions.
             </p>
           </div>
 
@@ -314,17 +316,21 @@ export default function AboutPage() {
 
             <div className="relative">
               <p className="text-sm uppercase tracking-[0.35em] text-yellow-400">
-                Let's Build
+                Let&apos;s Build
               </p>
 
               <h2 className="mx-auto mt-5 max-w-4xl text-4xl font-black sm:text-5xl lg:text-6xl">
-                Ready to build your next
-                <span className="text-yellow-400"> big idea?</span>
+                Have an idea?
+                <span className="text-yellow-400">
+                  {" "}
+                  Let&apos;s turn it into reality.
+                </span>
               </h2>
 
               <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-gray-400">
-                Let's turn your idea into a premium digital product
-                using modern technology, AI, and thoughtful design.
+                From your first concept to a production-ready digital
+                product, let&apos;s build something intelligent, useful,
+                and built to grow.
               </p>
 
               <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">

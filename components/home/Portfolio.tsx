@@ -5,9 +5,9 @@ import { ArrowUpRight, Code2 } from "lucide-react";
 const projects = [
   {
     title: "StreamFlix AI",
-    category: "AI Product",
+    category: "AI-Powered Digital Product",
     description:
-      "An AI-powered streaming platform with a premium Netflix-inspired experience, intelligent movie discovery, and modern responsive UI.",
+      "A premium AI-powered entertainment platform combining intelligent movie discovery, generative AI experiences, modern product design, and a responsive web application.",
     image: "/streamflix.png",
     status: "Live",
     statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
@@ -15,28 +15,29 @@ const projects = [
     demo: "https://streamflix-ai.vercel.app",
     github: "https://github.com/egaost00-lgtm/streamflix-ai",
   },
-    {
-    title: "AURACARE",
-    category: "Healthcare Platform",
-    description:
-      "A premium healthcare consultation platform with patient consultation requests, appointment assistance, consultation status tracking, and a modern responsive interface.",
-    image: "/auracare.png",
-    status: "Completed",
-    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
-    tags: ["Next.js", "Healthcare", "Responsive"],
-    demo: null,
-    github: "https://github.com/egaost00-lgtm/auracare",
-  },
+
+{
+  title: "AURACARE",
+  category: "AI-Powered Healthcare Platform",
+  description:
+    "An AI-powered healthcare platform designed to simplify patient consultations, appointment assistance, healthcare guidance, and digital patient experiences through a modern responsive interface.",
+  image: "/auracare.png",
+  status: "Completed",
+  statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
+  tags: ["Next.js", "AI", "Healthcare"],
+  demo: null,
+  github: "https://github.com/egaost00-lgtm/auracare",
+},
 
   {
     title: "AI Marketing Studio",
-    category: "AI SaaS",
+    category: "AI SaaS & Automation",
     description:
-      "An AI-powered marketing platform concept for creating product advertisements, social campaigns, commercial content, and premium brand assets.",
+      "An AI-powered marketing platform concept designed to help businesses create advertisements, social campaigns, commercial content, and premium brand assets faster.",
     image: "/marketing.jpg",
     status: "In Development",
     statusStyle: "bg-yellow-500/15 text-yellow-400 border-yellow-500/20",
-    tags: ["AI", "SaaS", "Analytics"],
+    tags: ["AI", "SaaS", "Automation"],
     demo: null,
     github: "https://github.com/egaost00-lgtm/aether-ai",
   },
@@ -54,21 +55,23 @@ export default function Portfolio() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
 
         {/* Heading */}
-        <div className="mx-auto mb-20 max-w-3xl text-center">
+        <div className="mx-auto mb-20 max-w-4xl text-center">
 
           <p className="mb-4 text-sm uppercase tracking-[0.35em] text-yellow-400">
             Selected Work
           </p>
 
           <h2 className="text-5xl font-black tracking-tight md:text-7xl">
-            Products built
+            Built to impress.
             <br />
-            <span className="text-yellow-400">with purpose.</span>
+            <span className="text-yellow-400">
+              Engineered to perform.
+            </span>
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-gray-400">
-            A selection of digital products, AI experiences, and
-            business solutions we've designed and developed.
+            Explore AI-powered products, intelligent systems, and premium
+            digital experiences built by Aether AI Solutions.
           </p>
 
         </div>
@@ -187,11 +190,11 @@ export default function Portfolio() {
 
           <div>
             <p className="text-2xl font-bold">
-              Want to see more?
+              Have an idea worth building?
             </p>
 
             <p className="mt-2 text-gray-400">
-              Explore our complete portfolio and discover what we can build.
+              Let's turn your idea into a powerful digital product.
             </p>
           </div>
 
@@ -199,7 +202,7 @@ export default function Portfolio() {
             href="/portfolio"
             className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-yellow-400"
           >
-            View Full Portfolio
+            Explore Our Work
             <ArrowUpRight size={18} />
           </Link>
 
