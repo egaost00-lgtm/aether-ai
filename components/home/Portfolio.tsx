@@ -41,6 +41,19 @@ const projects = [
     demo: null,
     github: "https://github.com/egaost00-lgtm/aether-ai",
   },
+    {
+    title: "Network Security Assessment",
+    category: "Cybersecurity • Network Assessment",
+    description:
+      "An end-to-end network security assessment performed in an authorized lab environment, covering reconnaissance, service enumeration, traffic analysis, security findings, and remediation recommendations.",
+    image: "/network-security.png",
+    status: "Completed",
+    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
+    tags: ["Kali Linux", "Nmap", "Wireshark"],
+    demo: null,
+    github:
+      "https://github.com/egaost00-lgtm/network-security-assessment",
+  },
 ];
 
 export default function Portfolio() {

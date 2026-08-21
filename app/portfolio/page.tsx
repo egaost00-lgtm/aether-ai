@@ -355,6 +355,139 @@ export default function PortfolioPage() {
           </div>
         </article>
       </section>
+              {/* NETWORK SECURITY ASSESSMENT */}
+        <article className="group mt-12 overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.035] transition duration-500 hover:border-yellow-400/30">
+          {/* Project header */}
+          <div className="relative overflow-hidden">
+            <div className="flex h-[320px] w-full items-center justify-center bg-gradient-to-br from-[#111111] via-[#090909] to-yellow-400/10 sm:h-[480px]">
+              <div className="text-center">
+                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-3xl border border-yellow-400/30 bg-yellow-400/10 text-5xl">
+                  🛡️
+                </div>
+
+                <p className="mt-6 text-sm font-semibold uppercase tracking-[0.3em] text-yellow-400">
+                  Network Security
+                </p>
+
+                <h3 className="mt-3 text-3xl font-black text-white sm:text-5xl">
+                  Security Assessment
+                </h3>
+              </div>
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+
+            <div className="absolute left-6 top-6">
+              <span className="rounded-full border border-yellow-400/30 bg-black/60 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-yellow-400 backdrop-blur-md">
+                Cybersecurity
+              </span>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-7 sm:p-10 lg:p-14">
+            <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-400">
+                  Cybersecurity • Network Assessment
+                </p>
+
+                <h3 className="mt-4 text-4xl font-black sm:text-6xl">
+                  Network Security Assessment
+                </h3>
+
+                <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-400">
+                  An authorized network security assessment conducted in a
+                  controlled lab environment to identify exposed services,
+                  analyze network traffic, document security findings, and
+                  provide practical remediation recommendations.
+                </p>
+
+                {/* Features */}
+                <div className="mt-10">
+                  <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-300">
+                    What we performed
+                  </h4>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {[
+                      "Network reconnaissance",
+                      "Port & service enumeration",
+                      "UDP service discovery",
+                      "Listening-service analysis",
+                      "Wireshark traffic analysis",
+                      "Security findings & recommendations",
+                    ].map((feature) => (
+                      <div
+                        key={feature}
+                        className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm text-gray-300"
+                      >
+                        <span className="mr-2 text-yellow-400">✦</span>
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Project info */}
+              <div className="lg:border-l lg:border-white/10 lg:pl-10">
+                <p className="text-sm uppercase tracking-[0.25em] text-gray-500">
+                  Technology
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {[
+                    "Kali Linux",
+                    "Nmap",
+                    "Wireshark",
+                    "Linux",
+                    "TCP/IP",
+                    "Network Security",
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-gray-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-10 border-t border-white/10 pt-8">
+                  <p className="text-sm uppercase tracking-[0.25em] text-gray-500">
+                    Project Type
+                  </p>
+
+                  <p className="mt-3 text-lg font-semibold">
+                    Network Security Assessment
+                  </p>
+                </div>
+                <div className="mt-8 flex flex-col gap-3">
+  <Link
+    href="/portfolio/network-security-assessment"
+    className="rounded-full border border-yellow-400/40 bg-yellow-400/10 px-6 py-4 text-center font-semibold text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+  >
+    View Case Study →
+  </Link>
+
+  <a
+    href="https://github.com/egaost00-lgtm/network-security-assessment"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="rounded-full border border-white/15 px-6 py-4 text-center font-semibold transition hover:border-yellow-400/50 hover:text-yellow-400"
+  >
+    View GitHub ↗
+  </a>
+
+  <div className="rounded-full border border-white/15 px-6 py-4 text-center font-semibold text-gray-400">
+    Authorized Lab Assessment
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </article>
 
       {/* CTA */}
       <section className="border-t border-white/10 px-6 py-28">
