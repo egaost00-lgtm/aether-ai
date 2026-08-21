@@ -30,144 +30,112 @@ export default function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7 }}
-      className="fixed left-1/2 top-6 z-50 w-[95%] max-w-7xl -translate-x-1/2"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed left-1/2 top-5 z-50 w-[94%] max-w-6xl -translate-x-1/2"
     >
       <div
-        className={`relative overflow-hidden rounded-[28px]
-        border border-white/25
-        bg-white/[0.07]
+        className={`relative overflow-hidden rounded-full border
+        border-white/[0.14]
+        bg-black/[0.42]
         backdrop-blur-2xl
         transition-all duration-500
         ${
           scrolled
-            ? "bg-white/[0.12] shadow-[0_12px_50px_rgba(0,0,0,0.14)]"
-            : "shadow-[0_8px_40px_rgba(255,255,255,0.08)]"
+            ? "bg-black/[0.62] shadow-[0_18px_60px_rgba(0,0,0,0.35)]"
+            : "shadow-[0_10px_45px_rgba(0,0,0,0.20)]"
         }`}
       >
-        {/* 🇮🇳 Subtle tricolor glass reflection */}
+        {/* Subtle glass highlight */}
         <div
-          className="pointer-events-none absolute inset-0
-          bg-gradient-to-r
-          from-orange-500/[0.08]
-          via-white/[0.03]
-          to-green-500/[0.08]"
+          className="pointer-events-none absolute inset-x-6 top-0 h-px
+          bg-gradient-to-r from-transparent via-white/40 to-transparent"
         />
 
-        {/* ✨ Top glass shine */}
+        {/* Very subtle ambient glow */}
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 h-[45%]
-          bg-gradient-to-b
-          from-white/25
-          via-white/[0.07]
-          to-transparent"
-        />
-
-        {/* ✨ Thin glass highlight */}
-        <div
-          className="pointer-events-none absolute left-6 right-6 top-0
-          h-px bg-white/70"
-        />
-
-        {/* 💎 Moving glass reflection */}
-        <motion.div
-          aria-hidden="true"
-          animate={{ x: ["-140%", "240%"] }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute top-0 h-full w-1/3
-          -skew-x-12
-          bg-gradient-to-r
-          from-transparent
-          via-white/20
-          to-transparent
-          blur-xl"
+          className="pointer-events-none absolute -top-20 left-1/3
+          h-32 w-64 rounded-full
+          bg-white/[0.035] blur-3xl"
         />
 
         {/* Main Navbar */}
-        <div className="relative flex items-center justify-between px-6 py-4">
+        <div className="relative flex items-center justify-between px-5 py-3.5 md:px-6">
 
           {/* Logo */}
           <Link
             href="/"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center gap-3"
+            className="group flex items-center gap-3"
           >
+            {/* Logo mark */}
             <div
-              className="flex h-10 w-10 items-center justify-center
+              className="flex h-10 w-10 shrink-0 items-center justify-center
               rounded-full
-              border border-white/40
-              bg-gradient-to-br
-              from-orange-400
-              via-yellow-400
-              to-green-500
-              font-bold text-white
-              shadow-[0_4px_20px_rgba(255,165,0,0.25)]"
+              border border-white/20
+              bg-white/[0.08]
+              text-sm font-bold text-white
+              shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]
+              transition duration-300
+              group-hover:border-orange-400/50
+              group-hover:bg-orange-500/10"
             >
               A
             </div>
 
-            <div>
-              <h2 className="font-semibold text-[#0b1220]">
+            <div className="leading-none">
+              <h2 className="text-sm font-semibold tracking-tight text-white">
                 Aether AI
               </h2>
 
-              <p className="text-xs text-[#0b1220]/60">
-                Solutions
+              <p className="mt-1 text-[10px] tracking-[0.18em] text-white/45">
+                SOLUTIONS
               </p>
             </div>
           </Link>
 
-          {/* Desktop Menu */}
-          <nav className="hidden items-center gap-8 lg:flex">
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-1 lg:flex">
             {links.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="group relative text-sm font-medium
-                text-[#0b1220]/70
-                transition duration-300
-                hover:text-[#0b1220]"
+                className="group relative rounded-full px-4 py-2
+                text-sm font-medium text-white/60
+                transition-all duration-300
+                hover:bg-white/[0.06]
+                hover:text-white"
               >
                 {item.name}
 
                 <span
-                  className="absolute -bottom-2 left-1/2 h-[2px] w-0
+                  className="absolute bottom-1 left-1/2 h-[2px] w-0
                   -translate-x-1/2 rounded-full
-                  bg-gradient-to-r
-                  from-orange-500
-                  via-white
-                  to-green-500
+                  bg-orange-400
                   transition-all duration-300
-                  group-hover:w-full"
+                  group-hover:w-4"
                 />
               </Link>
             ))}
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="hidden items-center gap-2.5 lg:flex">
 
             {/* Client Portal */}
             <Link
               href="/signup"
               className="rounded-full
-              border border-white/40
-              bg-gradient-to-r
-              from-orange-400
-              via-orange-500
-              to-green-500
-              px-6 py-3
-              font-semibold text-white
-              shadow-[0_6px_25px_rgba(255,140,0,0.20)]
-              transition duration-300
-              hover:scale-105
-              hover:shadow-[0_8px_30px_rgba(255,140,0,0.30)]"
+              border border-white/15
+              bg-white/[0.06]
+              px-5 py-2.5
+              text-sm font-medium text-white/85
+              backdrop-blur-xl
+              transition-all duration-300
+              hover:border-green-400/30
+              hover:bg-green-400/[0.08]
+              hover:text-white"
             >
               Client Portal
             </Link>
@@ -176,21 +144,19 @@ export default function Navbar() {
             <Link
               href="/contact"
               className="rounded-full
-              border border-white/40
-              bg-gradient-to-r
-              from-orange-400
-              via-orange-500
-              to-green-500
-              px-6 py-3
-              font-semibold text-white
-              shadow-[0_6px_25px_rgba(255,140,0,0.20)]
-              transition duration-300
-              hover:scale-105
-              hover:shadow-[0_8px_30px_rgba(255,140,0,0.30)]"
+              border border-orange-300/30
+              bg-gradient-to-r from-orange-500 to-amber-400
+              px-5 py-2.5
+              text-sm font-semibold text-black
+              shadow-[0_6px_25px_rgba(249,115,22,0.22)]
+              transition-all duration-300
+              hover:-translate-y-0.5
+              hover:from-orange-400
+              hover:to-yellow-300
+              hover:shadow-[0_10px_35px_rgba(249,115,22,0.35)]"
             >
               Start Project
             </Link>
-
           </div>
 
           {/* Mobile Menu Button */}
@@ -198,17 +164,17 @@ export default function Navbar() {
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex h-11 w-11 items-center justify-center
+            className="flex h-10 w-10 items-center justify-center
             rounded-full
-            border border-white/40
-            bg-white/20
-            text-[#0b1220]
+            border border-white/15
+            bg-white/[0.06]
+            text-white
             backdrop-blur-xl
-            transition
-            hover:bg-white/30
+            transition-all duration-300
+            hover:bg-white/[0.12]
             lg:hidden"
           >
-            {menuOpen ? <X size={25} /> : <Menu size={25} />}
+            {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
 
@@ -217,22 +183,21 @@ export default function Navbar() {
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
-            transition={{ duration: 0.25 }}
-            className="relative border-t border-white/30 px-6 pb-6 lg:hidden"
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative border-t border-white/[0.10] px-5 pb-5 lg:hidden"
           >
-            <nav className="flex flex-col pt-4">
+            <nav className="flex flex-col pt-3">
 
               {links.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="rounded-2xl px-4 py-4
-                  text-base font-medium
-                  text-[#0b1220]/75
-                  transition
-                  hover:bg-white/20
-                  hover:text-[#0b1220]"
+                  className="rounded-xl px-4 py-3.5
+                  text-sm font-medium text-white/65
+                  transition-all duration-300
+                  hover:bg-white/[0.06]
+                  hover:text-white"
                 >
                   {item.name}
                 </Link>
@@ -243,15 +208,12 @@ export default function Navbar() {
                 href="/signup"
                 onClick={() => setMenuOpen(false)}
                 className="mt-3 rounded-full
-                border border-white/40
-                bg-gradient-to-r
-                from-orange-500
-                to-green-500
-                px-6 py-4
-                text-center font-semibold text-white
-                shadow-lg
-                transition
-                hover:scale-[1.02]"
+                border border-white/15
+                bg-white/[0.06]
+                px-6 py-3.5
+                text-center text-sm font-medium text-white
+                transition-all duration-300
+                hover:bg-white/[0.10]"
               >
                 Client Portal
               </Link>
@@ -260,20 +222,17 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMenuOpen(false)}
-                className="mt-3 rounded-full
-                border border-white/40
-                bg-gradient-to-r
-                from-orange-500
-                to-green-500
-                px-6 py-4
-                text-center font-semibold text-white
-                shadow-lg
-                transition
-                hover:scale-[1.02]"
+                className="mt-2 rounded-full
+                bg-gradient-to-r from-orange-500 to-amber-400
+                px-6 py-3.5
+                text-center text-sm font-semibold text-black
+                shadow-[0_8px_25px_rgba(249,115,22,0.22)]
+                transition-all duration-300
+                hover:from-orange-400
+                hover:to-yellow-300"
               >
                 Start Project
               </Link>
-
             </nav>
           </motion.div>
         )}
