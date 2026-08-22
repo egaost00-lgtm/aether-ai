@@ -24,7 +24,7 @@ const projects = [
     status: "Live",
     statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
     tags: ["Next.js", "AI", "AWS Amplify"],
-    demo: "https://main.d38trio0q0je1z.amplifyapp.com",
+    demo: "https://bharatplay-liart.vercel.app",
     github: "https://github.com/egaost00-lgtm/bharatplay",
   },
 

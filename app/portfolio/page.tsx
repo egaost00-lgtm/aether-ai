@@ -336,7 +336,7 @@ export default function PortfolioPage() {
           </Link>
 
           <a
-            href="https://main.d38trio0q0je1z.amplifyapp.com"
+            href="https://bharatplay-liart.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-full bg-yellow-400 px-6 py-4 text-center font-semibold text-black transition hover:bg-yellow-300"
