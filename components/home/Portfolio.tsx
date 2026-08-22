@@ -15,6 +15,18 @@ const projects = [
     demo: "https://streamflix-ai.vercel.app",
     github: "https://github.com/egaost00-lgtm/streamflix-ai",
   },
+    {
+    title: "BharatPlay",
+    category: "AI-Powered Entertainment Platform",
+    description:
+      "An AI-powered entertainment platform built to deliver a modern digital viewing experience with intelligent content, responsive design, and production-ready cloud deployment on AWS.",
+    image: "/bharatplay.png",
+    status: "Live",
+    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
+    tags: ["Next.js", "AI", "AWS Amplify"],
+    demo: "https://main.d38trio0q0je1z.amplifyapp.com",
+    github: "https://github.com/egaost00-lgtm/bharatplay",
+  },
 
 {
   title: "AURACARE",
