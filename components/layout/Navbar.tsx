@@ -36,7 +36,7 @@ export default function Navbar() {
       className="fixed left-1/2 top-5 z-50 w-[94%] max-w-6xl -translate-x-1/2"
     >
       <div
-        className={`relative overflow-hidden rounded-full border
+        className={`relative overflow-hidden rounded-3xl lg:rounded-full border
         border-white/[0.14]
         bg-black/[0.42]
         backdrop-blur-2xl
