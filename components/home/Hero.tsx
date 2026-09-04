@@ -79,7 +79,7 @@ export default function Hero() {
             tracking-[0.28em] text-yellow-400"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-yellow-400 shadow-[0_0_12px_rgba(250,204,21,0.8)]" />
-            Software Engineering • AI • Digital Products
+            AI • Automation • Digital Products
           </motion.div>
 
           {/* Heading */}
@@ -90,11 +90,11 @@ export default function Hero() {
             className="max-w-4xl text-6xl font-black leading-[0.9]
             tracking-[-0.06em] md:text-7xl lg:text-[88px]"
           >
-            Building
+            Build smarter.
             <br />
 
             <span className="text-white">
-              software
+              Automate
             </span>
             <br />
 
@@ -103,12 +103,7 @@ export default function Hero() {
               via-yellow-400 to-yellow-600 bg-clip-text
               text-transparent"
             >
-              that moves
-            </span>
-            <br />
-
-            <span className="text-white">
-              business forward.
+              with AI.
             </span>
           </motion.h1>
 
@@ -119,9 +114,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-8 max-w-xl text-base leading-8 text-gray-400 md:text-lg"
           >
-            We design and engineer AI systems, SaaS platforms, web
-            applications, automation workflows, and data-driven products
-            built for real-world businesses.
+            We build AI-powered software, automation systems, SaaS platforms,
+            and digital products that help businesses save time, reduce costs,
+            and grow.
           </motion.p>
 
           {/* Buttons */}
@@ -132,8 +127,8 @@ export default function Hero() {
             className="mt-10 flex flex-col gap-4 sm:flex-row"
           >
             <Button href="/contact">
-              Start Your Project
-            </Button>
+  Book a Free Consultation →
+</Button>
 
             <Link
               href="/portfolio"
