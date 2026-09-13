@@ -13,10 +13,11 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Aether AI Solutions | AI, Web & Automation",
+  title: "Aether AI Solutions | AI Products, SaaS & Automation",
 
   description:
-    "Aether AI Solutions builds premium websites, AI applications, SaaS platforms, dashboards, and automation systems for startups and businesses.",
+  "Aether AI Solutions builds AI-powered products, SaaS platforms, modern web applications, automation systems, and data-driven solutions for businesses.",
+    
 
   keywords: [
     "Aether AI Solutions",
@@ -47,24 +48,25 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://aetheraisolutions.in",
     siteName: "Aether AI Solutions",
-    title: "Aether AI Solutions | AI, Web & Digital Products",
-    description:
-      "Premium websites, AI applications, SaaS platforms, automation systems, and modern digital experiences.",
+   title: "Aether AI Solutions | AI Products, SaaS & Automation",
+description:
+  "We build AI products, SaaS platforms, modern web applications, automation systems, and data-driven solutions.",
+      
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Aether AI Solutions | AI, Web & Automation",
+        alt: "Aether AI Solutions | AI Products, SaaS & Automation",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Aether AI Solutions | AI, Web & Digital Products",
-    description:
-      "Premium websites, AI applications, SaaS platforms, and automation systems.",
+   title: "Aether AI Solutions | AI Products, SaaS & Automation",
+description:
+  "We build AI products, SaaS platforms, modern web applications, automation systems, and data-driven solutions.",
     images: ["/og-image.png"],
   },
 
