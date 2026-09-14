@@ -1,0 +1,351 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <radialGradient id="glow" cx="0" cy="0" r="1"
+      gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(450 390) rotate(90) scale(390)">
+      <stop stop-color="#FACC15" stop-opacity=".32"/>
+      <stop offset=".45" stop-color="#F59E0B" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#050505" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="gold" x1="200" y1="100" x2="700" y2="750"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3A3"/>
+      <stop offset=".35" stop-color="#FACC15"/>
+      <stop offset=".7" stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#B45309"/>
+    </linearGradient>
+
+    <linearGradient id="goldSoft" x1="300" y1="200" x2="650" y2="700"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE68A"/>
+      <stop offset="1" stop-color="#D97706"/>
+    </linearGradient>
+
+    <linearGradient id="robot" x1="560" y1="580" x2="730" y2="760"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFC"/>
+      <stop offset=".5" stop-color="#CBD5E1"/>
+      <stop offset="1" stop-color="#64748B"/>
+    </linearGradient>
+
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="35"/>
+    </filter>
+
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Background glow -->
+  <circle cx="450" cy="400" r="390" fill="url(#glow)"/>
+
+  <circle cx="450" cy="390" r="250"
+    stroke="#FACC15"
+    stroke-opacity=".08"
+    stroke-width="2"/>
+
+  <circle cx="450" cy="390" r="290"
+    stroke="#FACC15"
+    stroke-opacity=".05"
+    stroke-width="2"/>
+
+  <!-- Temple halo -->
+  <circle cx="450" cy="350" r="205"
+    stroke="url(#gold)"
+    stroke-width="5"
+    stroke-opacity=".35"/>
+
+  <circle cx="450" cy="350" r="185"
+    stroke="#FACC15"
+    stroke-width="2"
+    stroke-opacity=".2"/>
+
+  <!-- Decorative halo rays -->
+  <g stroke="#FACC15" stroke-opacity=".2" stroke-width="3">
+    <path d="M450 105V155"/>
+    <path d="M450 545V595"/>
+    <path d="M205 350H255"/>
+    <path d="M645 350H695"/>
+    <path d="M277 177L312 212"/>
+    <path d="M588 488L623 523"/>
+    <path d="M623 177L588 212"/>
+    <path d="M312 488L277 523"/>
+  </g>
+
+  <!-- Crown -->
+  <path
+    d="M350 235
+       L375 145
+       L410 185
+       L450 115
+       L490 185
+       L525 145
+       L550 235
+       Z"
+    fill="url(#gold)"
+    stroke="#FFF1A8"
+    stroke-width="4"/>
+
+  <circle cx="450" cy="165" r="12"
+    fill="#7C2D12"
+    stroke="#FDE68A"
+    stroke-width="4"/>
+
+  <!-- Crown details -->
+  <path d="M385 215L410 185L430 220"
+    stroke="#92400E" stroke-width="6"/>
+
+  <path d="M515 215L490 185L470 220"
+    stroke="#92400E" stroke-width="6"/>
+
+  <!-- Ears -->
+  <path
+    d="M345 280
+       C275 245 225 285 250 365
+       C265 415 315 415 350 375
+       Z"
+    fill="#D99A68"
+    stroke="url(#goldSoft)"
+    stroke-width="6"/>
+
+  <path
+    d="M555 280
+       C625 245 675 285 650 365
+       C635 415 585 415 550 375
+       Z"
+    fill="#D99A68"
+    stroke="url(#goldSoft)"
+    stroke-width="6"/>
+
+  <!-- Face -->
+  <path
+    d="M355 250
+       C375 205 525 205 545 250
+       L565 355
+       C575 445 520 510 450 525
+       C380 510 325 445 335 355
+       Z"
+    fill="#E4A06C"
+    stroke="url(#gold)"
+    stroke-width="7"/>
+
+  <!-- Eyes -->
+  <path
+    d="M370 330 Q400 305 430 330 Q400 350 370 330Z"
+    fill="#21140C"/>
+
+  <path
+    d="M530 330 Q500 305 470 330 Q500 350 530 330Z"
+    fill="#21140C"/>
+
+  <circle cx="402" cy="328" r="5" fill="#FACC15"/>
+  <circle cx="498" cy="328" r="5" fill="#FACC15"/>
+
+  <!-- Tilak / Om -->
+  <path
+    d="M450 260
+       C425 280 425 305 450 320
+       C475 305 475 280 450 260"
+    stroke="#B91C1C"
+    stroke-width="8"
+    stroke-linecap="round"/>
+
+  <path d="M450 320V345"
+    stroke="#B91C1C"
+    stroke-width="7"
+    stroke-linecap="round"/>
+
+  <!-- Trunk -->
+  <path
+    d="M450 350
+       C420 375 410 420 430 445
+       C450 470 485 455 490 425
+       C495 395 475 375 450 385
+       C435 392 430 410 440 420"
+    fill="none"
+    stroke="#D58F5F"
+    stroke-width="38"
+    stroke-linecap="round"/>
+
+  <path
+    d="M450 350
+       C420 375 410 420 430 445
+       C450 470 485 455 490 425"
+    fill="none"
+    stroke="url(#goldSoft)"
+    stroke-width="5"
+    stroke-linecap="round"/>
+
+  <!-- Right hand blessing -->
+  <path
+    d="M545 385
+       C590 350 625 365 625 410
+       C625 445 595 460 565 445
+       L535 425"
+    fill="#E4A06C"
+    stroke="url(#gold)"
+    stroke-width="7"/>
+
+  <!-- Palm symbol -->
+  <circle cx="590" cy="405" r="20"
+    stroke="#FACC15"
+    stroke-width="4"
+    stroke-opacity=".8"/>
+
+  <!-- Left hand -->
+  <path
+    d="M350 385
+       C310 355 275 370 275 410
+       C275 445 305 460 335 445
+       L365 425"
+    fill="#E4A06C"
+    stroke="url(#gold)"
+    stroke-width="7"/>
+
+  <!-- Body -->
+  <path
+    d="M350 455
+       C300 500 290 595 335 665
+       C365 710 535 710 565 665
+       C610 595 600 500 550 455
+       C520 510 480 535 450 535
+       C420 535 380 510 350 455Z"
+    fill="#C98255"
+    stroke="url(#gold)"
+    stroke-width="8"/>
+
+  <!-- Necklace -->
+  <path
+    d="M350 505 Q450 570 550 505"
+    stroke="url(#gold)"
+    stroke-width="14"
+    fill="none"/>
+
+  <circle cx="450" cy="550" r="18"
+    fill="#FACC15"
+    stroke="#FFF3A3"
+    stroke-width="5"/>
+
+  <!-- AI orb -->
+  <circle cx="655" cy="515" r="85"
+    fill="#FACC15"
+    fill-opacity=".07"
+    stroke="#FACC15"
+    stroke-width="3"
+    stroke-opacity=".45"/>
+
+  <circle cx="655" cy="515" r="62"
+    fill="#111827"
+    stroke="#FACC15"
+    stroke-width="3"/>
+
+  <circle cx="655" cy="515" r="48"
+    fill="#FACC15"
+    fill-opacity=".08"/>
+
+  <text
+    x="655"
+    y="530"
+    text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="38"
+    font-weight="700"
+    fill="#FACC15">
+    AI
+  </text>
+
+  <!-- AI connection lines -->
+  <g stroke="#FACC15" stroke-opacity=".45" stroke-width="2">
+    <path d="M535 475L590 490"/>
+    <path d="M535 535L590 525"/>
+    <path d="M720 515H790"/>
+  </g>
+
+  <circle cx="790" cy="515" r="5" fill="#FACC15"/>
+
+  <!-- AI Robot -->
+  <g>
+    <!-- antenna -->
+    <path d="M675 615V590"
+      stroke="#CBD5E1"
+      stroke-width="8"
+      stroke-linecap="round"/>
+
+    <circle cx="675" cy="580" r="9"
+      fill="#FACC15"/>
+
+    <!-- head -->
+    <rect x="610" y="615" width="145" height="105"
+      rx="35"
+      fill="url(#robot)"
+      stroke="#FACC15"
+      stroke-width="4"/>
+
+    <!-- face -->
+    <rect x="635" y="640" width="95" height="55"
+      rx="22"
+      fill="#07111F"/>
+
+    <circle cx="665" cy="667" r="8" fill="#60A5FA"/>
+    <circle cx="700" cy="667" r="8" fill="#60A5FA"/>
+
+    <path d="M670 681 Q682 690 695 681"
+      stroke="#60A5FA"
+      stroke-width="4"
+      stroke-linecap="round"/>
+
+    <!-- body -->
+    <rect x="625" y="725" width="115" height="90"
+      rx="28"
+      fill="#CBD5E1"
+      stroke="#FACC15"
+      stroke-width="4"/>
+
+    <!-- Aether mark -->
+    <path
+      d="M665 770L682 740L699 770H688L682 758L676 770Z"
+      fill="#FACC15"/>
+
+    <!-- arms -->
+    <path d="M625 745L585 780"
+      stroke="#CBD5E1"
+      stroke-width="18"
+      stroke-linecap="round"/>
+
+    <path d="M740 745L775 780"
+      stroke="#CBD5E1"
+      stroke-width="18"
+      stroke-linecap="round"/>
+  </g>
+
+  <!-- Lotus -->
+  <g transform="translate(450 735)">
+    <path d="M0 55C-65 35-75 5-55-10C-35 0-15 25 0 55Z"
+      fill="#F59E0B" fill-opacity=".8"/>
+    <path d="M0 55C65 35 75 5 55-10C35 0 15 25 0 55Z"
+      fill="#F59E0B" fill-opacity=".8"/>
+    <path d="M0 55C-35 30-35-5 0-30C35-5 35 30 0 55Z"
+      fill="#FACC15" fill-opacity=".9"/>
+  </g>
+
+  <!-- Ground glow -->
+  <ellipse cx="520" cy="825"
+    rx="310" ry="35"
+    fill="#FACC15"
+    fill-opacity=".13"
+    filter="url(#blur)"/>
+
+  <!-- Floating AI particles -->
+  <g fill="#FACC15">
+    <circle cx="180" cy="250" r="4"/>
+    <circle cx="720" cy="240" r="3"/>
+    <circle cx="760" cy="650" r="4"/>
+    <circle cx="220" cy="650" r="3"/>
+    <circle cx="570" cy="180" r="3"/>
+  </g>
+
+</svg>
