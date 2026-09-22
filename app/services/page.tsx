@@ -56,6 +56,18 @@ const services = [
       "Authorized security assessments designed to identify exposed services, analyze network traffic, document security findings, and provide practical remediation recommendations.",
     tags: ["Kali Linux", "Nmap", "Wireshark", "Network Security"],
   },
+    {
+    number: "08",
+    title: "AI Exam Preparation Platforms",
+    description:
+      "We build AI-powered exam preparation platforms that help students practice, prepare for competitive examinations, and access structured digital learning experiences.",
+    tags: [
+      "AI Education",
+      "Practice Tests",
+      "Mock Tests",
+      "SaaS Platforms",
+    ],
+  },
 ];
 
 export default function ServicesPage() {
@@ -216,6 +228,71 @@ export default function ServicesPage() {
 
     <Link
       href="https://streamflix-ai.vercel.app"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-7 inline-flex items-center rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
+    >
+      View Live Product ↗
+    </Link>
+
+  </div>
+</div>
+{/* EXAMAI */}
+<div className="overflow-hidden rounded-[28px] border border-yellow-500/30 bg-black/30 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/60">
+
+  <div className="relative">
+    <img
+      src="/examai.png"
+      alt="ExamAI AI-powered exam preparation platform"
+      className="h-72 w-full object-cover transition duration-700 hover:scale-105"
+    />
+
+    <div className="absolute left-4 top-4 rounded-full border border-yellow-500/30 bg-black/70 px-4 py-2 text-xs font-semibold text-yellow-400 backdrop-blur-md">
+      AI EDUCATION PLATFORM
+    </div>
+
+    <div className="absolute right-4 top-4 rounded-full border border-green-500/30 bg-green-500/15 px-3 py-1.5 text-xs font-semibold text-green-400 backdrop-blur-md">
+      ● LIVE
+    </div>
+  </div>
+
+  <div className="p-7">
+
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
+      AI-Powered Education
+    </p>
+
+    <h3 className="mt-3 text-3xl font-bold">
+      ExamAI
+    </h3>
+
+    <p className="mt-4 leading-7 text-gray-400">
+      An AI-powered exam preparation platform designed to help students
+      prepare for competitive examinations through practice questions,
+      mock tests, structured learning, and an interactive digital experience.
+    </p>
+
+    {/* Built With */}
+    <div className="mt-6 flex flex-wrap gap-2">
+      {[
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "AI",
+      ].map((tag) => (
+        <span
+          key={tag}
+          className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition hover:border-yellow-500/30 hover:text-yellow-400"
+        >
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    <Link
+      href="https://exam-ai-amber.vercel.app/"
       target="_blank"
       rel="noopener noreferrer"
       className="mt-7 inline-flex items-center rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"

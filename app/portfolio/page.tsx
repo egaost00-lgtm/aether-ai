@@ -228,6 +228,118 @@ export default function PortfolioPage() {
             </div>
           </div>
         </article>
+        {/* EXAMAI */}
+<article className="group mt-12 overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.035] transition duration-500 hover:border-yellow-400/30">
+  {/* Project image */}
+  <div className="relative overflow-hidden">
+    <img
+      src="/examai.png"
+      alt="ExamAI AI-powered exam preparation platform"
+      className="h-[320px] w-full object-cover transition duration-700 group-hover:scale-[1.03] sm:h-[480px]"
+    />
+
+    <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
+
+    <div className="absolute left-6 top-6">
+      <span className="rounded-full border border-green-400/30 bg-black/60 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-green-400 backdrop-blur-md">
+        Live • Education AI
+      </span>
+    </div>
+  </div>
+
+  {/* Content */}
+  <div className="p-7 sm:p-10 lg:p-14">
+    <div className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
+      <div>
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-yellow-400">
+          AI Product • Education Platform
+        </p>
+
+        <h3 className="mt-4 text-4xl font-black sm:text-6xl">
+          ExamAI
+        </h3>
+
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-400">
+          An AI-powered exam preparation platform designed to support
+          competitive exam aspirants through practice questions, mock tests,
+          structured learning, and performance improvement.
+        </p>
+
+        {/* Features */}
+        <div className="mt-10">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-300">
+            What we built
+          </h4>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {[
+              "Practice question system",
+              "Mock test experience",
+              "Subject-based preparation",
+              "Performance evaluation",
+              "Structured exam preparation",
+              "Responsive web application",
+            ].map((feature) => (
+              <div
+                key={feature}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm text-gray-300"
+              >
+                <span className="mr-2 text-yellow-400">✦</span>
+                {feature}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Project info */}
+      <div className="lg:border-l lg:border-white/10 lg:pl-10">
+        <p className="text-sm uppercase tracking-[0.25em] text-gray-500">
+          Technology
+        </p>
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {[
+            "Next.js",
+            "React",
+            "Tailwind CSS",
+            "Supabase",
+            "AI",
+            "PostgreSQL",
+          ].map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-gray-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-10 border-t border-white/10 pt-8">
+          <p className="text-sm uppercase tracking-[0.25em] text-gray-500">
+            Project Type
+          </p>
+
+          <p className="mt-3 text-lg font-semibold">
+            AI-Powered Exam Preparation Platform
+          </p>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3">
+          <a
+            href="https://exam-ai-amber.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-yellow-400 px-6 py-4 text-center font-semibold text-black transition hover:bg-yellow-300"
+          >
+            View Live  ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
         {/* BHARATPLAY */}
 <article className="group mt-12 overflow-hidden rounded-[36px] border border-white/10 bg-white/[0.035] transition duration-500 hover:border-yellow-400/30">
   {/* Project image */}

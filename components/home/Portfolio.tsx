@@ -27,6 +27,19 @@ const projects = [
     demo: "https://bharatplay-liart.vercel.app",
     github: "https://github.com/egaost00-lgtm/bharatplay",
   },
+  {
+  title: "ExamAI",
+  category: "AI-Powered Exam Preparation Platform",
+  description:
+    "An intelligent exam preparation platform designed to help students prepare for competitive exams through practice questions, mock tests, structured learning, and performance improvement.",
+  image: "/examai.png",
+  status: "Live",
+  statusStyle:
+    "bg-green-500/15 text-green-400 border-green-500/20",
+  tags: ["Next.js", "AI", "Education"],
+  demo: "https://exam-ai-amber.vercel.app/",
+  github: null,
+},
 
 {
   title: "AURACARE",
@@ -180,7 +193,7 @@ export default function Portfolio() {
                       rel="noopener noreferrer"
                       className="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-yellow-500 px-5 py-3 font-semibold text-black transition-all duration-300 hover:scale-[1.03] hover:bg-yellow-400"
                     >
-                      Live Demo
+                      Live 
                       <ArrowUpRight size={17} />
                     </Link>
                   ) : (

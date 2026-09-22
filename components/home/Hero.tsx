@@ -66,29 +66,33 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#070503] text-white">
 
-      {/* =====================================================
-          BACKGROUND ARTWORK
-          ===================================================== */}
+     {/* =====================================================
+    LIVE AI + HUMAN VIDEO BACKGROUND
+    ===================================================== */}
 
-      <div className="absolute inset-0">
-        <img
-          src="/ganesh-ai-hero.png"
-          alt="Ganesh Chaturthi inspired AI artwork"
-          className="h-full w-full object-cover object-center"
-        />
+<div className="absolute inset-0">
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="h-full w-full object-cover object-center"
+  >
+    <source src="/ai-human-robot.mp4" type="video/mp4" />
+  </video>
 
-        {/* Overall readability */}
-        <div className="absolute inset-0 bg-black/10" />
+  {/* Overall readability */}
+  <div className="absolute inset-0 bg-black/25" />
 
-        {/* Left readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050403]/85 via-[#050403]/30 to-transparent" />
+  {/* Left readability */}
+  <div className="absolute inset-0 bg-gradient-to-r from-[#050403]/90 via-[#050403]/45 to-transparent" />
 
-        {/* Bottom fade */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050403]/95 via-transparent to-[#050403]/10" />
+  {/* Bottom fade */}
+  <div className="absolute inset-0 bg-gradient-to-t from-[#050403]/95 via-transparent to-[#050403]/10" />
 
-        {/* Very subtle cinematic vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_45%,transparent_20%,rgba(0,0,0,0.28)_100%)]" />
-      </div>
+  {/* Cinematic vignette */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_45%,transparent_20%,rgba(0,0,0,0.35)_100%)]" />
+</div>
 
       {/* =====================================================
           NAVBAR
@@ -288,56 +292,7 @@ export default function Hero() {
           "
         >
 
-          {/* Festival label */}
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="
-              mb-6
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              border
-              border-yellow-400/25
-              bg-black/30
-              px-4
-              py-2.5
-              text-[9px]
-              font-semibold
-              uppercase
-              tracking-[0.3em]
-              text-yellow-300
-              backdrop-blur-md
-              sm:px-5
-              sm:text-[10px]
-            "
-          >
-            <span
-              className="
-                h-1.5
-                w-1.5
-                rounded-full
-                bg-yellow-400
-                shadow-[0_0_12px_rgba(250,204,21,.9)]
-              "
-            />
-
-            TRADITION
-
-            <span className="text-yellow-700">
-              ×
-            </span>
-
-            TECHNOLOGY
-
-            <span className="text-yellow-700">
-              ×
-            </span>
-
-            A BRIGHTER TOMORROW
-          </motion.div>
+          
 
           {/* Brand Tagline */}
 <motion.h1
@@ -438,68 +393,7 @@ export default function Hero() {
             "
           />
 
-          {/* =================================================
-              GANESH MESSAGE
-              ================================================= */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.7,
-              delay: 0.5,
-            }}
-            className="mt-6"
-          >
-
-            <p
-              className="
-                text-[9px]
-                font-semibold
-                uppercase
-                tracking-[0.28em]
-                text-yellow-300
-              "
-            >
-              Aether AI Solutions celebrates
-            </p>
-
-            <h2
-              className="
-                mt-2
-                font-serif
-                text-4xl
-                font-bold
-                leading-[0.95]
-                text-yellow-300
-                sm:text-5xl
-              "
-            >
-              Happy Ganesh Chaturthi
-            </h2>
-
-            <p
-              className="
-                mt-3
-                max-w-md
-                text-sm
-                leading-6
-                text-white/70
-                md:text-base
-              "
-            >
-              May Lord Ganesha guide us with wisdom,
-              remove obstacles, and inspire every new
-              beginning with innovation and purpose.
-            </p>
-
-          </motion.div>
+          
 
           {/* =================================================
               CTA BUTTONS
