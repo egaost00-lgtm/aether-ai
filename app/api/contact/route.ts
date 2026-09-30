@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const { name, email, company, service, message } = await req.json();
 
     const data = await resend.emails.send({
-      from: "Aether AI <onboarding@resend.dev>",
+      from: "Aether AI <hello@aetheraisolutions.in>",
       to: ["aitherai.solutions@gmail.com"],
       subject: `New Project Inquiry - ${service}`,
       html: `
