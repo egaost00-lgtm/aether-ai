@@ -40,6 +40,19 @@ const projects = [
   demo: "https://exam-ai-amber.vercel.app/",
   github: null,
 },
+  {
+    title: "The Pulse",
+    category: "Digital News & Media Platform",
+    description:
+      "A modern digital news platform delivering breaking news, live news coverage, curated headlines, and real-time updates through a premium newspaper-style experience.",
+    image: "/the-pulse.png",
+    status: "Live",
+    statusStyle:
+      "bg-green-500/15 text-green-400 border-green-500/20",
+    tags: ["Next.js", "News API", "YouTube API"],
+    demo: "https://the-pulse-olive.vercel.app",
+    github: null,
+  },
 
 {
   title: "AURACARE",
