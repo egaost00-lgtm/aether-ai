@@ -5,11 +5,10 @@ import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 
 const technologies = [
-  "AI",
-  "Web",
-  "Mobile",
+  "AI Agents",
+  "AI Software",
   "Automation",
-  "Real Impact",
+  "Data Intelligence",
 ];
 
 type ProgressType =
@@ -27,35 +26,35 @@ const pipeline: {
 }[] = [
   {
     number: "01",
-    title: "Product Strategy",
+    title: "Understand Request",
     progress: "100%",
     status: "Complete",
     type: "complete",
   },
   {
     number: "02",
-    title: "UI / UX Engineering",
+    title: "AI Reasoning",
     progress: "100%",
     status: "Complete",
     type: "complete",
   },
   {
     number: "03",
-    title: "AI & Application Layer",
+    title: "Tool & API Execution",
     progress: "72%",
     status: "Running",
     type: "running",
   },
   {
     number: "04",
-    title: "API & Data Systems",
+    title: "Data Intelligence",
     progress: "84%",
     status: "Connected",
     type: "connected",
   },
   {
     number: "05",
-    title: "Cloud Deployment",
+    title: "Automation",
     progress: "60%",
     status: "Ready",
     type: "ready",
@@ -313,9 +312,7 @@ export default function Hero() {
     lg:text-[78px]
   "
 >
-  Build smarter.
-  <br />
-  Automate
+  Build software
   <br />
   <span
     className="
@@ -327,7 +324,7 @@ export default function Hero() {
       text-transparent
     "
   >
-    with AI.
+    thinks.
   </span>
 </motion.h1>
 
@@ -422,7 +419,7 @@ export default function Hero() {
           >
 
             <Button href="/contact">
-              Get in Touch →
+              Build with Aether AI →
             </Button>
 
             <Link
@@ -446,7 +443,7 @@ export default function Hero() {
                 hover:text-yellow-200
               "
             >
-              Explore Our Work →
+              Explore AI Products →
             </Link>
 
           </motion.div>
@@ -454,7 +451,7 @@ export default function Hero() {
         </div>
 
       {/* =================================================
-    FLOATING PRODUCT ENGINE
+    FLOATING AI Agent Command Centre
     ================================================= */}
 
 <motion.div
@@ -628,11 +625,11 @@ className="
               text-white
             "
           >
-            Product Engine
+            AI Agent Command Centre
           </h3>
 
           <p className="mt-1.5 text-[10px] text-white/45">
-            From concept to production
+            Think → Act → Automate
           </p>
 
         </div>
@@ -647,7 +644,7 @@ className="
             text-white/30
           "
         >
-          05 STAGES
+          05 AGENTS
         </span>
 
       </div>
@@ -703,7 +700,7 @@ className="
               text-white/65
             "
           >
-            System Architecture
+            Agent Architecture
           </span>
 
           <span
@@ -715,14 +712,14 @@ className="
               text-blue-300/80
             "
           >
-            AETHER STACK
+            AI AGENT STACK
           </span>
 
         </div>
 
         <div className="flex items-center justify-between">
 
-          {["AI", "API", "DATA", "CLOUD"].map(
+          {["AI AGENT", "TOOLS", "DATA", "ACTION"].map(
             (item, index) => (
               <div
                 key={item}
@@ -785,7 +782,7 @@ className="
     >
 
       <span className="text-[8px] text-white/30">
-        Intelligent systems pipeline
+        AI agent execution pipeline
       </span>
 
       <div className="flex items-center gap-2">
@@ -850,12 +847,12 @@ className="
 
           <Feature
             icon="✦"
-            title="AI Solutions"
+            title="AI Agents"
           />
 
           <Feature
             icon="⌘"
-            title="Web & Mobile"
+            title="AI Software"
           />
 
           <Feature
@@ -865,7 +862,7 @@ className="
 
           <Feature
             icon="↗"
-            title="Real-World Impact"
+            title="Data Intelligence"
           />
 
         </div>

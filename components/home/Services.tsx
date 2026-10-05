@@ -10,54 +10,54 @@ import {
 } from "lucide-react";
 
 const services = [
+ {
+  icon: Brain,
+  number: "01",
+  title: "AI Agent Development",
+  description:
+    "Intelligent AI agents built to understand tasks, use tools, connect with data, and automate real business workflows.",
+  tags: ["AI Agents", "LLMs", "Automation"],
+},
+{
+  icon: Brain,
+  number: "02",
+  title: "AI Software Development",
+  description:
+    "Custom AI-powered applications that combine intelligent models, modern interfaces, and business-focused workflows.",
+  tags: ["AI Apps", "GenAI", "LLMs"],
+},
+ {
+  icon: Workflow,
+  number: "03",
+  title: "AI Automation",
+  description:
+    "Intelligent automation that connects your apps, APIs, data, and business workflows to reduce repetitive work.",
+  tags: ["n8n", "APIs", "Workflows"],
+},
   {
-    icon: Globe,
-    number: "01",
-    title: "Website Development",
-    description:
-      "High-performance, responsive websites built with modern technologies, optimized for speed, SEO, and conversions.",
-    tags: ["Next.js", "React", "SEO"],
-  },
+  icon: Layers3,
+  number: "04",
+  title: "AI SaaS Products",
+  description:
+    "Production-ready AI SaaS products designed to turn intelligent capabilities into scalable business solutions.",
+  tags: ["SaaS", "AI", "Cloud"],
+},
+ {
+  icon: Palette,
+  number: "05",
+  title: "AI Product Design",
+  description:
+    "Human-centered interfaces designed for AI products, agents, dashboards, and intelligent digital experiences.",
+  tags: ["UI Design", "UX", "AI Products"],
+},
   {
-    icon: Brain,
-    number: "02",
-    title: "AI Solutions",
-    description:
-      "Intelligent AI applications, chatbots, assistants, and custom AI systems designed around your business needs.",
-    tags: ["AI Apps", "Chatbots", "LLM"],
-  },
-  {
-    icon: Workflow,
-    number: "03",
-    title: "AI Automation",
-    description:
-      "Automate repetitive workflows and connect your business tools with intelligent systems that work around the clock.",
-    tags: ["n8n", "APIs", "Workflows"],
-  },
-  {
-    icon: Layers3,
-    number: "04",
-    title: "SaaS Development",
-    description:
-      "Scalable SaaS platforms engineered with modern architecture, intuitive interfaces, and production-ready technology.",
-    tags: ["SaaS", "Cloud", "APIs"],
-  },
-  {
-    icon: Palette,
-    number: "05",
-    title: "UI / UX Design",
-    description:
-      "Premium digital experiences combining clean visual design, intuitive interactions, and conversion-focused user journeys.",
-    tags: ["UI Design", "UX", "Prototyping"],
-  },
-  {
-    icon: BarChart3,
-    number: "06",
-    title: "Digital Growth",
-    description:
-      "Data-driven optimization, analytics, SEO, and performance improvements designed to help your digital product grow.",
-    tags: ["Analytics", "SEO", "Growth"],
-  },
+  icon: BarChart3,
+  number: "06",
+  title: "AI Data Intelligence",
+  description:
+    "AI-powered data analysis that turns business data into insights, visualizations, trends, and actionable decisions.",
+  tags: ["Data AI", "Analytics", "Insights"],
+},
 ];
 
 export default function Services() {
@@ -79,17 +79,17 @@ export default function Services() {
           </p>
 
           <h2 className="text-5xl font-black tracking-tight md:text-7xl">
-            Everything you need
+            AI solutions built
             <br />
             <span className="bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text text-transparent">
-              to grow digitally.
+              with intelligence.
             </span>
           </h2>
 
           <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-gray-400">
-            From AI-powered applications to premium websites and
-            intelligent automation, we build digital products designed
-            to move your business forward.
+            From AI agents and intelligent software to automation and
+data intelligence, we build technology that helps businesses
+work smarter, move faster, and scale.
           </p>
 
         </div>
