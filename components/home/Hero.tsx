@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
+import AgenticBackground from "@/components/home/AgenticBackground";
 
 const technologies = [
   "AI Agents",
@@ -62,36 +63,17 @@ const pipeline: {
 ];
 
 export default function Hero() {
+
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#070503] text-white">
 
      {/* =====================================================
     LIVE AI + HUMAN VIDEO BACKGROUND
     ===================================================== */}
+<AgenticBackground />
 
-<div className="absolute inset-0">
-  <video
-    autoPlay
-    loop
-    muted
-    playsInline
-    className="h-full w-full object-cover object-center"
-  >
-    <source src="/ai-human-robot.mp4" type="video/mp4" />
-  </video>
 
-  {/* Overall readability */}
-  <div className="absolute inset-0 bg-black/25" />
-
-  {/* Left readability */}
-  <div className="absolute inset-0 bg-gradient-to-r from-[#050403]/90 via-[#050403]/45 to-transparent" />
-
-  {/* Bottom fade */}
-  <div className="absolute inset-0 bg-gradient-to-t from-[#050403]/95 via-transparent to-[#050403]/10" />
-
-  {/* Cinematic vignette */}
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_45%,transparent_20%,rgba(0,0,0,0.35)_100%)]" />
-</div>
 
       {/* =====================================================
           NAVBAR
