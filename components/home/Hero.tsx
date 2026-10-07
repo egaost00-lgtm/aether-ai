@@ -184,7 +184,7 @@ export default function Hero() {
                 hover:text-yellow-300
               "
             >
-              Projects
+              Portfolio
             </Link>
 
             <Link
