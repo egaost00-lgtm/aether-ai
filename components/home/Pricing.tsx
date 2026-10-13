@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -15,105 +16,131 @@ import { motion } from "framer-motion";
 
 const plans = [
   {
-    name: "AI Starter",
-    eyebrow: "AI BUSINESS ASSISTANT",
+    name: "Launchpad MVP",
+    eyebrow: "AI PRODUCT DEVELOPMENT",
     icon: Bot,
-    price: "₹49K+",
+    price: "₹1.5L+",
     description:
-      "A practical AI foundation for businesses ready to introduce intelligent customer interaction and automation.",
+      "Turn a validated idea into a working digital product with full-stack engineering and focused AI capabilities.",
     features: [
-      "AI Business Assistant",
-      "Custom Business Knowledge Base",
-      "Website AI Chat",
-      "AI-Powered FAQs",
-      "Lead Capture",
-      "Basic AI Integration",
-      "Analytics Integration",
-      "Deployment & Launch",
-      "30 Days Support",
+      "Product discovery & technical scoping",
+      "Premium UI/UX design",
+      "Full-stack application development",
+      "Database & authentication setup",
+      "One defined AI capability or agent",
+      "Selected API integrations",
+      "Deployment & launch configuration",
+      "30 days of agreed post-launch support",
     ],
   },
   {
-    name: "AI Growth",
-    eyebrow: "AI AUTOMATION",
+    name: "Scale Product",
+    eyebrow: "INTEGRATED AI SYSTEMS",
     icon: Zap,
-    price: "₹99K+",
+    price: "₹4L+",
     description:
-      "For growing businesses that want AI to handle customer conversations, qualify leads and automate repetitive workflows.",
+      "Build an integrated SaaS or business application with intelligent workflows, connected systems and custom functionality.",
     features: [
-      "Everything in AI Starter",
-      "AI Support Agent",
-      "AI Lead Qualification",
-      "AI Workflow Automation",
-      "WhatsApp AI Integration",
-      "Up to 3 API Integrations",
-      "Custom Backend",
-      "Database Integration",
-      "Admin Dashboard",
-      "1 Custom AI Agent",
-      "60 Days Support",
+      "Custom SaaS or business application",
+      "Advanced backend & database design",
+      "AI agent & workflow integration",
+      "Business process automation",
+      "Dashboards & operational analytics",
+      "Selected third-party integrations",
+      "Authentication & access controls",
+      "Testing & deployment",
+      "60 days of agreed post-launch support",
     ],
     popular: true,
   },
   {
-    name: "AI Pro",
-    eyebrow: "AI SYSTEMS & AGENTS",
+    name: "AI Transformation",
+    eyebrow: "ADVANCED AI ENGINEERING",
     icon: Brain,
-    price: "₹1.99L+",
+    price: "₹10L+",
     description:
-      "Advanced AI systems for companies that need intelligent agents, automation, analytics and custom software infrastructure.",
+      "Engineer complex AI solutions around business operations, proprietary data, multiple systems and demanding workflows.",
     features: [
-      "Everything in AI Growth",
-      "Advanced AI Agents",
-      "Multi-Step AI Workflows",
-      "Multiple AI Agents",
-      "AI Analytics & Insights",
-      "Advanced Dashboard",
-      "Multiple API Integrations",
-      "Custom Database Architecture",
-      "Advanced Authentication",
-      "Custom Business Logic",
-      "AI SaaS Development",
-      "Scalable Architecture",
-      "90 Days Support",
+      "Custom AI system architecture",
+      "Multi-agent orchestration where required",
+      "Advanced workflow automation",
+      "Data pipelines & system integrations",
+      "Business intelligence & analytics",
+      "Security & access-control design",
+      "Performance testing & optimization",
+      "Production deployment planning",
+      "Defined implementation & support scope",
     ],
   },
   {
     name: "Enterprise AI",
-    eyebrow: "CUSTOM AI INFRASTRUCTURE",
+    eyebrow: "CUSTOM ENTERPRISE SYSTEMS",
     icon: Building2,
     price: "Custom",
     description:
-      "Enterprise-grade AI systems designed around complex workflows, proprietary data, integrations and large-scale business requirements.",
+      "Purpose-built AI infrastructure and software for complex organizational requirements, integrations and governance needs.",
     features: [
-      "Everything in AI Pro",
-      "Custom AI Solutions",
-      "Multi-Agent AI Systems",
-      "Enterprise AI Automation",
-      "Custom AI SaaS Development",
-      "Advanced AI Analytics",
-      "Enterprise Integrations",
-      "Security & Access Controls",
-      "Cloud Infrastructure",
-      "Custom AI Architecture",
-      "Dedicated Development",
-      "Custom SLA & Support",
+      "Technical discovery & solution architecture",
+      "Custom enterprise AI applications",
+      "AI voice & call agent systems where required",
+      "Enterprise workflow integrations",
+      "Data infrastructure & access controls",
+      "Security requirements assessment",
+      "Cloud architecture & deployment",
+      "Testing & operational handover",
+      "Custom support & SLA agreement",
+    ],
+  },
+];
+
+const carePlans = [
+  {
+    name: "Essential Care",
+    price: "₹15K",
+    description: "Core maintenance for an existing product.",
+    features: [
+      "Agreed maintenance scope",
+      "Bug fixes within included limits",
+      "Dependency & security updates",
+      "Email support",
+      "Monthly maintenance summary",
+    ],
+  },
+  {
+    name: "Growth Care",
+    price: "₹35K",
+    description: "Ongoing improvements for evolving products.",
+    features: [
+      "Everything in Essential Care",
+      "AI/API usage optimization",
+      "Defined monthly enhancement hours",
+      "Workflow & prompt improvements",
+      "Priority support",
+    ],
+    popular: true,
+  },
+  {
+    name: "Scale & Reliability",
+    price: "₹60K+",
+    description: "Tailored maintenance for more demanding systems.",
+    features: [
+      "Expanded maintenance coverage",
+      "Monitoring where configured",
+      "Agreed incident response targets",
+      "Infrastructure optimization",
+      "Roadmap & reliability reviews",
     ],
   },
 ];
 
 export default function Pricing() {
   return (
-    <section
-      id="pricing"
-      className="relative overflow-hidden py-32"
-    >
+    <section id="pricing" className="relative overflow-hidden py-24 md:py-32">
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/[0.045] blur-[180px]" />
 
       <div className="mx-auto max-w-7xl px-6">
-
-        {/* AI Value Banner */}
+        {/* Positioning Banner */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,149 +149,129 @@ export default function Pricing() {
           className="mx-auto mb-10 max-w-3xl"
         >
           <div className="relative overflow-hidden rounded-2xl border border-yellow-500/20 bg-yellow-500/[0.045] px-5 py-4 backdrop-blur-xl">
-
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-yellow-500/[0.06] via-white/[0.02] to-yellow-500/[0.06]" />
 
             <div className="relative flex flex-col items-center justify-center gap-2 text-center sm:flex-row sm:gap-4">
-
               <div className="flex items-center gap-2">
-                <Sparkles
-                  size={18}
-                  className="text-yellow-400"
-                />
-
-                <span className="text-sm font-bold uppercase tracking-[0.18em] text-white">
-                  AI Built Around Your Business
+                <Sparkles size={18} className="text-yellow-400" />
+                <span className="text-sm font-bold uppercase tracking-[0.15em] text-white">
+                  Intelligent Products. Engineered End to End.
                 </span>
               </div>
 
-              <span className="hidden text-gray-600 sm:block">
-                •
-              </span>
+              <span className="hidden text-gray-600 sm:block">•</span>
 
-              <span className="text-sm font-medium text-gray-400">
-                Custom AI solutions. Transparent starting prices.
+              <span className="text-sm text-gray-400">
+                Transparent starting prices. Scope-defined delivery.
               </span>
-
             </div>
           </div>
         </motion.div>
 
         {/* Heading */}
-        <div className="mb-20 text-center">
-
-          <p className="mb-4 uppercase tracking-[0.3em] text-yellow-400">
-            AI Solutions & Pricing
+        <div className="mb-16 text-center md:mb-20">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-yellow-400">
+            Product Engineering & Pricing
           </p>
 
-          <h2 className="text-5xl font-black tracking-tight text-white md:text-6xl">
-            Build what&apos;s
+          <h2 className="text-4xl font-black tracking-tight text-white md:text-6xl">
+            We engineer products.
             <br />
-            <span className="text-yellow-400">intelligent.</span>
+            <span className="text-yellow-400">
+              Intelligence built in.
+            </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-            AI agents, automation, intelligent data systems and custom AI
-            software built around the way your business actually works.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400 md:text-lg">
+            From AI-powered SaaS and business applications to intelligent
+            agents, voice automation and connected data systems, we engineer
+            solutions around your actual business requirements.
           </p>
-
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid gap-6 lg:grid-cols-4">
+        {/* One-Time Product Packages */}
+        <div className="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <div>
+            <h3 className="text-2xl font-bold text-white md:text-3xl">
+              Product Engineering
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-gray-400">
+              One-time project fees. Final pricing follows discovery and scope.
+            </p>
+          </div>
+          <p className="text-xs leading-5 text-gray-500">
+            Third-party usage and infrastructure costs may be separate.
+          </p>
+        </div>
 
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
 
             return (
               <motion.div
                 key={plan.name}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.1,
+                  duration: 0.5,
+                  delay: index * 0.08,
                 }}
-                whileHover={{
-                  y: -10,
-                }}
-                className={`group relative flex flex-col overflow-hidden rounded-[30px] border p-7 backdrop-blur-xl transition-all duration-500 ${
+                whileHover={{ y: -6 }}
+                className={`group relative flex flex-col overflow-hidden rounded-[28px] border p-6 backdrop-blur-xl transition-colors duration-300 md:p-7 ${
                   plan.popular
-                    ? "border-yellow-400/60 bg-yellow-500/[0.07] shadow-[0_0_70px_rgba(234,179,8,0.14)]"
+                    ? "border-yellow-400/60 bg-yellow-500/[0.07] shadow-[0_0_55px_rgba(234,179,8,0.10)]"
                     : "border-white/10 bg-white/[0.04] hover:border-yellow-500/40"
                 }`}
               >
-
-                {/* Popular Badge */}
                 {plan.popular && (
-                  <div className="absolute right-5 top-5 flex items-center gap-2 rounded-full bg-yellow-500 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-black">
+                  <div className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full bg-yellow-500 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-black">
                     <Sparkles size={12} />
-                    Most Popular
+                    Popular
                   </div>
                 )}
 
-                {/* Plan */}
-                <div className="mb-7 pt-2">
-
+                <div className="mb-6">
                   <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-500/10 text-yellow-400">
                     <Icon size={21} />
                   </div>
 
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-yellow-400/80">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-yellow-400/80">
                     {plan.eyebrow}
                   </p>
 
-                  <h3 className="mt-3 text-3xl font-bold text-white">
+                  <h4 className="mt-3 text-2xl font-bold text-white">
                     {plan.name}
-                  </h3>
+                  </h4>
 
-                  <p className="mt-4 min-h-[96px] text-sm leading-6 text-gray-400">
+                  <p className="mt-3 min-h-[100px] text-sm leading-6 text-gray-400">
                     {plan.description}
                   </p>
-
                 </div>
 
-                {/* Price */}
-                <div className="border-b border-white/10 pb-7">
+                <div className="border-b border-white/10 pb-6">
+                  <p
+                    className={`text-4xl font-black ${
+                      plan.popular ? "text-yellow-400" : "text-white"
+                    }`}
+                  >
+                    {plan.price}
+                  </p>
 
-                  <div className="flex items-end gap-2">
-
-                    <span
-                      className={`text-4xl font-black md:text-5xl ${
-                        plan.popular
-                          ? "bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent"
-                          : "text-yellow-400"
-                      }`}
-                    >
-                      {plan.price}
-                    </span>
-
-                    {plan.price !== "Custom" && (
-                      <span className="mb-1 text-xs text-gray-500">
-                        starting
-                      </span>
-                    )}
-
-                  </div>
-
-                  {plan.price !== "Custom" && (
-                    <p className="mt-2 text-xs font-medium text-gray-500">
-                      Final pricing depends on scope & integrations
-                    </p>
-                  )}
-
+                  <p className="mt-2 text-xs leading-5 text-gray-500">
+                    {plan.price === "Custom"
+                      ? "Tailored proposal after discovery"
+                      : "Starting price · Scope dependent"}
+                  </p>
                 </div>
 
-                {/* Features */}
-                <div className="flex-1 py-7">
-
-                  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-gray-500">
-                    What&apos;s included
+                <div className="flex-1 py-6">
+                  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500">
+                    Illustrative deliverables
                   </p>
 
                   <ul className="space-y-3.5">
-
                     {plan.features.map((feature) => (
                       <li
                         key={feature}
@@ -273,166 +280,180 @@ export default function Pricing() {
                         <span className="mt-[-1px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-yellow-500/10 text-yellow-400">
                           <Check size={12} />
                         </span>
-
                         <span>{feature}</span>
                       </li>
                     ))}
-
                   </ul>
-
                 </div>
 
-                {/* CTA */}
                 <Link
                   href="/contact"
-                  className={`flex w-full items-center justify-center gap-2 rounded-full py-4 text-sm font-semibold transition-all duration-300 ${
+                  className={`mt-2 flex w-full items-center justify-center gap-2 rounded-full px-4 py-3.5 text-sm font-semibold transition-all duration-300 ${
                     plan.popular
-                      ? "bg-yellow-500 text-black hover:scale-[1.03] hover:bg-yellow-400"
+                      ? "bg-yellow-500 text-black hover:bg-yellow-400"
                       : "border border-white/15 bg-white/5 text-white hover:border-yellow-500/50 hover:bg-yellow-500/10"
                   }`}
                 >
                   {plan.price === "Custom"
-                    ? "Talk to Our AI Team"
-                    : "Build With Aether AI"}
-
-                  <ArrowRight size={17} />
+                    ? "Discuss Enterprise AI"
+                    : "Discuss Your Product"}
+                  <ArrowRight size={16} />
                 </Link>
 
-                {/* Bottom Glow */}
                 <div className="pointer-events-none absolute -bottom-24 left-1/2 h-32 w-56 -translate-x-1/2 rounded-full bg-yellow-500/10 opacity-0 blur-3xl transition duration-500 group-hover:opacity-100" />
-
               </motion.div>
             );
           })}
-
         </div>
 
-        {/* AI Care & Optimization */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-10 rounded-[30px] border border-white/10 bg-white/[0.03] p-8 backdrop-blur-xl md:p-10"
-        >
-
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-
-            <div className="max-w-2xl">
-
-              <div className="mb-4 flex items-center gap-3">
-
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500/10 text-yellow-400">
-                  <ShieldCheck size={20} />
-                </div>
-
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
-                  AI Care & Optimization
-                </p>
-
-              </div>
-
-              <h3 className="text-2xl font-bold text-white md:text-3xl">
-                Keep your AI systems
-                <span className="text-yellow-400">
-                  {" "}running smarter.
-                </span>
-              </h3>
-
-              <p className="mt-4 leading-7 text-gray-400">
-                Ongoing monitoring, maintenance, optimization and improvements
-                to keep your AI agents, integrations and automation systems
-                reliable, secure and continuously improving.
-              </p>
-
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3 lg:min-w-[520px]">
-
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-
-                <p className="text-xs uppercase tracking-wider text-gray-500">
-                  AI Starter
-                </p>
-
-                <p className="mt-2 text-2xl font-bold text-white">
-                  ₹7.5K
-                  <span className="text-sm font-normal text-gray-500">
-                    /mo
-                  </span>
-                </p>
-
-              </div>
-
-              <div className="rounded-2xl border border-yellow-500/20 bg-yellow-500/[0.05] p-5">
-
-                <p className="text-xs uppercase tracking-wider text-yellow-400">
-                  AI Growth
-                </p>
-
-                <p className="mt-2 text-2xl font-bold text-white">
-                  ₹15K
-                  <span className="text-sm font-normal text-gray-500">
-                    /mo
-                  </span>
-                </p>
-
-              </div>
-
-              <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-
-                <p className="text-xs uppercase tracking-wider text-gray-500">
-                  AI Pro
-                </p>
-
-                <p className="mt-2 text-2xl font-bold text-white">
-                  ₹30K+
-                  <span className="text-sm font-normal text-gray-500">
-                    /mo
-                  </span>
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <div className="mt-8 border-t border-white/10 pt-6">
-
-            <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-gray-500">
-              <span>✓ AI system monitoring</span>
-              <span>✓ Bug fixes</span>
-              <span>✓ AI/API optimization</span>
-              <span>✓ Security updates</span>
-              <span>✓ Performance optimization</span>
-              <span>✓ Prompt & workflow improvements</span>
-            </div>
-
-          </div>
-
-        </motion.div>
-
-        {/* Custom AI Services */}
+        {/* Monthly Care */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-8 text-center"
+          className="mt-24"
         >
+          <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="mb-3 flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-yellow-500/10 text-yellow-400">
+                  <ShieldCheck size={20} />
+                </div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
+                  Ongoing Services
+                </p>
+              </div>
 
-          <p className="text-sm text-gray-500">
-            Need something more advanced?{" "}
-            <Link
-              href="/contact"
-              className="font-semibold text-yellow-400 transition hover:text-yellow-300"
-            >
-              Let&apos;s build a custom AI system →
-            </Link>
+              <h3 className="text-3xl font-bold text-white md:text-4xl">
+                AI Care & Optimization
+              </h3>
+
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-gray-400 md:text-base">
+                Ongoing maintenance and improvements for products we agree to
+                support, with defined service coverage and engineering limits.
+              </p>
+            </div>
+
+            <p className="text-xs leading-5 text-gray-500">
+              Monthly recurring fees. Development scope agreed separately.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {carePlans.map((plan, index) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className={`relative flex flex-col rounded-2xl border p-6 ${
+                  plan.popular
+                    ? "border-yellow-500/40 bg-yellow-500/[0.05]"
+                    : "border-white/10 bg-white/[0.03]"
+                }`}
+              >
+                {plan.popular && (
+                  <span className="mb-4 w-fit rounded-full bg-yellow-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-yellow-400">
+                    Recommended
+                  </span>
+                )}
+
+                <h4 className="text-xl font-bold text-white">{plan.name}</h4>
+                <p className="mt-2 text-sm leading-6 text-gray-400">
+                  {plan.description}
+                </p>
+
+                <p className="mt-5 text-3xl font-black text-yellow-400">
+                  {plan.price}
+                  <span className="ml-1 text-sm font-normal text-gray-500">
+                    / month
+                  </span>
+                </p>
+
+                <ul className="mt-6 flex-1 space-y-3">
+                  {plan.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-sm leading-5 text-gray-300"
+                    >
+                      <Check
+                        size={15}
+                        className="mt-0.5 shrink-0 text-yellow-400"
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href="/contact"
+                  className="mt-7 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-yellow-500/50 hover:bg-yellow-500/10"
+                >
+                  Discuss Support
+                  <ArrowRight size={16} />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="mt-5 text-xs leading-6 text-gray-500">
+            Support coverage, included hours, response targets, exclusions and
+            third-party usage charges are defined in the selected agreement.
+            New features and major changes may require a separate estimate.
+          </p>
+        </motion.div>
+
+        {/* Final CTA */}
+        <div className="mt-16 rounded-3xl border border-white/10 bg-white/[0.03] px-6 py-10 text-center backdrop-blur-xl md:px-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
+            Have a specific requirement?
           </p>
 
-        </motion.div>
+          <h3 className="mt-3 text-2xl font-bold text-white md:text-3xl">
+            Let&apos;s engineer the right solution.
+          </h3>
+
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-gray-400 md:text-base">
+            Tell us about your product, AI agent, voice automation system or
+            business workflow. We&apos;ll discuss the scope before proposing
+            a solution.
+          </p>
+
+          <Link
+            href="/contact"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-yellow-500 px-7 py-3.5 font-semibold text-black transition hover:bg-yellow-400"
+          >
+            Discuss Your Project
+            <ArrowRight size={17} />
+          </Link>
+        </div>
+
+        {/* Dedicated AI Agents Pricing */}
+        <div className="mt-12 rounded-3xl border border-yellow-500/20 bg-yellow-500/[0.04] p-7 text-center md:p-10">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-yellow-500/20 bg-yellow-500/10 text-yellow-400">
+            <Bot size={24} />
+          </div>
+
+          <h3 className="mt-5 text-2xl font-bold text-white md:text-3xl">
+            Looking for AI Agents?
+          </h3>
+
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-gray-400 md:text-base">
+            Explore dedicated solutions for WhatsApp automation,
+            Instagram DM agents, lead qualification and connected
+            business workflows—with separate setup and monthly pricing.
+          </p>
+
+          <Link
+            href="/ai-agents-pricing"
+            className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-yellow-500 px-7 py-3.5 font-semibold text-black transition hover:bg-yellow-400"
+          >
+            Explore AI Agents Pricing
+            <ArrowRight size={17} />
+          </Link>
+        </div>
 
       </div>
     </section>

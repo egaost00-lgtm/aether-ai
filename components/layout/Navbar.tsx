@@ -5,14 +5,17 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+
 const links = [
   { name: "Home", href: "/" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services" },
   { name: "Pricing", href: "/#pricing" },
+  { name: "AI Agents", href: "/ai-agents-pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
