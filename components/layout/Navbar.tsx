@@ -143,7 +143,7 @@ export default function Navbar() {
               Client Portal
             </Link>
 
-            {/* Start Project */}
+            {/*  Let’s Build → */}
             <Link
               href="/contact"
               className="rounded-full
@@ -158,7 +158,7 @@ export default function Navbar() {
               hover:to-yellow-300
               hover:shadow-[0_10px_35px_rgba(249,115,22,0.35)]"
             >
-              Start Project
+               Let’s Build →
             </Link>
           </div>
 
@@ -221,7 +221,7 @@ export default function Navbar() {
                 Client Portal
               </Link>
 
-              {/* Mobile Start Project */}
+              {/* Mobile  Let’s Build → */}
               <Link
                 href="/contact"
                 onClick={() => setMenuOpen(false)}
@@ -234,7 +234,7 @@ export default function Navbar() {
                 hover:from-orange-400
                 hover:to-yellow-300"
               >
-                Start Project
+                 Let’s Build →
               </Link>
             </nav>
           </motion.div>
