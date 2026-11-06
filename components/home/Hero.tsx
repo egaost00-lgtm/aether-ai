@@ -206,7 +206,7 @@ export default function Hero() {
               delay: 1.2,
             },
           }}
-          className="pointer-events-none absolute right-[5%] top-[48%] z-30 hidden w-[390px] -translate-y-1/2 xl:block 2xl:right-[6%] 2xl:w-[410px]"
+          className="pointer-events-none absolute right-[5%] top-[65%] z-30 hidden w-[390px] -translate-y-1/2 xl:block 2xl:right-[6%] 2xl:w-[410px]"
         >
           <div className="absolute -inset-12 rounded-[50px] bg-amber-400/[0.06] blur-[75px]" />
           <div className="absolute -right-10 top-10 h-40 w-40 rounded-full bg-blue-500/[0.05] blur-[60px]" />
