@@ -106,7 +106,7 @@ export default function ContactPage() {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:border-yellow-500/40">
                 <p className="text-sm text-gray-400">Email</p>
                 <p className="mt-1 font-semibold text-white">
-                  aitherai.solutions@gmail.com
+                  hello@aetheraisolutions.in
                 </p>
               </div>
 
@@ -240,33 +240,39 @@ export default function ContactPage() {
                 className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white outline-none transition placeholder:text-gray-500 focus:border-yellow-500"
               />
 
-              <select
-                value={formData.service}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    service: e.target.value,
-                  })
-                }
-                className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white outline-none transition focus:border-yellow-500"
-                required
-              >
-                <option value="Website Development">
-                  Website Development
-                </option>
-                <option value="AI Application">
-                  AI Application
-                </option>
-                <option value="SaaS Platform">
-                  SaaS Platform
-                </option>
-                <option value="Automation System">
-                  Automation System
-                </option>
-                <option value="UI/UX Design">
-                  UI/UX Design
-                </option>
-              </select>
+             <select
+  value={formData.service}
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      service: e.target.value,
+    })
+  }
+  className="w-full rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-white outline-none transition focus:border-yellow-500"
+  required
+>
+  <option value="Website Development" className="bg-black">
+    Website & Web Application
+  </option>
+  <option value="AI Application & AI Agents" className="bg-black">
+    AI Applications & AI Agents
+  </option>
+  <option value="SaaS Product Development" className="bg-black">
+    SaaS Product Development
+  </option>
+  <option value="Business Automation" className="bg-black">
+    Business Automation
+  </option>
+  <option value="Data Analytics & Business Intelligence" className="bg-black">
+    Data Analytics & Business Intelligence
+  </option>
+  <option value="UI/UX Design" className="bg-black">
+    UI/UX Design
+  </option>
+  <option value="Other" className="bg-black">
+    Other
+  </option>
+</select>
 
               <textarea
                 rows={6}

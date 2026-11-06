@@ -242,63 +242,42 @@ export default function Contact() {
                   What do you need?
                 </label>
 
-                <select
-                  value={form.service}
-                  onChange={(e) =>
-                    setForm({
-                      ...form,
-                      service: e.target.value,
-                    })
-                  }
-                  className="w-full rounded-2xl border border-white/10 bg-black/30 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-yellow-500/60 focus:bg-black/50 focus:ring-1 focus:ring-yellow-500/30"
-                  required
-                >
-                  <option value="" className="bg-black">
-                    Select a service
-                  </option>
-
-                  <option
-                    value="Website Development"
-                    className="bg-black"
-                  >
-                    Website Development
-                  </option>
-
-                  <option
-                    value="AI Solutions"
-                    className="bg-black"
-                  >
-                    AI Solutions
-                  </option>
-
-                  <option
-                    value="UI / UX Design"
-                    className="bg-black"
-                  >
-                    UI / UX Design
-                  </option>
-
-                  <option
-                    value="Automation"
-                    className="bg-black"
-                  >
-                    Automation
-                  </option>
-
-                  <option
-                    value="SaaS Development"
-                    className="bg-black"
-                  >
-                    SaaS Development
-                  </option>
-
-                  <option
-                    value="Other"
-                    className="bg-black"
-                  >
-                    Other
-                  </option>
-                </select>
+               <select
+  value={form.service}
+  onChange={(e) =>
+    setForm({
+      ...form,
+      service: e.target.value,
+    })
+  }
+  className="w-full rounded-2xl border border-white/10 bg-black/30 px-5 py-4 text-white outline-none transition-all duration-300 focus:border-yellow-500/60 focus:bg-black/50 focus:ring-1 focus:ring-yellow-500/30"
+  required
+>
+  <option value="" className="bg-black">
+    Select a service
+  </option>
+  <option value="Website Development" className="bg-black">
+    Website & Web Application
+  </option>
+  <option value="AI Application & AI Agent" className="bg-black">
+    AI Applications & AI Agents
+  </option>
+  <option value="SaaS Product Development" className="bg-black">
+    SaaS Product Development
+  </option>
+  <option value="Business Automation" className="bg-black">
+    Business Automation
+  </option>
+  <option value="Data Analytics & Business Intelligence" className="bg-black">
+    Data Analytics & Business Intelligence
+  </option>
+  <option value="UI / UX Design" className="bg-black">
+    UI/UX Design
+  </option>
+  <option value="Other" className="bg-black">
+    Other
+  </option>
+</select>
               </div>
 
             </div>

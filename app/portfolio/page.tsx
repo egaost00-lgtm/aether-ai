@@ -212,7 +212,7 @@ export default function PortfolioPage() {
                     rel="noopener noreferrer"
                     className="rounded-full bg-yellow-400 px-6 py-4 text-center font-semibold text-black transition hover:bg-yellow-300"
                   >
-                    View Live Demo ↗
+                    View Live  ↗
                   </a>
 
                   <a

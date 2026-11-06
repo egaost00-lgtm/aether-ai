@@ -1,9 +1,14 @@
+
 "use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import AgenticBackground from "@/components/home/AgenticBackground";
+
+/* =========================================================
+   DATA
+========================================================= */
 
 const technologies = [
   "AI Agents",
@@ -12,19 +17,17 @@ const technologies = [
   "Data Intelligence",
 ];
 
-type ProgressType =
-  | "complete"
-  | "running"
-  | "connected"
-  | "ready";
+type ProgressType = "complete" | "running" | "connected" | "ready";
 
-const pipeline: {
+type PipelineItem = {
   number: string;
   title: string;
   progress: string;
   status: string;
   type: ProgressType;
-}[] = [
+};
+
+const pipeline: PipelineItem[] = [
   {
     number: "01",
     title: "Understand Request",
@@ -62,640 +65,261 @@ const pipeline: {
   },
 ];
 
+/* =========================================================
+   MAIN HERO
+========================================================= */
+
 export default function Hero() {
-
-
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#070503] text-white">
+    <section className="relative min-h-screen overflow-hidden bg-[#050914] text-white">
 
-     {/* =====================================================
-    LIVE AI + HUMAN VIDEO BACKGROUND
-    ===================================================== */}
-<AgenticBackground />
+      {/* BACKGROUND */}
+      <AgenticBackground />
+      <FireworksBackground />
 
+      {/* FESTIVE DECORATIONS */}
+      <DhanterasScene />
 
+      {/* NAVY ATMOSPHERE */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#050914]/95 via-[#080d18]/80 to-[#080d18]/55" />
 
-   
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#050914]/20 via-transparent to-[#050914]/90" />
 
-      {/* =====================================================
-          MAIN HERO AREA
-          ===================================================== */}
+      {/* AMBIENT GOLD LIGHTING */}
+      <div className="pointer-events-none absolute -right-40 top-10 z-10 h-[600px] w-[600px] rounded-full bg-amber-400/[0.07] blur-[150px]" />
 
-      <div
-        className="
-          relative
-          z-20
-          mx-auto
-          min-h-[calc(100vh-84px)]
-          max-w-[1400px]
-          px-4
-          pb-32
-          pt-66
-          sm:px-6
-          lg:px-8
-        "
-      >
+      <div className="pointer-events-none absolute -left-40 bottom-10 z-10 h-[400px] w-[500px] rounded-full bg-yellow-500/[0.04] blur-[130px]" />
 
-        {/* =================================================
-            LEFT CONTENT
-            ================================================= */}
+      <div className="pointer-events-none absolute right-[12%] top-[20%] z-10 h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_30px_10px_rgba(251,191,36,0.15)]" />
 
-        <div
-          className="
-            relative
-            z-30
-            max-w-[600px]
-            -translate-x-3
-            sm:-translate-x-5
-            lg:-translate-x-8
-          "
-        >
+      <div className="pointer-events-none absolute left-[42%] top-[35%] z-10 h-1.5 w-1.5 rounded-full bg-yellow-200 shadow-[0_0_25px_8px_rgba(250,204,21,0.12)]" />
 
-          
+      {/* MAIN CONTENT */}
+      <div className="relative z-20 mx-auto min-h-[calc(100vh-84px)] max-w-[1400px] px-4 pb-32 pt-36 sm:px-6 sm:pt-44 lg:px-8 lg:pt-48">
 
-          {/* Brand Tagline */}
-<motion.h1
-  initial={{ opacity: 0, y: 35 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    duration: 0.8,
-    delay: 0.1,
-  }}
-  className="
-    text-[52px]
-    font-black
-    leading-[0.92]
-    tracking-[-0.05em]
-    text-white
-    sm:text-6xl
-    md:text-7xl
-    lg:text-[78px]
-  "
->
-  Build software
-  <br />
-  <span
-    className="
-      bg-gradient-to-r
-      from-yellow-100
-      via-yellow-300
-      to-yellow-500
-      bg-clip-text
-      text-transparent
-    "
-  >
-    thinks.
-  </span>
-</motion.h1>
+        {/* LEFT CONTENT */}
+        <div className="relative z-30 max-w-[600px] -translate-x-1 sm:-translate-x-3 lg:-translate-x-5">
 
-   
+          {/* BRAND LABEL */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-amber-300/30 bg-amber-400/[0.07] px-4 py-2.5 shadow-[0_0_30px_rgba(251,191,36,0.06)] backdrop-blur-xl"
+          >
+            <span className="text-lg text-amber-300">✦</span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-100 sm:text-xs">
+              Aether AI Solutions
+            </span>
+          </motion.div>
 
-          {/* Technology line */}
+          {/* HEADLINE */}
+          <motion.h1
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1 }}
+            className="text-[54px] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[82px]"
+          >
+            <span className="inline-flex items-center gap-3">
+              Happy
+              <span className="inline-block h-12 w-16 sm:h-16 sm:w-20">
+                <FestiveDiya className="h-full w-full" />
+              </span>
+            </span>
+
+            <br />
+
+            <span className="bg-gradient-to-r from-amber-100 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+              Dhanteras.
+            </span>
+          </motion.h1>
+
+          {/* FESTIVE MESSAGE */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-7 max-w-[510px] text-sm leading-7 text-white/70 sm:text-base sm:leading-8"
+          >
+            May this Dhanteras bring prosperity, good health,
+            happiness and new opportunities for you, your
+            family and your business.
+          </motion.p>
+
+          {/* TECHNOLOGIES */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.35,
-            }}
-            className="
-              mt-5
-              flex
-              flex-wrap
-              items-center
-              gap-x-2
-              gap-y-1
-              text-sm
-              tracking-wide
-              text-white/70
-            "
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-7 flex flex-wrap items-center gap-x-2 gap-y-2 text-xs tracking-wide text-white/60 sm:text-sm"
           >
             {technologies.map((item, index) => (
-              <span
-                key={item}
-                className="flex items-center"
-              >
+              <span key={item} className="flex items-center">
                 {item}
-
                 {index < technologies.length - 1 && (
-                  <span className="mx-2 text-yellow-400">
-                    ·
-                  </span>
+                  <span className="mx-2 text-amber-400">·</span>
                 )}
               </span>
             ))}
           </motion.div>
 
-          {/* Divider */}
+          {/* GOLD DIVIDER */}
           <motion.div
-            initial={{
-              width: 0,
-              opacity: 0,
-            }}
-            animate={{
-              width: 210,
-              opacity: 1,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 0.45,
-            }}
-            className="
-              mt-6
-              h-px
-              bg-gradient-to-r
-              from-yellow-200
-              via-yellow-500
-              to-transparent
-            "
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 210, opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.5 }}
+            className="mt-7 h-px bg-gradient-to-r from-amber-200 via-yellow-500 to-transparent"
           />
 
-          
-
-          {/* =================================================
-              CTA BUTTONS
-              ================================================= */}
-
+          {/* CTA BUTTONS */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.7,
-              delay: 0.6,
-            }}
-            className="
-              mt-7
-              flex
-              flex-col
-              gap-3
-              sm:flex-row
-            "
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.65 }}
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
           >
-
             <Button href="/contact">
               Build with Aether AI →
             </Button>
 
             <Link
               href="/portfolio"
-              className="
-                rounded-full
-                border
-                border-white/25
-                bg-black/30
-                px-8
-                py-4
-                text-center
-                text-sm
-                font-medium
-                text-white
-                backdrop-blur-md
-                transition-all
-                duration-300
-                hover:border-yellow-400/50
-                hover:bg-yellow-400/10
-                hover:text-yellow-200
-              "
+              className="rounded-full border border-amber-200/30 bg-white/[0.035] px-8 py-4 text-center text-sm font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-amber-300/70 hover:bg-amber-400/10 hover:text-amber-100"
             >
               Explore AI Products →
             </Link>
-
           </motion.div>
-
         </div>
 
-      {/* =================================================
-    FLOATING AI Agent Command Centre
-    ================================================= */}
-
-<motion.div
-  initial={{
-    opacity: 0,
-    x: 70,
-    y: 20,
-    scale: 0.94,
-  }}
-  animate={{
-    opacity: 1,
-    x: 0,
-    y: [0, -8, 0],
-    scale: 1,
-  }}
-  transition={{
-    opacity: {
-      duration: 0.8,
-      delay: 0.4,
-    },
-    x: {
-      duration: 0.8,
-      delay: 0.4,
-      ease: "easeOut",
-    },
-    scale: {
-      duration: 0.8,
-      delay: 0.4,
-      ease: "easeOut",
-    },
-    y: {
-      duration: 4.5,
-      repeat: Infinity,
-      ease: "easeInOut",
-      delay: 1.2,
-    },
-  }}
-className="
-  pointer-events-none
-  absolute
-  right-[5%]
-  top-[48%]
-  z-30
-  hidden
-  w-[390px]
-  -translate-y-1/2
-  xl:block
-  2xl:right-[6%]
-  2xl:w-[410px]
-"
->
-  {/* Floating ambient glow */}
-  <div
-    className="
-      absolute
-      -inset-12
-      rounded-[50px]
-      bg-yellow-400/[0.045]
-      blur-[70px]
-    "
-  />
-
-  {/* Secondary blue glow */}
-  <div
-    className="
-      absolute
-      -right-10
-      top-10
-      h-40
-      w-40
-      rounded-full
-      bg-blue-500/[0.04]
-      blur-[60px]
-    "
-  />
-
-  {/* =================================================
-      MAIN GLASS CARD
-      ================================================= */}
-
-  <div
-    className="
-      relative
-      overflow-hidden
-      rounded-[26px]
-      border
-      border-white/[0.16]
-      bg-[#080706]/60
-      shadow-[0_35px_100px_rgba(0,0,0,0.65)]
-      backdrop-blur-2xl
-    "
-  >
-
-    {/* Premium top edge */}
-    <div
-      className="
-        absolute
-        left-[12%]
-        right-[12%]
-        top-0
-        h-px
-        bg-gradient-to-r
-        from-transparent
-        via-yellow-300/80
-        to-transparent
-      "
-    />
-
-    {/* =================================================
-        HEADER
-        ================================================= */}
-
-    <div className="px-6 pt-5">
-
-      <div className="flex items-center justify-between">
-
-        <div className="flex items-center gap-2.5">
-
-          <span
-            className="
-              h-2
-              w-2
-              rounded-full
-              bg-emerald-400
-              shadow-[0_0_14px_rgba(52,211,153,.9)]
-            "
-          />
-
-          <span
-            className="
-              text-[9px]
-              font-semibold
-              uppercase
-              tracking-[0.28em]
-              text-yellow-300
-            "
-          >
-            Aether Engineering
-          </span>
-
-        </div>
-
-        <span
-          className="
-            rounded-full
-            border
-            border-emerald-400/30
-            bg-emerald-400/10
-            px-3
-            py-1.5
-            text-[8px]
-            font-semibold
-            text-emerald-300
-          "
+        {/* AI AGENT COMMAND CENTRE */}
+        <motion.div
+          initial={{ opacity: 0, x: 70, y: 20, scale: 0.94 }}
+          animate={{ opacity: 1, x: 0, y: [0, -8, 0], scale: 1 }}
+          transition={{
+            opacity: { duration: 0.8, delay: 0.4 },
+            x: { duration: 0.8, delay: 0.4, ease: "easeOut" },
+            scale: { duration: 0.8, delay: 0.4, ease: "easeOut" },
+            y: {
+              duration: 4.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1.2,
+            },
+          }}
+          className="pointer-events-none absolute right-[5%] top-[48%] z-30 hidden w-[390px] -translate-y-1/2 xl:block 2xl:right-[6%] 2xl:w-[410px]"
         >
-          ● Live
-        </span>
+          <div className="absolute -inset-12 rounded-[50px] bg-amber-400/[0.06] blur-[75px]" />
+          <div className="absolute -right-10 top-10 h-40 w-40 rounded-full bg-blue-500/[0.05] blur-[60px]" />
 
-      </div>
+          {/* GLASS CARD */}
+          <div className="relative overflow-hidden rounded-[26px] border border-amber-200/[0.18] bg-[#080b12]/75 shadow-[0_35px_100px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
 
-      <div className="mt-3 flex items-end justify-between">
+            <div className="absolute left-[12%] right-[12%] top-0 h-px bg-gradient-to-r from-transparent via-amber-300/80 to-transparent" />
 
-        <div>
-
-          <h3
-            className="
-              text-[25px]
-              font-bold
-              leading-none
-              tracking-[-0.04em]
-              text-white
-            "
-          >
-            AI Agent Command Centre
-          </h3>
-
-          <p className="mt-1.5 text-[10px] text-white/45">
-            Think → Act → Automate
-          </p>
-
-        </div>
-
-        <span
-          className="
-            mb-0.5
-            text-[8px]
-            font-semibold
-            uppercase
-            tracking-[0.18em]
-            text-white/30
-          "
-        >
-          05 AGENTS
-        </span>
-
-      </div>
-
-    </div>
-
-    {/* Divider */}
-    <div className="mx-6 mt-5 h-px bg-white/10" />
-
-    {/* =================================================
-        PIPELINE
-        ================================================= */}
-
-    <div className="mt-5 space-y-2.5 px-6">
-
-      {pipeline.map((item) => (
-        <ProgressRow
-          key={item.number}
-          number={item.number}
-          title={item.title}
-          progress={item.progress}
-          status={item.status}
-          type={item.type}
-        />
-      ))}
-
-    </div>
-
-    {/* =================================================
-        SYSTEM ARCHITECTURE
-        ================================================= */}
-
-    <div className="mx-6 mt-5">
-
-      <div
-        className="
-          rounded-[17px]
-          border
-          border-white/10
-          bg-white/[0.025]
-          p-4
-        "
-      >
-
-        <div className="mb-3 flex items-center justify-between">
-
-          <span
-            className="
-              text-[9px]
-              font-semibold
-              uppercase
-              tracking-[0.18em]
-              text-white/65
-            "
-          >
-            Agent Architecture
-          </span>
-
-          <span
-            className="
-              text-[8px]
-              font-semibold
-              uppercase
-              tracking-[0.15em]
-              text-blue-300/80
-            "
-          >
-            AI AGENT STACK
-          </span>
-
-        </div>
-
-        <div className="flex items-center justify-between">
-
-          {["AI AGENT", "TOOLS", "DATA", "ACTION"].map(
-            (item, index) => (
-              <div
-                key={item}
-                className="flex items-center"
-              >
-
-                <span
-                  className="
-                    rounded-lg
-                    border
-                    border-yellow-400/20
-                    bg-yellow-400/[0.07]
-                    px-3
-                    py-2
-                    text-[8px]
-                    font-bold
-                    text-yellow-300
-                  "
-                >
-                  {item}
-                </span>
-
-                {index < 3 && (
-                  <span
-                    className="
-                      mx-1.5
-                      text-[9px]
-                      text-blue-300/70
-                    "
-                  >
-                    →
+            {/* HEADER */}
+            <div className="px-6 pt-5">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,.9)]" />
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.28em] text-amber-300">
+                    Aether Engineering
                   </span>
-                )}
+                </div>
 
+                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1.5 text-[8px] font-semibold text-emerald-300">
+                  ● Live
+                </span>
               </div>
-            )
-          )}
 
+              <div className="mt-3 flex items-end justify-between">
+                <div>
+                  <h3 className="text-[25px] font-bold leading-none tracking-[-0.04em] text-white">
+                    AI Agent Command Centre
+                  </h3>
+                  <p className="mt-1.5 text-[10px] text-white/45">
+                    Think → Act → Automate
+                  </p>
+                </div>
+
+                <span className="mb-0.5 text-[8px] font-semibold uppercase tracking-[0.18em] text-white/30">
+                  05 AGENTS
+                </span>
+              </div>
+            </div>
+
+            <div className="mx-6 mt-5 h-px bg-white/10" />
+
+            {/* PIPELINE */}
+            <div className="mt-5 space-y-2.5 px-6">
+              {pipeline.map((item) => (
+                <ProgressRow key={item.number} {...item} />
+              ))}
+            </div>
+
+            {/* AGENT ARCHITECTURE */}
+            <div className="mx-6 mt-5">
+              <div className="rounded-[17px] border border-white/10 bg-white/[0.025] p-4">
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/65">
+                    Agent Architecture
+                  </span>
+                  <span className="text-[8px] font-semibold uppercase tracking-[0.15em] text-blue-300/80">
+                    AI AGENT STACK
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  {["AI AGENT", "TOOLS", "DATA", "ACTION"].map(
+                    (item, index) => (
+                      <div key={item} className="flex items-center">
+                        <span className="rounded-lg border border-amber-400/20 bg-amber-400/[0.07] px-3 py-2 text-[8px] font-bold text-amber-300">
+                          {item}
+                        </span>
+                        {index < 3 && (
+                          <span className="mx-1.5 text-[9px] text-blue-300/70">
+                            →
+                          </span>
+                        )}
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* FOOTER */}
+            <div className="mt-4 flex items-center justify-between border-t border-white/[0.07] px-6 py-4">
+              <span className="text-[8px] text-white/30">
+                AI agent execution pipeline
+              </span>
+
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-300 shadow-[0_0_8px_rgba(250,204,21,.8)]" />
+                <span className="text-[8px] font-semibold text-amber-300">
+                  OPERATIONAL
+                </span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* BOTTOM FEATURE STRIP */}
+      <div className="absolute bottom-0 left-0 right-0 z-40 border-t border-amber-200/15 bg-[#050914]/80 backdrop-blur-xl">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">
+          <Feature icon="✦" title="AI Agents" />
+          <Feature icon="⌘" title="AI Software" />
+          <Feature icon="◈" title="Automation" />
+          <Feature icon="↗" title="Data Intelligence" />
         </div>
-
       </div>
-
-    </div>
-
-    {/* =================================================
-        FOOTER
-        ================================================= */}
-
-    <div
-      className="
-        mt-4
-        flex
-        items-center
-        justify-between
-        border-t
-        border-white/[0.07]
-        px-6
-        py-4
-      "
-    >
-
-      <span className="text-[8px] text-white/30">
-        AI agent execution pipeline
-      </span>
-
-      <div className="flex items-center gap-2">
-
-        <span
-          className="
-            h-1.5
-            w-1.5
-            rounded-full
-            bg-yellow-300
-            shadow-[0_0_8px_rgba(250,204,21,.8)]
-          "
-        />
-
-        <span
-          className="
-            text-[8px]
-            font-semibold
-            text-yellow-300
-          "
-        >
-          OPERATIONAL
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</motion.div>
-
-      </div>
-
-      {/* =====================================================
-          BOTTOM FEATURE STRIP
-          ===================================================== */}
-
-      <div
-        className="
-          absolute
-          bottom-0
-          left-0
-          right-0
-          z-40
-          border-t
-          border-white/10
-          bg-black/60
-          backdrop-blur-xl
-        "
-      >
-
-        <div
-          className="
-            mx-auto
-            grid
-            max-w-7xl
-            grid-cols-2
-            md:grid-cols-4
-          "
-        >
-
-          <Feature
-            icon="✦"
-            title="AI Agents"
-          />
-
-          <Feature
-            icon="⌘"
-            title="AI Software"
-          />
-
-          <Feature
-            icon="◈"
-            title="Automation"
-          />
-
-          <Feature
-            icon="↗"
-            title="Data Intelligence"
-          />
-
-        </div>
-
-      </div>
-
     </section>
   );
 }
 
 /* =========================================================
    PROGRESS ROW
-   ========================================================= */
+========================================================= */
 
 function ProgressRow({
   number,
@@ -703,118 +327,47 @@ function ProgressRow({
   progress,
   status,
   type,
-}: {
-  number: string;
-  title: string;
-  progress: string;
-  status: string;
-  type: ProgressType;
-}) {
+}: PipelineItem) {
   const statusClass: Record<ProgressType, string> = {
     complete: "text-emerald-300",
-    running: "text-yellow-300",
+    running: "text-amber-300",
     connected: "text-blue-300",
     ready: "text-blue-200",
   };
 
   const barClass: Record<ProgressType, string> = {
     complete: "bg-emerald-300",
-    running: "bg-yellow-300",
-    connected: "bg-yellow-300",
-    ready: "bg-yellow-300",
+    running: "bg-amber-300",
+    connected: "bg-amber-300",
+    ready: "bg-amber-300",
   };
 
   return (
-    <div
-      className="
-        rounded-[15px]
-        border
-        border-white/[0.09]
-        bg-white/[0.025]
-        px-3.5
-        py-3
-      "
-    >
+    <div className="rounded-[15px] border border-white/[0.09] bg-white/[0.025] px-3.5 py-3">
       <div className="flex items-center gap-3">
-
-        {/* Number */}
-        <div
-          className="
-            flex
-            h-9
-            w-9
-            shrink-0
-            items-center
-            justify-center
-            rounded-xl
-            border
-            border-white/10
-            bg-black/25
-            text-[8px]
-            font-bold
-            text-blue-200
-          "
-        >
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/25 text-[8px] font-bold text-blue-200">
           {number}
         </div>
 
-        {/* Content */}
         <div className="min-w-0 flex-1">
-
           <div className="flex items-center justify-between gap-3">
-
-            <span
-              className="
-                truncate
-                text-[10px]
-                font-semibold
-                text-white/90
-              "
-            >
+            <span className="truncate text-[10px] font-semibold text-white/90">
               {title}
             </span>
-
-            <span
-              className={`
-                shrink-0
-                text-[8px]
-                font-semibold
-                ${statusClass[type]}
-              `}
-            >
+            <span className={`shrink-0 text-[8px] font-semibold ${statusClass[type]}`}>
               {status}
             </span>
-
           </div>
 
-          {/* Progress */}
-          <div
-            className="
-              mt-2
-              h-[4px]
-              overflow-hidden
-              rounded-full
-              bg-white/10
-            "
-          >
+          <div className="mt-2 h-[4px] overflow-hidden rounded-full bg-white/10">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: progress }}
-              transition={{
-                duration: 1.2,
-                delay: 0.7,
-                ease: "easeOut",
-              }}
-              className={`
-                h-full
-                rounded-full
-                ${barClass[type]}
-              `}
+              transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
+              className={`h-full rounded-full ${barClass[type]}`}
             />
           </div>
-
         </div>
-
       </div>
     </div>
   );
@@ -822,7 +375,7 @@ function ProgressRow({
 
 /* =========================================================
    FEATURE ITEM
-   ========================================================= */
+========================================================= */
 
 function Feature({
   icon,
@@ -832,36 +385,455 @@ function Feature({
   title: string;
 }) {
   return (
-    <div
-      className="
-        flex
-        items-center
-        gap-3
-        border-r
-        border-white/10
-        px-4
-        py-4
-        last:border-r-0
-        sm:px-6
-        md:px-8
-      "
-    >
-
-      <span className="text-xl text-yellow-400">
-        {icon}
-      </span>
-
-      <span
-        className="
-          text-xs
-          font-medium
-          text-white/80
-          sm:text-sm
-        "
-      >
+    <div className="flex items-center gap-3 border-r border-white/10 px-4 py-4 last:border-r-0 sm:px-6 md:px-8">
+      <span className="text-xl text-amber-400">{icon}</span>
+      <span className="text-xs font-medium text-white/80 sm:text-sm">
         {title}
       </span>
+    </div>
+  );
+}
 
+/* =========================================================
+   BRASS DIYA
+========================================================= */
+
+function FestiveDiya({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 180 125"
+      className={className}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="diyaBrass" x1="20" y1="70" x2="150" y2="110">
+          <stop stopColor="#FFF0B5" />
+          <stop offset=".25" stopColor="#D99A36" />
+          <stop offset=".55" stopColor="#75400F" />
+          <stop offset=".8" stopColor="#E9B95F" />
+          <stop offset="1" stopColor="#6A390D" />
+        </linearGradient>
+        <radialGradient id="diyaGlow">
+          <stop stopColor="#FFC45D" stopOpacity=".5" />
+          <stop offset="1" stopColor="#FFC45D" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      <ellipse cx="90" cy="82" rx="75" ry="43" fill="url(#diyaGlow)" />
+
+      <motion.path
+        d="M90 8 C112 34 107 53 90 65 C73 53 68 34 90 8Z"
+        fill="#FF9B32"
+        style={{ transformOrigin: "90px 65px" }}
+        animate={{ scaleY: [1, 1.12, .94, 1], rotate: [0, 2, -2, 0] }}
+        transition={{ duration: 1.3, repeat: Infinity }}
+      />
+
+      <motion.path
+        d="M90 29 C101 45 97 55 90 60 C83 55 79 45 90 29Z"
+        fill="#FFF4C6"
+        animate={{ opacity: [.8, 1, .85, 1] }}
+        transition={{ duration: .9, repeat: Infinity }}
+      />
+
+      <path
+        d="M22 76 Q90 112 158 76 L142 101 Q90 125 38 101Z"
+        fill="url(#diyaBrass)"
+        stroke="#F5D58B"
+        strokeWidth="2.5"
+      />
+
+      <path d="M22 76 Q90 98 158 76" stroke="#FFF0B5" strokeWidth="3" />
+      <path d="M42 94 Q90 112 138 94" stroke="#EBC477" strokeWidth="2" />
+      <ellipse cx="90" cy="105" rx="38" ry="5" fill="#59330E" opacity=".7" />
+    </svg>
+  );
+}
+
+/* =========================================================
+   DHANTERAS KALASH
+========================================================= */
+
+
+
+
+function DhanterasKalash() {
+  return (
+    <svg
+      viewBox="0 0 300 320"
+      className="h-full w-full"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="traditionalKalashGold" x1="45" y1="100" x2="250" y2="220">
+          <stop stopColor="#70400B" />
+          <stop offset=".18" stopColor="#E5B34B" />
+          <stop offset=".32" stopColor="#FFE28A" />
+          <stop offset=".5" stopColor="#A96B13" />
+          <stop offset=".68" stopColor="#F5CE65" />
+          <stop offset=".84" stopColor="#87500D" />
+          <stop offset="1" stopColor="#E5B34B" />
+        </linearGradient>
+
+        <linearGradient id="kalashRimGold" x1="0" y1="0" x2="0" y2="1">
+          <stop stopColor="#FFF0A6" />
+          <stop offset=".3" stopColor="#D69B32" />
+          <stop offset=".65" stopColor="#81500E" />
+          <stop offset="1" stopColor="#F5D276" />
+        </linearGradient>
+
+        <linearGradient id="kalashLeaf" x1="0" y1="0" x2="1" y2="1">
+          <stop stopColor="#A6B95A" />
+          <stop offset=".5" stopColor="#52732D" />
+          <stop offset="1" stopColor="#29451B" />
+        </linearGradient>
+      </defs>
+
+      {/* MANGO LEAVES */}
+      <path d="M149 104 C83 24 34 35 69 82 Q105 105 149 104Z"
+        fill="url(#kalashLeaf)" stroke="#B5A65B" strokeWidth="2" />
+      <path d="M151 104 C217 24 266 35 231 82 Q195 105 151 104Z"
+        fill="url(#kalashLeaf)" stroke="#B5A65B" strokeWidth="2" />
+      <path d="M150 103 C111 27 139 3 150 8 C174 34 169 73 150 103Z"
+        fill="#718D3C" stroke="#C8B66B" strokeWidth="2" />
+      <path d="M150 103 C151 37 181 20 193 42 C190 75 170 93 150 103Z"
+        fill="#46672B" stroke="#B8A75D" strokeWidth="2" />
+      <path d="M150 103 C149 37 119 20 107 42 C110 75 130 93 150 103Z"
+        fill="#587936" stroke="#B8A75D" strokeWidth="2" />
+
+      <path d="M150 100 L150 17 M150 103 L69 68 M150 103 L231 68"
+        stroke="#D8C77B" strokeWidth="1.5" opacity=".8" />
+
+      {/* COCONUT */}
+      <path d="M116 80 Q115 43 150 29 Q185 43 184 80
+        Q179 103 150 109 Q121 103 116 80Z"
+        fill="#89501F" stroke="#D9B16C" strokeWidth="3" />
+      <path d="M126 68 Q150 45 174 68"
+        stroke="#DDBB82" strokeWidth="2" />
+      <path d="M128 88 Q150 101 172 88"
+        stroke="#533016" strokeWidth="2" />
+
+      {/* NARROW NECK */}
+      <path d="M112 109 Q150 119 188 109
+        L183 143 Q150 151 117 143Z"
+        fill="url(#traditionalKalashGold)"
+        stroke="#F0CD70"
+        strokeWidth="2.5"
+      />
+
+      {/* FLARED OPENING */}
+      <path d="M96 111 Q150 126 204 111
+        L214 127 Q150 147 86 127Z"
+        fill="url(#kalashRimGold)"
+        stroke="#FFE18B"
+        strokeWidth="3"
+      />
+      <ellipse cx="150" cy="111" rx="55" ry="11"
+        fill="#58330B" stroke="#F8D77B" strokeWidth="3" />
+      <ellipse cx="150" cy="111" rx="43" ry="6"
+        fill="#B77B20" />
+
+      {/* TRADITIONAL ROUNDED BELLY */}
+      <path
+        d="M117 139
+           C87 145 62 176 64 210
+           C65 247 101 273 150 277
+           C199 273 235 247 236 210
+           C238 176 213 145 183 139
+           Q150 151 117 139Z"
+        fill="url(#traditionalKalashGold)"
+        stroke="#F5D477"
+        strokeWidth="3"
+      />
+
+      {/* METALLIC SIDE REFLECTIONS */}
+      <path d="M91 166 C76 198 89 234 119 251"
+        stroke="#FFF0A4" strokeWidth="6"
+        strokeLinecap="round" opacity=".65" />
+      <path d="M209 166 C224 198 211 234 181 251"
+        stroke="#593308" strokeWidth="7"
+        strokeLinecap="round" opacity=".55" />
+
+      {/* ENGRAVED NECK BAND */}
+      <path d="M109 148 Q150 161 191 148"
+        stroke="#FFE89B" strokeWidth="3" />
+      <path d="M109 153 Q150 166 191 153"
+        stroke="#74440B" strokeWidth="2" />
+
+      {/* CENTRAL TRADITIONAL ORNAMENT */}
+      <circle cx="150" cy="207" r="34"
+        fill="#95600F" stroke="#FFE18A" strokeWidth="3" />
+      <circle cx="150" cy="207" r="27"
+        stroke="#E9C46D" strokeWidth="1.5" />
+      <circle cx="150" cy="207" r="20"
+        stroke="#F8D77A" strokeWidth="1.5" />
+
+      <path d="M150 182 L157 199 L175 207
+        L157 215 L150 232 L143 215
+        L125 207 L143 199Z"
+        fill="#F4D276" />
+      <circle cx="150" cy="207" r="6" fill="#71420C" />
+
+      {/* LOWER ENGRAVED BAND */}
+      <path d="M74 235 Q150 266 226 235"
+        stroke="#75420B" strokeWidth="5" />
+      <path d="M75 232 Q150 263 225 232"
+        stroke="#FFE28A" strokeWidth="2.5" />
+
+      {/* BASE FOOT */}
+      <path d="M112 269 Q150 283 188 269
+        L198 287 Q150 302 102 287Z"
+        fill="url(#kalashRimGold)"
+        stroke="#EAC66C"
+        strokeWidth="3"
+      />
+      <ellipse cx="150" cy="287" rx="48" ry="9"
+        fill="#70400C" stroke="#E8BB57" strokeWidth="2" />
+    </svg>
+  );
+}
+
+
+
+
+/* =========================================================
+   MARIGOLD FLOWERS
+========================================================= */
+
+function MarigoldFlowers() {
+  return (
+    <div className="flex items-center gap-1.5">
+      {[0, 1, 2].map((flower) => (
+        <motion.div
+          key={flower}
+          animate={{ y: [0, -3, 0] }}
+          transition={{ duration: 2 + flower * 0.3, repeat: Infinity }}
+          className="relative h-8 w-8"
+        >
+          {Array.from({ length: 8 }).map((_, index) => (
+            <span
+              key={index}
+              className="absolute left-3 top-0 h-4 w-2 origin-bottom rounded-full bg-gradient-to-b from-yellow-300 to-orange-700"
+              style={{ transform: `rotate(${index * 45}deg)` }}
+            />
+          ))}
+
+          <span className="absolute left-[11px] top-[11px] h-2.5 w-2.5 rounded-full border border-yellow-200 bg-orange-700" />
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+/* =========================================================
+   DHANTERAS DECORATIVE SCENE
+========================================================= */
+
+function DhanterasScene() {
+  return (
+    <div className="pointer-events-none absolute bottom-36 left-[5%] z-[15] hidden items-end gap-2 sm:flex sm:left-[10%] xl:left-[29%] xl:bottom-32">
+
+      {/* LEFT DIYA */}
+      <motion.div
+        animate={{ y: [0, -3, 0] }}
+        transition={{ duration: 3, repeat: Infinity }}
+        className="h-16 w-20 sm:h-24 sm:w-28"
+      >
+        <FestiveDiya className="h-full w-full" />
+      </motion.div>
+
+      {/* KALASH */}
+      <motion.div
+        animate={{ y: [0, -3, 0] }}
+        transition={{ duration: 4, repeat: Infinity }}
+        className="relative h-48 w-44 drop-shadow-[0_12px_22px_rgba(0,0,0,0.4)] sm:h-64 sm:w-56"
+      >
+        <DhanterasKalash />
+      </motion.div>
+
+      {/* RIGHT DIYA */}
+      <motion.div
+        animate={{ y: [0, -3, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity }}
+        className="h-16 w-20 sm:h-24 sm:w-28"
+      >
+        <FestiveDiya className="h-full w-full" />
+      </motion.div>
+
+      {/* FLOWERS */}
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
+        <MarigoldFlowers />
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   FIREWORK BURST
+========================================================= */
+
+function FirecrackerBurst({
+  left,
+  top,
+  size = 150,
+  delay = 0,
+  color = "#F5BD54",
+}: {
+  left: string;
+  top: string;
+  size?: number;
+  delay?: number;
+  color?: string;
+}) {
+  const sparks = Array.from({ length: 32 }, (_, index) => {
+    const angle = (index * 360) / 32;
+    const radians = (angle * Math.PI) / 180;
+    const distance = size * (0.32 + (index % 3) * 0.08);
+
+    return {
+      id: index,
+      angle,
+      x: Math.cos(radians) * distance,
+      y: Math.sin(radians) * distance,
+    };
+  });
+
+  return (
+    <div
+      className="pointer-events-none absolute"
+      style={{ left, top, width: 0, height: 0 }}
+    >
+      {/* ROCKET LAUNCH */}
+      <motion.div
+        className="absolute"
+        style={{ left: -2, top: 155 }}
+        animate={{
+          y: [0, -155, -155, -155],
+          opacity: [0, 1, 0, 0],
+        }}
+        transition={{
+          duration: 6,
+          delay,
+          repeat: Infinity,
+          times: [0, 0.27, 0.34, 1],
+          ease: "easeOut",
+        }}
+      >
+        <span
+          className="block h-3 w-1.5 rounded-full"
+          style={{
+            background: "#FFF8D8",
+            boxShadow: `0 0 10px 4px ${color}`,
+          }}
+        />
+
+        <span className="absolute left-0 top-2 h-20 w-1 bg-gradient-to-b from-amber-200 to-transparent" />
+      </motion.div>
+
+      {/* EXPLOSION FLASH */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          left: -5,
+          top: -5,
+          width: 10,
+          height: 10,
+          background: "#FFF7D8",
+          boxShadow: `0 0 25px 12px ${color}`,
+        }}
+        animate={{
+          scale: [0, 0, 3, 0],
+          opacity: [0, 0, 0.9, 0],
+        }}
+        transition={{
+          duration: 6,
+          delay,
+          repeat: Infinity,
+          times: [0, 0.27, 0.31, 0.43],
+        }}
+      />
+
+      {/* RADIAL SPARKS */}
+      {sparks.map((spark) => (
+        <motion.span
+          key={spark.id}
+          className="absolute block rounded-full"
+          style={{
+            left: 0,
+            top: 0,
+            width: spark.id % 4 === 0 ? 3 : 2,
+            height: spark.id % 4 === 0 ? 12 : 8,
+            transform: `translate(-50%, -50%) rotate(${spark.angle}deg)`,
+            transformOrigin: "center center",
+            background: `linear-gradient(to bottom, #FFFBEA, ${color}, transparent)`,
+            boxShadow: `0 0 5px ${color}`,
+          }}
+          animate={{
+            x: [0, 0, spark.x, spark.x * 1.15],
+            y: [0, 0, spark.y, spark.y + 28],
+            opacity: [0, 0, 1, 0],
+            scale: [0.2, 0.2, 1, 0.2],
+          }}
+          transition={{
+            duration: 6,
+            delay,
+            repeat: Infinity,
+            times: [0, 0.27, 0.48, 0.72],
+            ease: "easeOut",
+          }}
+        />
+      ))}
+
+      {/* FALLING EMBERS */}
+      {sparks.slice(0, 10).map((spark) => (
+        <motion.span
+          key={`ember-${spark.id}`}
+          className="absolute h-1 w-1 rounded-full"
+          style={{
+            left: 0,
+            top: 0,
+            background: "#FFF1B5",
+            boxShadow: `0 0 7px ${color}`,
+          }}
+          animate={{
+            x: [spark.x, spark.x * 1.15],
+            y: [spark.y, spark.y + 65],
+            opacity: [0, 1, 0],
+          }}
+          transition={{
+            duration: 2,
+            delay: delay + 2.5,
+            repeat: Infinity,
+            repeatDelay: 4,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* =========================================================
+   FIREWORKS BACKGROUND
+========================================================= */
+
+function FireworksBackground() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-[11] overflow-hidden">
+
+      {/* GOLDEN ATMOSPHERE */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(245,190,90,0.07),transparent_65%)]" />
+
+      {/* UPPER FIREWORKS */}
+      <FirecrackerBurst left="12%" top="20%" size={165} delay={0} color="#EAB85C" />
+      <FirecrackerBurst left="38%" top="12%" size={125} delay={1.5} color="#FFF0C0" />
+      <FirecrackerBurst left="66%" top="17%" size={175} delay={3} color="#F3BD62" />
+      <FirecrackerBurst left="89%" top="29%" size={145} delay={0.8} color="#FFE0A0" />
+
+      {/* LOWER FIREWORKS */}
+      <FirecrackerBurst left="27%" top="65%" size={115} delay={3.8} color="#EAB85C" />
+      <FirecrackerBurst left="77%" top="63%" size={145} delay={2.2} color="#FFF0C0" />
     </div>
   );
 }
