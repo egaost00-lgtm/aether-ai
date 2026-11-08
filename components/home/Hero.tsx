@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -73,26 +72,35 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#050914] text-white">
 
-      {/* BACKGROUND */}
+      {/* ORIGINAL AI BACKGROUND */}
       <AgenticBackground />
+      
+
+      {/* DIWALI DEITY BACKGROUND */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[5] bg-cover bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/diwali-ram-darbar.webp')",
+          backgroundPosition: "center right",
+        }}
+      />
+
+      {/* FESTIVE FIREWORKS */}
       <FireworksBackground />
 
-      {/* FESTIVE DECORATIONS */}
-      <DhanterasScene />
+      {/* DIWALI ATMOSPHERE */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#050914]/95 via-[#080d18]/65 to-[#080d18]/15" />
 
-      {/* NAVY ATMOSPHERE */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#050914]/95 via-[#080d18]/80 to-[#080d18]/55" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#050914]/25 via-transparent to-[#050914]/95" />
 
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#050914]/20 via-transparent to-[#050914]/90" />
+      {/* GOLDEN LIGHTING */}
+      <div className="pointer-events-none absolute -right-40 top-10 z-10 h-[600px] w-[600px] rounded-full bg-amber-400/[0.09] blur-[150px]" />
 
-      {/* AMBIENT GOLD LIGHTING */}
-      <div className="pointer-events-none absolute -right-40 top-10 z-10 h-[600px] w-[600px] rounded-full bg-amber-400/[0.07] blur-[150px]" />
+      <div className="pointer-events-none absolute -left-40 bottom-10 z-10 h-[400px] w-[500px] rounded-full bg-yellow-500/[0.05] blur-[130px]" />
 
-      <div className="pointer-events-none absolute -left-40 bottom-10 z-10 h-[400px] w-[500px] rounded-full bg-yellow-500/[0.04] blur-[130px]" />
+      <div className="pointer-events-none absolute right-[12%] top-[20%] z-10 h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_30px_10px_rgba(251,191,36,0.2)]" />
 
-      <div className="pointer-events-none absolute right-[12%] top-[20%] z-10 h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_30px_10px_rgba(251,191,36,0.15)]" />
-
-      <div className="pointer-events-none absolute left-[42%] top-[35%] z-10 h-1.5 w-1.5 rounded-full bg-yellow-200 shadow-[0_0_25px_8px_rgba(250,204,21,0.12)]" />
+      <div className="pointer-events-none absolute left-[42%] top-[35%] z-10 h-1.5 w-1.5 rounded-full bg-yellow-200 shadow-[0_0_25px_8px_rgba(250,204,21,0.15)]" />
 
       {/* MAIN CONTENT */}
       <div className="relative z-20 mx-auto min-h-[calc(100vh-84px)] max-w-[1400px] px-4 pb-32 pt-36 sm:px-6 sm:pt-44 lg:px-8 lg:pt-48">
@@ -113,37 +121,30 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* HEADLINE */}
-          <motion.h1
-            initial={{ opacity: 0, y: 35 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1 }}
-            className="text-[54px] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[82px]"
-          >
-            <span className="inline-flex items-center gap-3">
-              Happy
-              <span className="inline-block h-12 w-16 sm:h-16 sm:w-20">
-                <FestiveDiya className="h-full w-full" />
-              </span>
-            </span>
+          {/* HAPPY DIWALI HEADLINE */}
+      <motion.h1
+  initial={{ opacity: 0, y: 35 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.9, delay: 0.1 }}
+  className="text-[54px] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[82px]"
+>
+  <span>Happy</span>
+  <br />
+  <span className="bg-gradient-to-r from-amber-100 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+    Diwali!
+  </span>
+</motion.h1>
 
-            <br />
-
-            <span className="bg-gradient-to-r from-amber-100 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
-              Dhanteras.
-            </span>
-          </motion.h1>
-
-          {/* FESTIVE MESSAGE */}
+          {/* DIWALI MESSAGE */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-7 max-w-[510px] text-sm leading-7 text-white/70 sm:text-base sm:leading-8"
+            className="mt-7 max-w-[510px] text-sm leading-7 text-white/80 sm:text-base sm:leading-8"
           >
-            May this Dhanteras bring prosperity, good health,
-            happiness and new opportunities for you, your
-            family and your business.
+            May the divine blessings of Lord Rama, Goddess Sita,
+            Lakshmana and Lord Hanuman bring light, prosperity,
+            happiness and success to your life and business.
           </motion.p>
 
           {/* TECHNOLOGIES */}
@@ -151,7 +152,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-7 flex flex-wrap items-center gap-x-2 gap-y-2 text-xs tracking-wide text-white/60 sm:text-sm"
+            className="mt-7 flex flex-wrap items-center gap-x-2 gap-y-2 text-xs tracking-wide text-white/70 sm:text-sm"
           >
             {technologies.map((item, index) => (
               <span key={item} className="flex items-center">
@@ -190,7 +191,29 @@ export default function Hero() {
             </Link>
           </motion.div>
         </div>
+{/* CENTRE HERO DIYA */}
+<motion.div
+  initial={{ opacity: 0, scale: 0.7 }}
+  animate={{
+    opacity: 1,
+    scale: 1,
+    y: [0, -8, 0],
+  }}
+  transition={{
+    opacity: { duration: 1 },
+    scale: { duration: 1 },
+    y: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  }}
+  className="pointer-events-none absolute left-1/2 top-[48%] z-[25] hidden h-44 w-56 -translate-x-1/2 -translate-y-1/2 xl:block"
+>
+  <div className="absolute inset-0 rounded-full bg-amber-400/20 blur-[65px]" />
 
+  <FestiveDiya className="relative h-full w-full drop-shadow-[0_0_35px_rgba(255,190,70,0.7)]" />
+</motion.div>
         {/* AI AGENT COMMAND CENTRE */}
         <motion.div
           initial={{ opacity: 0, x: 70, y: 20, scale: 0.94 }}
@@ -209,9 +232,9 @@ export default function Hero() {
           className="pointer-events-none absolute right-[5%] top-[55%] z-30 hidden w-[390px] -translate-y-1/2 xl:block 2xl:right-[6%] 2xl:w-[410px]"
         >
           <div className="absolute -inset-12 rounded-[50px] bg-amber-400/[0.06] blur-[75px]" />
+
           <div className="absolute -right-10 top-10 h-40 w-40 rounded-full bg-blue-500/[0.05] blur-[60px]" />
 
-          {/* GLASS CARD */}
           <div className="relative overflow-hidden rounded-[26px] border border-amber-200/[0.18] bg-[#080b12]/75 shadow-[0_35px_100px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
 
             <div className="absolute left-[12%] right-[12%] top-0 h-px bg-gradient-to-r from-transparent via-amber-300/80 to-transparent" />
@@ -221,6 +244,7 @@ export default function Hero() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,.9)]" />
+
                   <span className="text-[9px] font-semibold uppercase tracking-[0.28em] text-amber-300">
                     Aether Engineering
                   </span>
@@ -236,6 +260,7 @@ export default function Hero() {
                   <h3 className="text-[25px] font-bold leading-none tracking-[-0.04em] text-white">
                     AI Agent Command Centre
                   </h3>
+
                   <p className="mt-1.5 text-[10px] text-white/45">
                     Think → Act → Automate
                   </p>
@@ -263,6 +288,7 @@ export default function Hero() {
                   <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/65">
                     Agent Architecture
                   </span>
+
                   <span className="text-[8px] font-semibold uppercase tracking-[0.15em] text-blue-300/80">
                     AI AGENT STACK
                   </span>
@@ -275,6 +301,7 @@ export default function Hero() {
                         <span className="rounded-lg border border-amber-400/20 bg-amber-400/[0.07] px-3 py-2 text-[8px] font-bold text-amber-300">
                           {item}
                         </span>
+
                         {index < 3 && (
                           <span className="mx-1.5 text-[9px] text-blue-300/70">
                             →
@@ -295,6 +322,7 @@ export default function Hero() {
 
               <div className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-amber-300 shadow-[0_0_8px_rgba(250,204,21,.8)]" />
+
                 <span className="text-[8px] font-semibold text-amber-300">
                   OPERATIONAL
                 </span>
@@ -304,8 +332,11 @@ export default function Hero() {
         </motion.div>
       </div>
 
+      {/* DIWALI DIYAS */}
+      <DiwaliDiyas />
+
       {/* BOTTOM FEATURE STRIP */}
-      <div className="absolute bottom-0 left-0 right-0 z-40 border-t border-amber-200/15 bg-[#050914]/80 backdrop-blur-xl">
+      <div className="absolute bottom-0 left-0 right-0 z-40 border-t border-amber-200/15 bg-[#050914]/85 backdrop-blur-xl">
         <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">
           <Feature icon="✦" title="AI Agents" />
           <Feature icon="⌘" title="AI Software" />
@@ -354,6 +385,7 @@ function ProgressRow({
             <span className="truncate text-[10px] font-semibold text-white/90">
               {title}
             </span>
+
             <span className={`shrink-0 text-[8px] font-semibold ${statusClass[type]}`}>
               {status}
             </span>
@@ -387,6 +419,7 @@ function Feature({
   return (
     <div className="flex items-center gap-3 border-r border-white/10 px-4 py-4 last:border-r-0 sm:px-6 md:px-8">
       <span className="text-xl text-amber-400">{icon}</span>
+
       <span className="text-xs font-medium text-white/80 sm:text-sm">
         {title}
       </span>
@@ -395,7 +428,7 @@ function Feature({
 }
 
 /* =========================================================
-   BRASS DIYA
+   ANIMATED BRASS DIYA
 ========================================================= */
 
 function FestiveDiya({ className = "" }: { className?: string }) {
@@ -414,6 +447,7 @@ function FestiveDiya({ className = "" }: { className?: string }) {
           <stop offset=".8" stopColor="#E9B95F" />
           <stop offset="1" stopColor="#6A390D" />
         </linearGradient>
+
         <radialGradient id="diyaGlow">
           <stop stopColor="#FFC45D" stopOpacity=".5" />
           <stop offset="1" stopColor="#FFC45D" stopOpacity="0" />
@@ -426,15 +460,18 @@ function FestiveDiya({ className = "" }: { className?: string }) {
         d="M90 8 C112 34 107 53 90 65 C73 53 68 34 90 8Z"
         fill="#FF9B32"
         style={{ transformOrigin: "90px 65px" }}
-        animate={{ scaleY: [1, 1.12, .94, 1], rotate: [0, 2, -2, 0] }}
+        animate={{
+          scaleY: [1, 1.12, 0.94, 1],
+          rotate: [0, 2, -2, 0],
+        }}
         transition={{ duration: 1.3, repeat: Infinity }}
       />
 
       <motion.path
         d="M90 29 C101 45 97 55 90 60 C83 55 79 45 90 29Z"
         fill="#FFF4C6"
-        animate={{ opacity: [.8, 1, .85, 1] }}
-        transition={{ duration: .9, repeat: Infinity }}
+        animate={{ opacity: [0.8, 1, 0.85, 1] }}
+        transition={{ duration: 0.9, repeat: Infinity }}
       />
 
       <path
@@ -445,227 +482,38 @@ function FestiveDiya({ className = "" }: { className?: string }) {
       />
 
       <path d="M22 76 Q90 98 158 76" stroke="#FFF0B5" strokeWidth="3" />
+
       <path d="M42 94 Q90 112 138 94" stroke="#EBC477" strokeWidth="2" />
+
       <ellipse cx="90" cy="105" rx="38" ry="5" fill="#59330E" opacity=".7" />
     </svg>
   );
 }
 
 /* =========================================================
-   DHANTERAS KALASH
+   DIWALI DIYA DECORATION
 ========================================================= */
 
-
-
-
-function DhanterasKalash() {
+function DiwaliDiyas() {
   return (
-    <svg
-      viewBox="0 0 300 320"
-      className="h-full w-full"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <linearGradient id="traditionalKalashGold" x1="45" y1="100" x2="250" y2="220">
-          <stop stopColor="#70400B" />
-          <stop offset=".18" stopColor="#E5B34B" />
-          <stop offset=".32" stopColor="#FFE28A" />
-          <stop offset=".5" stopColor="#A96B13" />
-          <stop offset=".68" stopColor="#F5CE65" />
-          <stop offset=".84" stopColor="#87500D" />
-          <stop offset="1" stopColor="#E5B34B" />
-        </linearGradient>
+    <div className="pointer-events-none absolute bottom-28 left-1/2 z-[26] flex -translate-x-1/2 items-end justify-center gap-1 sm:gap-3">
 
-        <linearGradient id="kalashRimGold" x1="0" y1="0" x2="0" y2="1">
-          <stop stopColor="#FFF0A6" />
-          <stop offset=".3" stopColor="#D69B32" />
-          <stop offset=".65" stopColor="#81500E" />
-          <stop offset="1" stopColor="#F5D276" />
-        </linearGradient>
-
-        <linearGradient id="kalashLeaf" x1="0" y1="0" x2="1" y2="1">
-          <stop stopColor="#A6B95A" />
-          <stop offset=".5" stopColor="#52732D" />
-          <stop offset="1" stopColor="#29451B" />
-        </linearGradient>
-      </defs>
-
-      {/* MANGO LEAVES */}
-      <path d="M149 104 C83 24 34 35 69 82 Q105 105 149 104Z"
-        fill="url(#kalashLeaf)" stroke="#B5A65B" strokeWidth="2" />
-      <path d="M151 104 C217 24 266 35 231 82 Q195 105 151 104Z"
-        fill="url(#kalashLeaf)" stroke="#B5A65B" strokeWidth="2" />
-      <path d="M150 103 C111 27 139 3 150 8 C174 34 169 73 150 103Z"
-        fill="#718D3C" stroke="#C8B66B" strokeWidth="2" />
-      <path d="M150 103 C151 37 181 20 193 42 C190 75 170 93 150 103Z"
-        fill="#46672B" stroke="#B8A75D" strokeWidth="2" />
-      <path d="M150 103 C149 37 119 20 107 42 C110 75 130 93 150 103Z"
-        fill="#587936" stroke="#B8A75D" strokeWidth="2" />
-
-      <path d="M150 100 L150 17 M150 103 L69 68 M150 103 L231 68"
-        stroke="#D8C77B" strokeWidth="1.5" opacity=".8" />
-
-      {/* COCONUT */}
-      <path d="M116 80 Q115 43 150 29 Q185 43 184 80
-        Q179 103 150 109 Q121 103 116 80Z"
-        fill="#89501F" stroke="#D9B16C" strokeWidth="3" />
-      <path d="M126 68 Q150 45 174 68"
-        stroke="#DDBB82" strokeWidth="2" />
-      <path d="M128 88 Q150 101 172 88"
-        stroke="#533016" strokeWidth="2" />
-
-      {/* NARROW NECK */}
-      <path d="M112 109 Q150 119 188 109
-        L183 143 Q150 151 117 143Z"
-        fill="url(#traditionalKalashGold)"
-        stroke="#F0CD70"
-        strokeWidth="2.5"
-      />
-
-      {/* FLARED OPENING */}
-      <path d="M96 111 Q150 126 204 111
-        L214 127 Q150 147 86 127Z"
-        fill="url(#kalashRimGold)"
-        stroke="#FFE18B"
-        strokeWidth="3"
-      />
-      <ellipse cx="150" cy="111" rx="55" ry="11"
-        fill="#58330B" stroke="#F8D77B" strokeWidth="3" />
-      <ellipse cx="150" cy="111" rx="43" ry="6"
-        fill="#B77B20" />
-
-      {/* TRADITIONAL ROUNDED BELLY */}
-      <path
-        d="M117 139
-           C87 145 62 176 64 210
-           C65 247 101 273 150 277
-           C199 273 235 247 236 210
-           C238 176 213 145 183 139
-           Q150 151 117 139Z"
-        fill="url(#traditionalKalashGold)"
-        stroke="#F5D477"
-        strokeWidth="3"
-      />
-
-      {/* METALLIC SIDE REFLECTIONS */}
-      <path d="M91 166 C76 198 89 234 119 251"
-        stroke="#FFF0A4" strokeWidth="6"
-        strokeLinecap="round" opacity=".65" />
-      <path d="M209 166 C224 198 211 234 181 251"
-        stroke="#593308" strokeWidth="7"
-        strokeLinecap="round" opacity=".55" />
-
-      {/* ENGRAVED NECK BAND */}
-      <path d="M109 148 Q150 161 191 148"
-        stroke="#FFE89B" strokeWidth="3" />
-      <path d="M109 153 Q150 166 191 153"
-        stroke="#74440B" strokeWidth="2" />
-
-      {/* CENTRAL TRADITIONAL ORNAMENT */}
-      <circle cx="150" cy="207" r="34"
-        fill="#95600F" stroke="#FFE18A" strokeWidth="3" />
-      <circle cx="150" cy="207" r="27"
-        stroke="#E9C46D" strokeWidth="1.5" />
-      <circle cx="150" cy="207" r="20"
-        stroke="#F8D77A" strokeWidth="1.5" />
-
-      <path d="M150 182 L157 199 L175 207
-        L157 215 L150 232 L143 215
-        L125 207 L143 199Z"
-        fill="#F4D276" />
-      <circle cx="150" cy="207" r="6" fill="#71420C" />
-
-      {/* LOWER ENGRAVED BAND */}
-      <path d="M74 235 Q150 266 226 235"
-        stroke="#75420B" strokeWidth="5" />
-      <path d="M75 232 Q150 263 225 232"
-        stroke="#FFE28A" strokeWidth="2.5" />
-
-      {/* BASE FOOT */}
-      <path d="M112 269 Q150 283 188 269
-        L198 287 Q150 302 102 287Z"
-        fill="url(#kalashRimGold)"
-        stroke="#EAC66C"
-        strokeWidth="3"
-      />
-      <ellipse cx="150" cy="287" rx="48" ry="9"
-        fill="#70400C" stroke="#E8BB57" strokeWidth="2" />
-    </svg>
-  );
-}
-
-
-
-
-/* =========================================================
-   MARIGOLD FLOWERS
-========================================================= */
-
-function MarigoldFlowers() {
-  return (
-    <div className="flex items-center gap-1.5">
-      {[0, 1, 2].map((flower) => (
+      {[0, 1, 2].map((item) => (
         <motion.div
-          key={flower}
-          animate={{ y: [0, -3, 0] }}
-          transition={{ duration: 2 + flower * 0.3, repeat: Infinity }}
-          className="relative h-8 w-8"
+          key={item}
+          animate={{ y: [0, -4, 0] }}
+          transition={{
+            duration: 2.5 + item * 0.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: item * 0.2,
+          }}
+          className="h-16 w-20 sm:h-20 sm:w-24 drop-shadow-[0_0_20px_rgba(245,158,11,0.4)]"
         >
-          {Array.from({ length: 8 }).map((_, index) => (
-            <span
-              key={index}
-              className="absolute left-3 top-0 h-4 w-2 origin-bottom rounded-full bg-gradient-to-b from-yellow-300 to-orange-700"
-              style={{ transform: `rotate(${index * 45}deg)` }}
-            />
-          ))}
-
-          <span className="absolute left-[11px] top-[11px] h-2.5 w-2.5 rounded-full border border-yellow-200 bg-orange-700" />
+          <FestiveDiya className="h-full w-full" />
         </motion.div>
       ))}
-    </div>
-  );
-}
 
-/* =========================================================
-   DHANTERAS DECORATIVE SCENE
-========================================================= */
-
-function DhanterasScene() {
-  return (
-    <div className="pointer-events-none absolute bottom-36 left-[5%] z-[15] hidden items-end gap-2 sm:flex sm:left-[10%] xl:left-[29%] xl:bottom-32">
-
-      {/* LEFT DIYA */}
-      <motion.div
-        animate={{ y: [0, -3, 0] }}
-        transition={{ duration: 3, repeat: Infinity }}
-        className="h-16 w-20 sm:h-24 sm:w-28"
-      >
-        <FestiveDiya className="h-full w-full" />
-      </motion.div>
-
-      {/* KALASH */}
-      <motion.div
-        animate={{ y: [0, -3, 0] }}
-        transition={{ duration: 4, repeat: Infinity }}
-        className="relative h-48 w-44 drop-shadow-[0_12px_22px_rgba(0,0,0,0.4)] sm:h-64 sm:w-56"
-      >
-        <DhanterasKalash />
-      </motion.div>
-
-      {/* RIGHT DIYA */}
-      <motion.div
-        animate={{ y: [0, -3, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity }}
-        className="h-16 w-20 sm:h-24 sm:w-28"
-      >
-        <FestiveDiya className="h-full w-full" />
-      </motion.div>
-
-      {/* FLOWERS */}
-      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
-        <MarigoldFlowers />
-      </div>
     </div>
   );
 }
@@ -705,7 +553,7 @@ function FirecrackerBurst({
       className="pointer-events-none absolute"
       style={{ left, top, width: 0, height: 0 }}
     >
-      {/* ROCKET LAUNCH */}
+      {/* ROCKET */}
       <motion.div
         className="absolute"
         style={{ left: -2, top: 155 }}
@@ -822,17 +670,18 @@ function FireworksBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 z-[11] overflow-hidden">
 
-      {/* GOLDEN ATMOSPHERE */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(245,190,90,0.07),transparent_65%)]" />
 
-      {/* UPPER FIREWORKS */}
       <FirecrackerBurst left="12%" top="20%" size={165} delay={0} color="#EAB85C" />
+
       <FirecrackerBurst left="38%" top="12%" size={125} delay={1.5} color="#FFF0C0" />
+
       <FirecrackerBurst left="66%" top="17%" size={175} delay={3} color="#F3BD62" />
+
       <FirecrackerBurst left="89%" top="29%" size={145} delay={0.8} color="#FFE0A0" />
 
-      {/* LOWER FIREWORKS */}
       <FirecrackerBurst left="27%" top="65%" size={115} delay={3.8} color="#EAB85C" />
+
       <FirecrackerBurst left="77%" top="63%" size={145} delay={2.2} color="#FFF0C0" />
     </div>
   );
