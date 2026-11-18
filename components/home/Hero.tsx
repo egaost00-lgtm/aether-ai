@@ -1,67 +1,51 @@
+
 "use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Button from "@/components/ui/Button";
-import AgenticBackground from "@/components/home/AgenticBackground";
 
 /* =========================================================
    DATA
 ========================================================= */
 
-const technologies = [
-  "AI Agents",
-  "AI Software",
-  "Automation",
-  "Data Intelligence",
+const features = [
+  {
+    icon: "✦",
+    title: "AI Agents",
+    description: "Intelligent agents for real-world tasks",
+  },
+  {
+    icon: "⌘",
+    title: "AI Solutions",
+    description: "Scalable solutions for modern business",
+  },
+  {
+    icon: "◈",
+    title: "SaaS Products",
+    description: "Launch and grow with confidence",
+  },
+  {
+    icon: "↗",
+    title: "Automation",
+    description: "Work smarter, achieve more",
+  },
 ];
 
-type ProgressType = "complete" | "running" | "connected" | "ready";
+const particles = Array.from({ length: 12 }, (_, i) => i);
 
-type PipelineItem = {
-  number: string;
-  title: string;
-  progress: string;
-  status: string;
-  type: ProgressType;
-};
-
-const pipeline: PipelineItem[] = [
-  {
-    number: "01",
-    title: "Understand Request",
-    progress: "100%",
-    status: "Complete",
-    type: "complete",
-  },
-  {
-    number: "02",
-    title: "AI Reasoning",
-    progress: "100%",
-    status: "Complete",
-    type: "complete",
-  },
-  {
-    number: "03",
-    title: "Tool & API Execution",
-    progress: "72%",
-    status: "Running",
-    type: "running",
-  },
-  {
-    number: "04",
-    title: "Data Intelligence",
-    progress: "84%",
-    status: "Connected",
-    type: "connected",
-  },
-  {
-    number: "05",
-    title: "Automation",
-    progress: "60%",
-    status: "Ready",
-    type: "ready",
-  },
+const neuralNodes = [
+  [70, 105],
+  [145, 80],
+  [210, 120],
+  [300, 75],
+  [105, 190],
+  [180, 155],
+  [230, 210],
+  [300, 185],
+  [345, 245],
+  [65, 275],
+  [150, 315],
+  [230, 270],
 ];
 
 /* =========================================================
@@ -70,619 +54,409 @@ const pipeline: PipelineItem[] = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#050914] text-white">
+    <section className="relative isolate min-h-screen overflow-hidden bg-[#07060D] text-white">
 
-      {/* ORIGINAL AI BACKGROUND */}
-      <AgenticBackground />
-      
+      {/* BACKGROUND ATMOSPHERE */}
 
-      {/* DIWALI DEITY BACKGROUND */}
-      <div
-        className="pointer-events-none absolute inset-0 z-[5] bg-cover bg-no-repeat"
-        style={{
-          backgroundImage: "url('/images/diwali-ram-darbar.webp')",
-          backgroundPosition: "center right",
-        }}
-      />
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
 
-      {/* FESTIVE FIREWORKS */}
-      <FireworksBackground />
+        <div className="absolute -right-40 top-10 h-[450px] w-[450px] rounded-full bg-violet-700/[0.12] blur-[120px] sm:h-[650px] sm:w-[650px] sm:blur-[150px]" />
 
-      {/* DIWALI ATMOSPHERE */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-[#050914]/95 via-[#080d18]/65 to-[#080d18]/15" />
+        <div className="absolute -left-40 bottom-0 h-[350px] w-[350px] rounded-full bg-purple-900/[0.12] blur-[110px] sm:h-[450px] sm:w-[450px] sm:blur-[140px]" />
 
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#050914]/25 via-transparent to-[#050914]/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(124,58,237,0.10),transparent_55%)]" />
 
-      {/* GOLDEN LIGHTING */}
-      <div className="pointer-events-none absolute -right-40 top-10 z-10 h-[600px] w-[600px] rounded-full bg-amber-400/[0.09] blur-[150px]" />
+        <div className="absolute inset-0 opacity-[0.10] [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:65px_65px]" />
 
-      <div className="pointer-events-none absolute -left-40 bottom-10 z-10 h-[400px] w-[500px] rounded-full bg-yellow-500/[0.05] blur-[130px]" />
+      </div>
 
-      <div className="pointer-events-none absolute right-[12%] top-[20%] z-10 h-2 w-2 rounded-full bg-amber-300 shadow-[0_0_30px_10px_rgba(251,191,36,0.2)]" />
+      {/* SUBTLE PARTICLES */}
 
-      <div className="pointer-events-none absolute left-[42%] top-[35%] z-10 h-1.5 w-1.5 rounded-full bg-yellow-200 shadow-[0_0_25px_8px_rgba(250,204,21,0.15)]" />
+      {particles.map((i) => (
+        <motion.span
+          key={i}
+          aria-hidden="true"
+          className="pointer-events-none absolute h-1 w-1 rounded-full bg-violet-300"
+          style={{
+            left: `${8 + (i * 17) % 90}%`,
+            top: `${12 + (i * 23) % 75}%`,
+            boxShadow: "0 0 12px 3px rgba(139,92,246,0.35)",
+          }}
+          animate={{
+            opacity: [0.2, 0.9, 0.2],
+            scale: [0.7, 1.3, 0.7],
+            y: [0, -12, 0],
+          }}
+          transition={{
+            duration: 3 + (i % 4),
+            repeat: Infinity,
+            delay: i * 0.25,
+          }}
+        />
+      ))}
 
       {/* MAIN CONTENT */}
-      <div className="relative z-20 mx-auto min-h-[calc(100vh-84px)] max-w-[1400px] px-4 pb-32 pt-36 sm:px-6 sm:pt-44 lg:px-8 lg:pt-48">
 
-        {/* LEFT CONTENT */}
-        <div className="relative z-30 max-w-[600px] -translate-x-1 sm:-translate-x-3 lg:-translate-x-5">
+      <div className="relative mx-auto max-w-[1400px] px-5 pb-10 pt-28 sm:px-8 sm:pb-12 sm:pt-36 lg:px-12 lg:pt-40">
 
-          {/* BRAND LABEL */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-amber-300/30 bg-amber-400/[0.07] px-4 py-2.5 shadow-[0_0_30px_rgba(251,191,36,0.06)] backdrop-blur-xl"
-          >
-            <span className="text-lg text-amber-300">✦</span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-100 sm:text-xs">
-              Aether AI Solutions
-            </span>
-          </motion.div>
+        {/* HERO GRID */}
 
-          {/* HAPPY DIWALI HEADLINE */}
-      <motion.h1
-  initial={{ opacity: 0, y: 35 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9, delay: 0.1 }}
-  className="text-[54px] font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl lg:text-[82px]"
->
-  <span>Happy</span>
-  <br />
-  <span className="bg-gradient-to-r from-amber-100 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
-    Diwali!
-  </span>
-</motion.h1>
+        <div className="grid items-center gap-8 sm:gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-6">
 
-          {/* DIWALI MESSAGE */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-7 max-w-[510px] text-sm leading-7 text-white/80 sm:text-base sm:leading-8"
-          >
-            May the divine blessings of Lord Rama, Goddess Sita,
-            Lakshmana and Lord Hanuman bring light, prosperity,
-            happiness and success to your life and business.
-          </motion.p>
+          {/* LEFT CONTENT */}
 
-          {/* TECHNOLOGIES */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-7 flex flex-wrap items-center gap-x-2 gap-y-2 text-xs tracking-wide text-white/70 sm:text-sm"
-          >
-            {technologies.map((item, index) => (
-              <span key={item} className="flex items-center">
-                {item}
-                {index < technologies.length - 1 && (
-                  <span className="mx-2 text-amber-400">·</span>
-                )}
-              </span>
-            ))}
-          </motion.div>
+          <div className="relative z-20 mx-auto w-full max-w-[650px] lg:mx-0">
 
-          {/* GOLD DIVIDER */}
-          <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: 210, opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.5 }}
-            className="mt-7 h-px bg-gradient-to-r from-amber-200 via-yellow-500 to-transparent"
-          />
+            {/* BRAND LABEL */}
 
-          {/* CTA BUTTONS */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.65 }}
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-          >
-            <Button href="/contact">
-              Build with Aether AI →
-            </Button>
-
-            <Link
-              href="/portfolio"
-              className="rounded-full border border-amber-200/30 bg-white/[0.035] px-8 py-4 text-center text-sm font-medium text-white backdrop-blur-xl transition-all duration-300 hover:border-amber-300/70 hover:bg-amber-400/10 hover:text-amber-100"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="mb-6 inline-flex max-w-full items-center gap-2.5 rounded-full border border-violet-400/25 bg-violet-500/[0.07] px-3 py-2.5 backdrop-blur-xl sm:mb-7 sm:gap-3 sm:px-4"
             >
-              Explore AI Products →
-            </Link>
-          </motion.div>
-        </div>
-{/* CENTRE HERO DIYA */}
-<motion.div
-  initial={{ opacity: 0, scale: 0.7 }}
-  animate={{
-    opacity: 1,
-    scale: 1,
-    y: [0, -8, 0],
-  }}
-  transition={{
-    opacity: { duration: 1 },
-    scale: { duration: 1 },
-    y: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  }}
-  className="pointer-events-none absolute left-1/2 top-[48%] z-[25] hidden h-44 w-56 -translate-x-1/2 -translate-y-1/2 xl:block"
->
-  <div className="absolute inset-0 rounded-full bg-amber-400/20 blur-[65px]" />
+              <span className="shrink-0 text-violet-400">✦</span>
 
-  <FestiveDiya className="relative h-full w-full drop-shadow-[0_0_35px_rgba(255,190,70,0.7)]" />
-</motion.div>
-        {/* AI AGENT COMMAND CENTRE */}
-        <motion.div
-          initial={{ opacity: 0, x: 70, y: 20, scale: 0.94 }}
-          animate={{ opacity: 1, x: 0, y: [0, -8, 0], scale: 1 }}
-          transition={{
-            opacity: { duration: 0.8, delay: 0.4 },
-            x: { duration: 0.8, delay: 0.4, ease: "easeOut" },
-            scale: { duration: 0.8, delay: 0.4, ease: "easeOut" },
-            y: {
-              duration: 4.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1.2,
-            },
-          }}
-          className="pointer-events-none absolute right-[5%] top-[55%] z-30 hidden w-[390px] -translate-y-1/2 xl:block 2xl:right-[6%] 2xl:w-[410px]"
-        >
-          <div className="absolute -inset-12 rounded-[50px] bg-amber-400/[0.06] blur-[75px]" />
-
-          <div className="absolute -right-10 top-10 h-40 w-40 rounded-full bg-blue-500/[0.05] blur-[60px]" />
-
-          <div className="relative overflow-hidden rounded-[26px] border border-amber-200/[0.18] bg-[#080b12]/75 shadow-[0_35px_100px_rgba(0,0,0,0.7)] backdrop-blur-2xl">
-
-            <div className="absolute left-[12%] right-[12%] top-0 h-px bg-gradient-to-r from-transparent via-amber-300/80 to-transparent" />
-
-            {/* HEADER */}
-            <div className="px-6 pt-5">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,.9)]" />
-
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.28em] text-amber-300">
-                    Aether Engineering
-                  </span>
-                </div>
-
-                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1.5 text-[8px] font-semibold text-emerald-300">
-                  ● Live
-                </span>
-              </div>
-
-              <div className="mt-3 flex items-end justify-between">
-                <div>
-                  <h3 className="text-[25px] font-bold leading-none tracking-[-0.04em] text-white">
-                    AI Agent Command Centre
-                  </h3>
-
-                  <p className="mt-1.5 text-[10px] text-white/45">
-                    Think → Act → Automate
-                  </p>
-                </div>
-
-                <span className="mb-0.5 text-[8px] font-semibold uppercase tracking-[0.18em] text-white/30">
-                  05 AGENTS
-                </span>
-              </div>
-            </div>
-
-            <div className="mx-6 mt-5 h-px bg-white/10" />
-
-            {/* PIPELINE */}
-            <div className="mt-5 space-y-2.5 px-6">
-              {pipeline.map((item) => (
-                <ProgressRow key={item.number} {...item} />
-              ))}
-            </div>
-
-            {/* AGENT ARCHITECTURE */}
-            <div className="mx-6 mt-5">
-              <div className="rounded-[17px] border border-white/10 bg-white/[0.025] p-4">
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-white/65">
-                    Agent Architecture
-                  </span>
-
-                  <span className="text-[8px] font-semibold uppercase tracking-[0.15em] text-blue-300/80">
-                    AI AGENT STACK
-                  </span>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  {["AI AGENT", "TOOLS", "DATA", "ACTION"].map(
-                    (item, index) => (
-                      <div key={item} className="flex items-center">
-                        <span className="rounded-lg border border-amber-400/20 bg-amber-400/[0.07] px-3 py-2 text-[8px] font-bold text-amber-300">
-                          {item}
-                        </span>
-
-                        {index < 3 && (
-                          <span className="mx-1.5 text-[9px] text-blue-300/70">
-                            →
-                          </span>
-                        )}
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* FOOTER */}
-            <div className="mt-4 flex items-center justify-between border-t border-white/[0.07] px-6 py-4">
-              <span className="text-[8px] text-white/30">
-                AI agent execution pipeline
+              <span className="text-[9px] font-semibold uppercase tracking-[0.17em] text-violet-200 sm:text-xs sm:tracking-[0.22em]">
+                AI Product Engineering Studio
               </span>
+            </motion.div>
 
-              <div className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-amber-300 shadow-[0_0_8px_rgba(250,204,21,.8)]" />
+            {/* HEADLINE */}
 
-                <span className="text-[8px] font-semibold text-amber-300">
-                  OPERATIONAL
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.1 }}
+              className="text-[clamp(2.65rem,9vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.055em] sm:text-6xl md:text-7xl xl:text-[82px]"
+            >
+              We Engineer
+              <br />
+              Intelligence.
+              <br />
 
-      {/* DIWALI DIYAS */}
-      <DiwaliDiyas />
+              <span className="bg-gradient-to-r from-violet-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                You Build
+                <br />
+                the Future.
+              </span>
+            </motion.h1>
 
-      {/* BOTTOM FEATURE STRIP */}
-      <div className="absolute bottom-0 left-0 right-0 z-40 border-t border-amber-200/15 bg-[#050914]/85 backdrop-blur-xl">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">
-          <Feature icon="✦" title="AI Agents" />
-          <Feature icon="⌘" title="AI Software" />
-          <Feature icon="◈" title="Automation" />
-          <Feature icon="↗" title="Data Intelligence" />
-        </div>
-      </div>
-    </section>
-  );
-}
+            {/* DESCRIPTION */}
 
-/* =========================================================
-   PROGRESS ROW
-========================================================= */
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-5 max-w-[510px] text-sm leading-7 text-white/60 sm:mt-7 sm:text-base sm:leading-8"
+            >
+              Building intelligent AI solutions, powerful software and
+              next-generation digital products for ambitious businesses.
+            </motion.p>
 
-function ProgressRow({
-  number,
-  title,
-  progress,
-  status,
-  type,
-}: PipelineItem) {
-  const statusClass: Record<ProgressType, string> = {
-    complete: "text-emerald-300",
-    running: "text-amber-300",
-    connected: "text-blue-300",
-    ready: "text-blue-200",
-  };
+            {/* CAPABILITIES */}
 
-  const barClass: Record<ProgressType, string> = {
-    complete: "bg-emerald-300",
-    running: "bg-amber-300",
-    connected: "bg-amber-300",
-    ready: "bg-amber-300",
-  };
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-2 text-[11px] text-white/55 sm:mt-7 sm:gap-x-3 sm:text-sm"
+            >
+              <span>AI Agents</span>
+              <span className="text-violet-400">✦</span>
+              <span>AI Software</span>
+              <span className="text-violet-400">✦</span>
+              <span>Automation</span>
+              <span className="text-violet-400">✦</span>
+              <span>Data Intelligence</span>
+            </motion.div>
 
-  return (
-    <div className="rounded-[15px] border border-white/[0.09] bg-white/[0.025] px-3.5 py-3">
-      <div className="flex items-center gap-3">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/25 text-[8px] font-bold text-blue-200">
-          {number}
-        </div>
+            {/* DIVIDER */}
 
-        <div className="min-w-0 flex-1">
-          <div className="flex items-center justify-between gap-3">
-            <span className="truncate text-[10px] font-semibold text-white/90">
-              {title}
-            </span>
-
-            <span className={`shrink-0 text-[8px] font-semibold ${statusClass[type]}`}>
-              {status}
-            </span>
-          </div>
-
-          <div className="mt-2 h-[4px] overflow-hidden rounded-full bg-white/10">
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: progress }}
-              transition={{ duration: 1.2, delay: 0.7, ease: "easeOut" }}
-              className={`h-full rounded-full ${barClass[type]}`}
+              animate={{ width: 190 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="mt-6 h-px bg-gradient-to-r from-violet-400 via-purple-500 to-transparent sm:mt-8"
             />
+
+            {/* CTA BUTTONS */}
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4"
+            >
+              <Link
+                href="/portfolio"
+                className="group inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-7 py-4 text-sm font-semibold text-white shadow-[0_0_35px_rgba(124,58,237,0.3)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(124,58,237,0.5)] sm:w-auto sm:px-8"
+              >
+                Explore Our Work
+
+                <span className="transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-full border border-white/15 bg-white/[0.035] px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:border-violet-400/60 hover:bg-violet-500/10 sm:w-auto sm:px-8"
+              >
+                Let's Talk
+                <span>↗</span>
+              </Link>
+            </motion.div>
+
           </div>
+
+          {/* RIGHT VISUAL - AI NEURAL SPHERE */}
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: 40 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1.2 }}
+            className="relative mx-auto flex w-full max-w-[520px] items-center justify-center lg:max-w-[620px]"
+          >
+
+            {/* PURPLE GLOW */}
+
+            <div className="absolute h-[75%] w-[75%] rounded-full bg-violet-600/25 blur-[75px] sm:blur-[100px]" />
+
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="relative aspect-square w-full max-w-[440px] sm:max-w-[550px]"
+            >
+
+              {/* OUTER ORBIT */}
+
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 30,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-[5%] rounded-full border border-violet-400/30"
+              />
+
+              {/* INNER ORBIT */}
+
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 22,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-[13%] rounded-full border border-purple-300/25"
+              />
+
+              {/* GLASS SPHERE */}
+
+              <div className="absolute inset-[17%] overflow-hidden rounded-full border border-violet-200/40 bg-gradient-to-br from-violet-300/20 via-[#17102d]/80 to-black shadow-[inset_0_0_50px_rgba(167,139,250,0.25),0_0_80px_rgba(124,58,237,0.3)]">
+
+                {/* GLASS REFLECTION */}
+
+                <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.28),transparent_35%,transparent_70%,rgba(139,92,246,0.2))]" />
+
+                {/* NEURAL NETWORK */}
+
+                <svg
+                  viewBox="0 0 400 400"
+                  className="absolute inset-0 h-full w-full"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <radialGradient id="neuralGlow">
+                      <stop stopColor="#FFFFFF" />
+                      <stop offset=".35" stopColor="#C4B5FD" />
+                      <stop offset="1" stopColor="#8B5CF6" />
+                    </radialGradient>
+                  </defs>
+
+                  <g
+                    stroke="#A78BFA"
+                    strokeWidth="1.3"
+                    opacity=".65"
+                  >
+                    <path d="M70 105 L145 80 L210 120 L300 75" />
+                    <path d="M70 105 L105 190 L180 155 L210 120" />
+                    <path d="M105 190 L65 275 L150 315 L230 270" />
+                    <path d="M180 155 L230 210 L300 185 L345 245" />
+                    <path d="M210 120 L230 210 L230 270" />
+                    <path d="M300 75 L300 185 L345 245" />
+                    <path d="M150 315 L230 270 L345 245" />
+                    <path d="M105 190 L180 155 L230 270" />
+                    <path d="M70 105 L180 155 L300 185" />
+                    <path d="M145 80 L180 155 L230 210" />
+                    <path d="M65 275 L105 190 L150 315" />
+                    <path d="M230 210 L300 185 L230 270" />
+                  </g>
+
+                  {/* NEURAL NODES */}
+
+                  <g fill="url(#neuralGlow)">
+                    {neuralNodes.map(([cx, cy], i) => (
+                      <motion.circle
+                        key={i}
+                        cx={cx}
+                        cy={cy}
+                        r="4"
+                        animate={{
+                          opacity: [0.4, 1, 0.4],
+                          r: [3, 6, 3],
+                        }}
+                        transition={{
+                          duration: 2 + (i % 3),
+                          repeat: Infinity,
+                          delay: i * 0.15,
+                        }}
+                      />
+                    ))}
+                  </g>
+
+                  {/* ENERGY PULSE */}
+
+                  <motion.circle
+                    cx="210"
+                    cy="195"
+                    r="65"
+                    stroke="#C4B5FD"
+                    strokeWidth="1"
+                    animate={{
+                      r: [45, 100, 45],
+                      opacity: [0.5, 0, 0.5],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+
+                </svg>
+
+                {/* AETHER SYMBOL */}
+
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="bg-gradient-to-br from-white via-violet-200 to-violet-500 bg-clip-text text-[65px] font-bold text-transparent drop-shadow-[0_0_25px_rgba(167,139,250,0.9)] sm:text-[90px]">
+                    Λ
+                  </span>
+                </div>
+
+                {/* GLASS SHINE */}
+
+                <div className="pointer-events-none absolute left-[15%] top-[10%] h-[35%] w-[55%] rounded-full bg-white/10 blur-2xl" />
+
+              </div>
+
+              {/* ORBIT LIGHT */}
+
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-[10%] rounded-full border border-transparent"
+                style={{
+                  borderTopColor: "rgba(196,181,253,0.8)",
+                  borderBottomColor: "rgba(139,92,246,0.4)",
+                  transform: "rotateX(65deg)",
+                }}
+              />
+
+              {/* FLOATING LABEL - RIGHT */}
+
+              <div className="absolute right-0 top-[25%] max-w-[145px] rounded-xl border border-violet-300/25 bg-[#100B20]/90 px-2.5 py-2 shadow-[0_0_30px_rgba(124,58,237,0.2)] backdrop-blur-xl sm:max-w-none sm:px-4 sm:py-3">
+                <span className="text-[8px] font-semibold uppercase tracking-widest text-violet-300 sm:text-[9px]">
+                  ✦ AI Intelligence
+                </span>
+
+                <p className="mt-1 text-[10px] text-white/70 sm:text-xs">
+                  Neural connections
+                </p>
+              </div>
+
+              {/* FLOATING LABEL - LEFT */}
+
+              <div className="absolute bottom-[20%] left-0 max-w-[150px] rounded-xl border border-violet-300/25 bg-[#100B20]/90 px-2.5 py-2 backdrop-blur-xl sm:max-w-none sm:px-4 sm:py-3">
+                <span className="text-[8px] uppercase tracking-widest text-white/50 sm:text-[9px]">
+                  AETHER ENGINEERING
+                </span>
+
+                <p className="mt-1 text-xs font-semibold text-violet-300 sm:text-sm">
+                  Think. Build. Scale.
+                </p>
+              </div>
+
+            </motion.div>
+          </motion.div>
+
         </div>
-      </div>
-    </div>
-  );
-}
 
-/* =========================================================
-   FEATURE ITEM
-========================================================= */
+        {/* TRUST STRIP */}
 
-function Feature({
-  icon,
-  title,
-}: {
-  icon: string;
-  title: string;
-}) {
-  return (
-    <div className="flex items-center gap-3 border-r border-white/10 px-4 py-4 last:border-r-0 sm:px-6 md:px-8">
-      <span className="text-xl text-amber-400">{icon}</span>
-
-      <span className="text-xs font-medium text-white/80 sm:text-sm">
-        {title}
-      </span>
-    </div>
-  );
-}
-
-/* =========================================================
-   ANIMATED BRASS DIYA
-========================================================= */
-
-function FestiveDiya({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 180 125"
-      className={className}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <linearGradient id="diyaBrass" x1="20" y1="70" x2="150" y2="110">
-          <stop stopColor="#FFF0B5" />
-          <stop offset=".25" stopColor="#D99A36" />
-          <stop offset=".55" stopColor="#75400F" />
-          <stop offset=".8" stopColor="#E9B95F" />
-          <stop offset="1" stopColor="#6A390D" />
-        </linearGradient>
-
-        <radialGradient id="diyaGlow">
-          <stop stopColor="#FFC45D" stopOpacity=".5" />
-          <stop offset="1" stopColor="#FFC45D" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      <ellipse cx="90" cy="82" rx="75" ry="43" fill="url(#diyaGlow)" />
-
-      <motion.path
-        d="M90 8 C112 34 107 53 90 65 C73 53 68 34 90 8Z"
-        fill="#FF9B32"
-        style={{ transformOrigin: "90px 65px" }}
-        animate={{
-          scaleY: [1, 1.12, 0.94, 1],
-          rotate: [0, 2, -2, 0],
-        }}
-        transition={{ duration: 1.3, repeat: Infinity }}
-      />
-
-      <motion.path
-        d="M90 29 C101 45 97 55 90 60 C83 55 79 45 90 29Z"
-        fill="#FFF4C6"
-        animate={{ opacity: [0.8, 1, 0.85, 1] }}
-        transition={{ duration: 0.9, repeat: Infinity }}
-      />
-
-      <path
-        d="M22 76 Q90 112 158 76 L142 101 Q90 125 38 101Z"
-        fill="url(#diyaBrass)"
-        stroke="#F5D58B"
-        strokeWidth="2.5"
-      />
-
-      <path d="M22 76 Q90 98 158 76" stroke="#FFF0B5" strokeWidth="3" />
-
-      <path d="M42 94 Q90 112 138 94" stroke="#EBC477" strokeWidth="2" />
-
-      <ellipse cx="90" cy="105" rx="38" ry="5" fill="#59330E" opacity=".7" />
-    </svg>
-  );
-}
-
-/* =========================================================
-   DIWALI DIYA DECORATION
-========================================================= */
-
-function DiwaliDiyas() {
-  return (
-    <div className="pointer-events-none absolute bottom-28 left-1/2 z-[26] flex -translate-x-1/2 items-end justify-center gap-1 sm:gap-3">
-
-      {[0, 1, 2].map((item) => (
         <motion.div
-          key={item}
-          animate={{ y: [0, -4, 0] }}
-          transition={{
-            duration: 2.5 + item * 0.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: item * 0.2,
-          }}
-          className="h-16 w-20 sm:h-20 sm:w-24 drop-shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="mt-8 border-t border-white/10 pt-6 sm:mt-14 sm:pt-7"
         >
-          <FestiveDiya className="h-full w-full" />
+          <p className="text-center text-[9px] font-medium uppercase tracking-[0.2em] text-white/40 sm:text-[10px] sm:tracking-[0.25em]">
+            Intelligence · Engineering · Innovation
+          </p>
         </motion.div>
-      ))}
 
-    </div>
-  );
-}
+        {/* FEATURE CARDS */}
 
-/* =========================================================
-   FIREWORK BURST
-========================================================= */
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4 lg:grid-cols-4">
 
-function FirecrackerBurst({
-  left,
-  top,
-  size = 150,
-  delay = 0,
-  color = "#F5BD54",
-}: {
-  left: string;
-  top: string;
-  size?: number;
-  delay?: number;
-  color?: string;
-}) {
-  const sparks = Array.from({ length: 32 }, (_, index) => {
-    const angle = (index * 360) / 32;
-    const radians = (angle * Math.PI) / 180;
-    const distance = size * (0.32 + (index % 3) * 0.08);
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: 1 + index * 0.12,
+              }}
+              className="group rounded-xl border border-violet-400/15 bg-white/[0.025] p-3.5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-violet-400/40 hover:bg-violet-500/[0.06] sm:rounded-2xl sm:p-5"
+            >
+              <span className="text-2xl text-violet-400 transition-all duration-300 group-hover:text-violet-300 sm:text-3xl">
+                {feature.icon}
+              </span>
 
-    return {
-      id: index,
-      angle,
-      x: Math.cos(radians) * distance,
-      y: Math.sin(radians) * distance,
-    };
-  });
+              <h3 className="mt-3 text-sm font-semibold text-white sm:mt-4 sm:text-base">
+                {feature.title}
+              </h3>
 
-  return (
-    <div
-      className="pointer-events-none absolute"
-      style={{ left, top, width: 0, height: 0 }}
-    >
-      {/* ROCKET */}
-      <motion.div
-        className="absolute"
-        style={{ left: -2, top: 155 }}
-        animate={{
-          y: [0, -155, -155, -155],
-          opacity: [0, 1, 0, 0],
-        }}
-        transition={{
-          duration: 6,
-          delay,
-          repeat: Infinity,
-          times: [0, 0.27, 0.34, 1],
-          ease: "easeOut",
-        }}
-      >
-        <span
-          className="block h-3 w-1.5 rounded-full"
-          style={{
-            background: "#FFF8D8",
-            boxShadow: `0 0 10px 4px ${color}`,
-          }}
-        />
+              <p className="mt-1.5 text-[10px] leading-5 text-white/50 sm:mt-2 sm:text-xs">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
 
-        <span className="absolute left-0 top-2 h-20 w-1 bg-gradient-to-b from-amber-200 to-transparent" />
-      </motion.div>
+        </div>
 
-      {/* EXPLOSION FLASH */}
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          left: -5,
-          top: -5,
-          width: 10,
-          height: 10,
-          background: "#FFF7D8",
-          boxShadow: `0 0 25px 12px ${color}`,
-        }}
-        animate={{
-          scale: [0, 0, 3, 0],
-          opacity: [0, 0, 0.9, 0],
-        }}
-        transition={{
-          duration: 6,
-          delay,
-          repeat: Infinity,
-          times: [0, 0.27, 0.31, 0.43],
-        }}
-      />
+        {/* SCROLL INDICATOR */}
 
-      {/* RADIAL SPARKS */}
-      {sparks.map((spark) => (
-        <motion.span
-          key={spark.id}
-          className="absolute block rounded-full"
-          style={{
-            left: 0,
-            top: 0,
-            width: spark.id % 4 === 0 ? 3 : 2,
-            height: spark.id % 4 === 0 ? 12 : 8,
-            transform: `translate(-50%, -50%) rotate(${spark.angle}deg)`,
-            transformOrigin: "center center",
-            background: `linear-gradient(to bottom, #FFFBEA, ${color}, transparent)`,
-            boxShadow: `0 0 5px ${color}`,
-          }}
-          animate={{
-            x: [0, 0, spark.x, spark.x * 1.15],
-            y: [0, 0, spark.y, spark.y + 28],
-            opacity: [0, 0, 1, 0],
-            scale: [0.2, 0.2, 1, 0.2],
-          }}
-          transition={{
-            duration: 6,
-            delay,
-            repeat: Infinity,
-            times: [0, 0.27, 0.48, 0.72],
-            ease: "easeOut",
-          }}
-        />
-      ))}
+        <div className="mt-8 flex justify-center sm:mt-10">
+          <span className="text-[9px] font-medium uppercase tracking-[0.3em] text-white/30">
+            Scroll to Explore ↓
+          </span>
+        </div>
 
-      {/* FALLING EMBERS */}
-      {sparks.slice(0, 10).map((spark) => (
-        <motion.span
-          key={`ember-${spark.id}`}
-          className="absolute h-1 w-1 rounded-full"
-          style={{
-            left: 0,
-            top: 0,
-            background: "#FFF1B5",
-            boxShadow: `0 0 7px ${color}`,
-          }}
-          animate={{
-            x: [spark.x, spark.x * 1.15],
-            y: [spark.y, spark.y + 65],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 2,
-            delay: delay + 2.5,
-            repeat: Infinity,
-            repeatDelay: 4,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
+      </div>
 
-/* =========================================================
-   FIREWORKS BACKGROUND
-========================================================= */
-
-function FireworksBackground() {
-  return (
-    <div className="pointer-events-none absolute inset-0 z-[11] overflow-hidden">
-
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_35%,rgba(245,190,90,0.07),transparent_65%)]" />
-
-      <FirecrackerBurst left="12%" top="20%" size={165} delay={0} color="#EAB85C" />
-
-      <FirecrackerBurst left="38%" top="12%" size={125} delay={1.5} color="#FFF0C0" />
-
-      <FirecrackerBurst left="66%" top="17%" size={175} delay={3} color="#F3BD62" />
-
-      <FirecrackerBurst left="89%" top="29%" size={145} delay={0.8} color="#FFE0A0" />
-
-      <FirecrackerBurst left="27%" top="65%" size={115} delay={3.8} color="#EAB85C" />
-
-      <FirecrackerBurst left="77%" top="63%" size={145} delay={2.2} color="#FFF0C0" />
-    </div>
+    </section>
   );
 }
