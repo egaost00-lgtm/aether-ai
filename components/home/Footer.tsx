@@ -190,36 +190,42 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-sm md:flex-row">
+     {/* Bottom Bar */}
+<div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-sm md:flex-row">
 
-          <p className="text-gray-500">
-            © 2026 Aether AI Solutions. All rights reserved.
-          </p>
+  <p className="text-gray-500">
+    © {new Date().getFullYear()} Aether AI Solutions. All rights reserved.
+  </p>
 
-          <div className="flex items-center gap-6">
+  <div className="flex flex-wrap items-center justify-center gap-6">
 
-            <Link
-              href="/privacy"
-              className="text-gray-500 transition hover:text-yellow-400"
-            >
-              Privacy
-            </Link>
+    <Link
+      href="/privacy"
+      className="text-gray-400 transition hover:text-yellow-400"
+    >
+      Privacy Policy
+    </Link>
 
-            <Link
-              href="/terms"
-              className="text-gray-500 transition hover:text-yellow-400"
-            >
-              Terms
-            </Link>
+    <Link
+      href="/terms"
+      className="text-gray-400 transition hover:text-yellow-400"
+    >
+      Terms &amp; Conditions
+    </Link>
+   <Link
+  href="/refund"
+  className="text-gray-400 transition hover:text-yellow-400"
+>
+  Refund Policy
+</Link>
 
-            <span className="text-gray-600">
-              Built with precision.
-            </span>
+    <span className="text-gray-600">
+      Built with precision.
+    </span>
 
-          </div>
+  </div>
 
-        </div>
+</div>
 
       </div>
     </footer>
