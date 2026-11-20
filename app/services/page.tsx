@@ -1,529 +1,608 @@
 import Navbar from "@/components/layout/Navbar";
 import Link from "next/link";
+import Image from "next/image";
+import {
+  ArrowUpRight,
+  Code2,
+  BrainCircuit,
+  CloudCog,
+  Building2,
+  Layers3,
+  ShieldCheck,
+} from "lucide-react";
+
+/* =========================================================
+   AETHER AI SOLUTIONS — SERVICE DIVISIONS
+========================================================= */
 
 const services = [
   {
     number: "01",
-    title: "AI Solutions & Intelligent Systems",
+    icon: Code2,
+    title: "Software Development",
     description:
-      "We design and develop AI-powered systems that help businesses automate processes, improve decision-making, and create smarter digital experiences.",
+      "We design and engineer custom websites, web applications, APIs, and business software built around your requirements. From customer-facing platforms to internal tools, our focus is on performance, usability, and maintainable architecture.",
     tags: [
-      "Generative AI",
-      "AI Applications",
-      "AI Integration",
-      "Intelligent Systems",
+      "Web Applications",
+      "Custom Software",
+      "API Development",
+      "UI/UX",
+    ],
+    capabilities: [
+      "Business websites and web applications",
+      "Custom dashboards and internal portals",
+      "API development and integrations",
+      "Application modernization",
     ],
   },
   {
     number: "02",
-    title: "Premium Web & App Development",
+    icon: BrainCircuit,
+    title: "AI & Intelligent Automation",
     description:
-      "High-performance websites and web applications built with modern technologies, premium UI/UX, responsive design, and conversion-focused experiences.",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      "We build AI-powered applications, intelligent assistants, and automated workflows that connect business systems, data, and modern AI models to help teams reduce repetitive work and improve productivity.",
+    tags: [
+      "AI Agents",
+      "Generative AI",
+      "LLM Integration",
+      "Automation",
+    ],
+    capabilities: [
+      "AI agents and business assistants",
+      "AI-powered software applications",
+      "Workflow and process automation",
+      "Document and knowledge assistants",
+    ],
   },
   {
     number: "03",
-    title: "AI SaaS & Digital Products",
+    icon: CloudCog,
+    title: "Cloud & DevOps",
     description:
-      "From an idea to a working product, we build scalable AI-powered SaaS platforms and digital products designed around real business use cases.",
-    tags: ["SaaS", "AI Products", "APIs", "Cloud"],
+      "We help businesses deploy, manage, and improve cloud-based applications through modern infrastructure, development workflows, and deployment practices designed for reliability and scalability.",
+    tags: [
+      "Cloud Infrastructure",
+      "DevOps",
+      "Deployment",
+      "Monitoring",
+    ],
+    capabilities: [
+      "Cloud application deployment",
+      "CI/CD pipeline configuration",
+      "Infrastructure configuration",
+      "Application monitoring and optimization",
+    ],
   },
   {
     number: "04",
-    title: "Data Analytics & Intelligence",
+    icon: Building2,
+    title: "Enterprise IT Solutions",
     description:
-      "Transform business data into meaningful insights through interactive dashboards, analytics systems, visualizations, and intelligent decision-support solutions.",
-    tags: ["Analytics", "Dashboards", "Python", "Data Visualization"],
+      "We develop and integrate business technology solutions that improve operational visibility, connect essential systems, and support data-driven decision-making across organizations.",
+    tags: [
+      "CRM & ERP",
+      "System Integration",
+      "Analytics",
+      "Business Automation",
+    ],
+    capabilities: [
+      "CRM and ERP integrations",
+      "Business intelligence dashboards",
+      "Custom operational systems",
+      "Data analytics and reporting",
+    ],
   },
   {
     number: "05",
-    title: "AI Automation & Workflows",
+    icon: Layers3,
+    title: "SaaS & Product Engineering",
     description:
-      "Automate repetitive business operations with intelligent workflows that connect your tools, data, APIs, and AI systems.",
-    tags: ["AI Automation", "APIs", "Workflows", "Business Automation"],
+      "From initial product strategy to working software, we build SaaS applications, digital platforms, and MVPs with modern interfaces, scalable architecture, and business-focused functionality.",
+    tags: [
+      "SaaS Development",
+      "MVP Engineering",
+      "Multi-Tenant Apps",
+      "Product Design",
+    ],
+    capabilities: [
+      "MVP and startup product development",
+      "Subscription-based SaaS platforms",
+      "AI-powered digital products",
+      "Education and industry-specific platforms",
+    ],
   },
   {
     number: "06",
-    title: "Custom Digital Solutions",
+    icon: ShieldCheck,
+    title: "Managed IT & Support",
     description:
-      "Have a unique idea? We build custom digital solutions around your requirements instead of forcing your business into a pre-built template.",
-    tags: ["Custom Development", "Product Strategy", "UI/UX", "Technology"],
-  },
-  {
-    number: "07",
-    title: "Cybersecurity & Network Assessments",
-    description:
-      "Authorized security assessments designed to identify exposed services, analyze network traffic, document security findings, and provide practical remediation recommendations.",
-    tags: ["Kali Linux", "Nmap", "Wireshark", "Network Security"],
-  },
-    {
-    number: "08",
-    title: "AI Exam Preparation Platforms",
-    description:
-      "We build AI-powered exam preparation platforms that help students practice, prepare for competitive examinations, and access structured digital learning experiences.",
+      "We provide ongoing application support, maintenance, performance improvements, and technical assistance to help businesses keep their digital systems reliable and secure.",
     tags: [
-      "AI Education",
-      "Practice Tests",
-      "Mock Tests",
-      "SaaS Platforms",
+      "Maintenance",
+      "Technical Support",
+      "Monitoring",
+      "Security Reviews",
+    ],
+    capabilities: [
+      "Application maintenance and updates",
+      "Performance and reliability improvements",
+      "Authorized security assessments",
+      "Technical troubleshooting and support",
     ],
   },
 ];
 
+/* =========================================================
+   SELECTED AETHER PROJECTS
+========================================================= */
+
+const projects = [
+  {
+    title: "StreamFlix AI",
+    category: "AI-Powered Digital Product",
+    description:
+      "An entertainment platform combining AI-assisted movie discovery, real-time movie data, and a responsive digital experience.",
+    image: "/streamflix.png",
+    status: "Live Demo",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Gemini AI",
+      "TMDB API",
+    ],
+    href: "https://streamflix-ai.vercel.app",
+    external: true,
+    action: "View Live Product",
+  },
+  {
+    title: "The Pulse",
+    category: "Digital News & Media",
+    description:
+      "A digital news platform featuring curated headlines, live news content, real-time updates, and a modern newspaper-style interface.",
+    image: "/the-pulse.png",
+    status: "Live Demo",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "GNews API",
+      "YouTube API",
+    ],
+    href: "https://the-pulse-olive.vercel.app",
+    external: true,
+    action: "View Live Product",
+  },
+  {
+    title: "ExamAI",
+    category: "AI-Powered Education",
+    description:
+      "An AI-assisted exam preparation platform featuring practice questions, mock tests, structured learning, and interactive study experiences.",
+    image: "/examai.png",
+    status: "Live Demo",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Supabase",
+      "AI",
+    ],
+    href: "https://exam-ai-amber.vercel.app/",
+    external: true,
+    action: "View Live Product",
+  },
+  {
+    title: "AURACARE",
+    category: "Healthcare Technology",
+    description:
+      "A healthcare platform project exploring patient consultations, appointment assistance, healthcare guidance, and digital patient experiences.",
+    image: "/auracare.png",
+    status: "Project Repository",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Healthcare UX",
+      "AI",
+    ],
+    href: "https://github.com/egaost00-lgtm/auracare",
+    external: true,
+    action: "Explore Project",
+  },
+  {
+    title: "Network Security Assessment",
+    category: "Cybersecurity & Network Security",
+    description:
+      "An authorized network security assessment in a controlled lab environment, covering exposed services, traffic analysis, security findings, and remediation recommendations.",
+    image: "/network-security.png",
+    status: "Lab Case Study",
+    tags: [
+      "Kali Linux",
+      "Nmap",
+      "Wireshark",
+      "Security Assessment",
+    ],
+    href: "/portfolio",
+    external: false,
+    action: "View Case Study",
+  },
+];
+
+/* =========================================================
+   SERVICES PAGE
+========================================================= */
+
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white">
+    <main className="min-h-screen overflow-hidden bg-[#050505] text-white">
       <Navbar />
 
-      <div className="mx-auto max-w-7xl px-6 py-32">
+      {/* PAGE CONTAINER */}
 
-        {/* Back */}
+      <div className="relative mx-auto max-w-7xl px-5 pb-24 pt-32 sm:px-6 sm:pt-40">
+
+        {/* BACKGROUND ATMOSPHERE */}
+
+        <div className="pointer-events-none absolute -right-40 top-20 h-[500px] w-[500px] rounded-full bg-yellow-500/[0.035] blur-[140px]" />
+
+        {/* BACK LINK */}
+
         <Link
           href="/"
-          className="text-yellow-400 transition hover:text-yellow-300"
+          className="relative inline-flex items-center gap-2 text-sm font-medium text-yellow-400 transition hover:text-yellow-300"
         >
           ← Back to Home
         </Link>
 
-        {/* Hero */}
-        <div className="mt-8 max-w-5xl">
-          <p className="text-sm uppercase tracking-[0.35em] text-yellow-400">
-            What We Build
+        {/* HERO */}
+
+        <header className="relative mt-10 max-w-5xl">
+
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-yellow-400 sm:text-sm">
+            Our Technology Services
           </p>
 
-          <h1 className="mt-5 text-5xl font-black tracking-tight md:text-7xl">
-            Technology built
+          <h1 className="mt-6 text-[clamp(2.7rem,7vw,5.5rem)] font-black leading-[1.08] tracking-[-0.055em]">
+            Engineering Technology.
             <br />
-            <span className="text-yellow-400">
-              around your business.
+
+            <span className="bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-400 bg-clip-text text-transparent">
+              Accelerating Business.
             </span>
           </h1>
 
-          <p className="mt-7 max-w-3xl text-xl leading-8 text-gray-400">
-            From AI-powered applications and premium websites to intelligent
-            automation and data-driven platforms, Aether AI Solutions builds
-            digital products designed to solve real business problems.
+          <p className="mt-7 max-w-3xl text-base leading-8 text-gray-400 sm:text-lg">
+            Aether AI Solutions delivers custom software,
+            artificial intelligence, cloud engineering,
+            enterprise technology, and digital product development
+            for businesses in India and worldwide.
           </p>
-        </div>
 
-        {/* Services */}
-        <section className="mt-24 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <article
-              key={service.number}
-              className="group rounded-[32px] border border-white/10 bg-white/[0.035] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/30 hover:bg-white/[0.055]"
+          {/* HERO CAPABILITIES */}
+
+          <div className="mt-8 flex flex-wrap gap-2">
+            {[
+              "Software Engineering",
+              "Artificial Intelligence",
+              "Cloud Solutions",
+              "Enterprise Technology",
+              "SaaS Products",
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-yellow-500/20 bg-yellow-500/[0.045] px-4 py-2 text-xs font-medium text-yellow-200/80"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* HERO ACTIONS */}
+
+          <div className="mt-9 flex flex-wrap gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full bg-yellow-500 px-7 py-3.5 text-sm font-semibold text-black transition hover:-translate-y-1 hover:bg-yellow-400"
             >
-              <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold tracking-[0.25em] text-yellow-400">
-                  SERVICE {service.number}
-                </span>
+              Discuss Your Project
+              <ArrowUpRight size={17} />
+            </Link>
 
-                <span className="text-2xl text-gray-600 transition group-hover:text-yellow-400">
-                  ↗
-                </span>
-              </div>
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.035] px-7 py-3.5 text-sm font-medium text-white transition hover:border-yellow-500/40 hover:bg-white/[0.07]"
+            >
+              Explore Our Work
+              <ArrowUpRight size={17} />
+            </Link>
+          </div>
+        </header>
 
-              <h2 className="mt-8 text-3xl font-bold tracking-tight">
-                {service.title}
-              </h2>
+        {/* SERVICES */}
 
-              <p className="mt-5 min-h-[150px] leading-7 text-gray-400">
-                {service.description}
-              </p>
+        <section
+          aria-labelledby="services-heading"
+          className="relative mt-24 sm:mt-32"
+        >
+          <div className="mb-12 max-w-3xl">
 
-              <div className="mt-8 flex flex-wrap gap-2">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition group-hover:border-yellow-500/20 group-hover:text-gray-300"
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-yellow-400">
+              What We Deliver
+            </p>
+
+            <h2
+              id="services-heading"
+              className="mt-4 text-3xl font-black tracking-tight sm:text-5xl"
+            >
+              Our Core Capabilities
+            </h2>
+
+            <p className="mt-5 leading-8 text-gray-400">
+              Explore our engineering and technology services,
+              designed to help organizations build reliable
+              software, automate operations, and create
+              scalable digital experiences.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => {
+              const Icon = service.icon;
+
+              return (
+                <article
+                  key={service.number}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-[30px] border border-white/10 bg-white/[0.035] p-7 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/30 hover:bg-white/[0.055] sm:p-8"
+                >
+                  {/* TOP ROW */}
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold tracking-[0.2em] text-yellow-400">
+                      SERVICE {service.number}
+                    </span>
+
+                    <ArrowUpRight
+                      size={20}
+                      className="text-white/30 transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-yellow-400"
+                    />
+                  </div>
+
+                  {/* ICON */}
+
+                  <div className="mt-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-500/15 bg-yellow-500/[0.07] text-yellow-400 transition duration-300 group-hover:scale-110 group-hover:border-yellow-500/35">
+                    <Icon size={27} strokeWidth={1.8} />
+                  </div>
+
+                  {/* TITLE */}
+
+                  <h3 className="mt-7 text-2xl font-bold tracking-tight">
+                    {service.title}
+                  </h3>
+
+                  {/* DESCRIPTION */}
+
+                  <p className="mt-4 text-sm leading-7 text-gray-400 sm:text-base">
+                    {service.description}
+                  </p>
+
+                  {/* CAPABILITIES */}
+
+                  <div className="mt-7">
+                    <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+                      Key Capabilities
+                    </p>
+
+                    <ul className="space-y-2.5">
+                      {service.capabilities.map((capability) => (
+                        <li
+                          key={capability}
+                          className="flex items-start gap-2 text-sm leading-6 text-gray-400"
+                        >
+                          <span className="mt-0.5 shrink-0 text-yellow-400">
+                            ✓
+                          </span>
+
+                          <span>{capability}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* TAGS */}
+
+                  <div className="mt-auto flex flex-wrap gap-2 pt-8">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-gray-400 transition group-hover:border-yellow-500/20 group-hover:text-gray-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* SERVICE ACTION */}
+
+                  <Link
+                    href="/contact"
+                    className="mt-7 inline-flex w-fit items-center gap-2 text-sm font-semibold text-yellow-400 transition hover:gap-3 hover:text-yellow-300"
                   >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
+                    Discuss This Service
+                    <ArrowUpRight size={16} />
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
         </section>
 
-        {/* Built Proof */}
-        <section className="mt-24 rounded-[40px] border border-white/10 bg-white/[0.03] p-8 md:p-12">
+        {/* SELECTED PROJECTS */}
 
+        <section
+          aria-labelledby="projects-heading"
+          className="relative mt-24 rounded-[32px] border border-white/10 bg-white/[0.025] p-5 sm:mt-32 sm:rounded-[40px] sm:p-10 lg:p-12"
+        >
           <div className="max-w-3xl">
-            <p className="text-sm uppercase tracking-[0.35em] text-yellow-400">
+
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-yellow-400">
               Built By Aether
             </p>
 
-            <h2 className="mt-4 text-4xl font-black md:text-5xl">
-              Real products.
+            <h2
+              id="projects-heading"
+              className="mt-4 text-3xl font-black tracking-tight sm:text-5xl"
+            >
+              Selected Projects.
               <br />
+
               <span className="text-yellow-400">
-                Real capabilities.
+                Demonstrated Capabilities.
               </span>
             </h2>
 
-            <p className="mt-6 leading-7 text-gray-400">
-              Explore products and digital experiences created using modern
-              web technologies, AI, analytics, automation, and product-focused
-              design.
+            <p className="mt-6 leading-8 text-gray-400">
+              Explore selected software, AI, media, education,
+              healthcare, and security projects developed
+              using modern technologies and product-focused design.
             </p>
           </div>
 
-          {/* Product Grid */}
+          {/* PROJECT GRID */}
+
           <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-         {/* StreamFlix */}
-<div className="overflow-hidden rounded-[28px] border border-white/10 bg-black/30">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="group flex h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-black/30 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/40"
+              >
+                {/* PROJECT IMAGE */}
 
-  <div className="relative">
-    <img
-      src="/streamflix.png"
-      alt="StreamFlix AI"
-      className="h-72 w-full object-cover transition duration-700 hover:scale-105"
-    />
+                <div className="relative h-56 shrink-0 overflow-hidden sm:h-64">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
 
-    <div className="absolute left-4 top-4 rounded-full border border-yellow-500/30 bg-black/70 px-4 py-2 text-xs font-semibold text-yellow-400 backdrop-blur-md">
-      AI-Powered Digital Product
-    </div>
+                  {/* CATEGORY */}
 
-    <div className="absolute right-4 top-4 rounded-full border border-green-500/30 bg-green-500/15 px-3 py-1.5 text-xs font-semibold text-green-400 backdrop-blur-md">
-      ● Live
-    </div>
-  </div>
+                  <div className="absolute left-3 top-3 max-w-[65%] rounded-full border border-yellow-500/30 bg-black/75 px-3 py-1.5 text-[10px] font-semibold text-yellow-400 backdrop-blur-md">
+                    {project.category}
+                  </div>
 
-  <div className="p-7">
+                  {/* STATUS */}
 
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
-      AI-Powered Digital Product
-    </p>
-
-    <h3 className="mt-3 text-3xl font-bold">
-      StreamFlix AI
-    </h3>
-
-    <p className="mt-4 leading-7 text-gray-400">
-      An AI-powered entertainment platform combining intelligent movie
-      discovery, generative AI, real-time movie data, and a premium
-      responsive experience.
-    </p>
-
-    {/* Built With */}
-    <div className="mt-6 flex flex-wrap gap-2">
-      {[
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Gemini AI",
-        "TMDB API",
-        "Vercel",
-      ].map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition hover:border-yellow-500/30 hover:text-yellow-400"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
-
-    <Link
-      href="https://streamflix-ai.vercel.app"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-7 inline-flex items-center rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
-    >
-      View Live Product ↗
-    </Link>
-
-  </div>
-</div>
-{/* THE PULSE */}
-<div className="overflow-hidden rounded-[28px] border border-white/10 bg-black/30 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/60">
-
-  <div className="relative">
-    <img
-      src="/the-pulse.png"
-      alt="The Pulse digital news platform"
-      className="h-72 w-full object-cover transition duration-700 hover:scale-105"
-    />
-
-    <div className="absolute left-4 top-4 rounded-full border border-yellow-500/30 bg-black/70 px-4 py-2 text-xs font-semibold text-yellow-400 backdrop-blur-md">
-      DIGITAL NEWS PLATFORM
-    </div>
-
-    <div className="absolute right-4 top-4 rounded-full border border-green-500/30 bg-green-500/15 px-3 py-1.5 text-xs font-semibold text-green-400 backdrop-blur-md">
-      ● LIVE
-    </div>
-  </div>
-
-  <div className="p-7">
-
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
-      Digital News & Media
-    </p>
-
-    <h3 className="mt-3 text-3xl font-bold">
-      The Pulse
-    </h3>
-
-    <p className="mt-4 leading-7 text-gray-400">
-      A modern digital news platform delivering breaking news, curated
-      headlines, live news coverage, and real-time updates through a premium
-      newspaper-style experience.
-    </p>
-
-    {/* Built With */}
-    <div className="mt-6 flex flex-wrap gap-2">
-      {[
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "GNews API",
-        "YouTube API",
-      ].map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition hover:border-yellow-500/30 hover:text-yellow-400"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
-
-    <Link
-      href="https://the-pulse-olive.vercel.app"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-7 inline-flex items-center rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
-    >
-      View Live Product ↗
-    </Link>
-
-  </div>
-</div>
-{/* EXAMAI */}
-<div className="overflow-hidden rounded-[28px] border border-yellow-500/30 bg-black/30 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/60">
-
-  <div className="relative">
-    <img
-      src="/examai.png"
-      alt="ExamAI AI-powered exam preparation platform"
-      className="h-72 w-full object-cover transition duration-700 hover:scale-105"
-    />
-
-    <div className="absolute left-4 top-4 rounded-full border border-yellow-500/30 bg-black/70 px-4 py-2 text-xs font-semibold text-yellow-400 backdrop-blur-md">
-      AI EDUCATION PLATFORM
-    </div>
-
-    <div className="absolute right-4 top-4 rounded-full border border-green-500/30 bg-green-500/15 px-3 py-1.5 text-xs font-semibold text-green-400 backdrop-blur-md">
-      ● LIVE
-    </div>
-  </div>
-
-  <div className="p-7">
-
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
-      AI-Powered Education
-    </p>
-
-    <h3 className="mt-3 text-3xl font-bold">
-      ExamAI
-    </h3>
-
-    <p className="mt-4 leading-7 text-gray-400">
-      An AI-powered exam preparation platform designed to help students
-      prepare for competitive examinations through practice questions,
-      mock tests, structured learning, and an interactive digital experience.
-    </p>
-
-    {/* Built With */}
-    <div className="mt-6 flex flex-wrap gap-2">
-      {[
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "Supabase",
-        "AI",
-      ].map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition hover:border-yellow-500/30 hover:text-yellow-400"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
-
-    <Link
-      href="https://exam-ai-amber.vercel.app/"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-7 inline-flex items-center rounded-full bg-yellow-500 px-6 py-3 font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
-    >
-      View Live Product ↗
-    </Link>
-
-  </div>
-</div>
-
-            {/* AURACARE */}
-<div className="overflow-hidden rounded-[28px] border border-white/10 bg-black/30">
-
-  <div className="relative">
-    <img
-      src="/auracare.png"
-      alt="AURACARE AI Healthcare Platform"
-      className="h-72 w-full object-cover transition duration-700 hover:scale-105"
-    />
-
-    <div className="absolute left-4 top-4 rounded-full border border-yellow-500/30 bg-black/70 px-4 py-2 text-xs font-semibold text-yellow-400 backdrop-blur-md">
-      AI-Powered Healthcare Platform
-    </div>
-
-    <div className="absolute right-4 top-4 rounded-full border border-green-500/30 bg-green-500/15 px-3 py-1.5 text-xs font-semibold text-green-400 backdrop-blur-md">
-      ● Completed
-    </div>
-  </div>
-
-  <div className="p-7">
-
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-400">
-      AI-Powered Healthcare Platform
-    </p>
-
-    <h3 className="mt-3 text-3xl font-bold">
-      AURACARE
-    </h3>
-
-    <p className="mt-4 leading-7 text-gray-400">
-      A modern AI-powered healthcare platform designed around patient
-      consultations, appointment assistance, healthcare guidance, and
-      digital patient experiences.
-    </p>
-
-    {/* Built With */}
-    <div className="mt-6 flex flex-wrap gap-2">
-      {[
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Tailwind CSS",
-        "AI",
-        "Healthcare UX",
-        "GitHub",
-      ].map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-400 transition hover:border-yellow-500/30 hover:text-yellow-400"
-        >
-          {tag}
-        </span>
-      ))}
-    </div>
-
-    <Link
-      href="https://github.com/egaost00-lgtm/auracare"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-7 inline-flex items-center rounded-full border border-white/15 px-6 py-3 font-semibold text-white transition hover:border-yellow-500/50 hover:text-yellow-400"
-    >
-      Explore Project ↗
-    </Link>
-
-  </div>
-</div>
-
-            {/* Network Security Assessment */}
-            <div className="flex h-full flex-col overflow-hidden rounded-[28px] border border-yellow-500/30 bg-black/30 transition-all duration-500 hover:-translate-y-2 hover:border-yellow-500/60">
-
-              <div className="relative h-56 shrink-0 overflow-hidden">
-
-                <img
-                  src="/network-security.png"
-                  alt="Cybersecurity & Network Security Assessment"
-                  className="h-full w-full object-cover transition duration-700 hover:scale-105"
-                />
-
-                <div className="absolute left-3 top-3 rounded-full border border-yellow-500/30 bg-black/75 px-3 py-1.5 text-[10px] font-semibold text-yellow-400 backdrop-blur-md">
-                  CYBERSECURITY
+                  <div className="absolute right-3 top-3 rounded-full border border-white/20 bg-black/75 px-3 py-1.5 text-[10px] font-semibold text-white/80 backdrop-blur-md">
+                    {project.status}
+                  </div>
                 </div>
 
-                <div className="absolute right-3 top-3 rounded-full border border-green-500/30 bg-green-500/15 px-3 py-1.5 text-[10px] font-semibold text-green-400 backdrop-blur-md">
-                  ● COMPLETED
-                </div>
+                {/* PROJECT CONTENT */}
 
-              </div>
+                <div className="flex flex-1 flex-col p-6">
 
-              <div className="flex flex-1 flex-col p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-yellow-400">
+                    {project.category}
+                  </p>
 
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-yellow-400">
-                  Cybersecurity & Network Security
-                </p>
+                  <h3 className="mt-3 text-2xl font-bold tracking-tight">
+                    {project.title}
+                  </h3>
 
-                <h3 className="mt-3 text-2xl font-bold">
-                  Network Security Assessment
-                </h3>
+                  <p className="mt-4 text-sm leading-7 text-gray-400">
+                    {project.description}
+                  </p>
 
-                <p className="mt-4 text-sm leading-6 text-gray-400">
-                  An authorized network security assessment performed in a
-                  controlled lab environment to identify exposed services,
-                  analyze network traffic, document findings, and provide
-                  practical remediation recommendations.
-                </p>
+                  {/* TECHNOLOGIES */}
 
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {["Kali Linux", "Nmap", "Wireshark"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-gray-400"
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-gray-400 transition hover:border-yellow-500/30 hover:text-yellow-400"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* PROJECT LINK */}
+
+                  <div className="mt-auto pt-7">
+                    <Link
+                      href={project.href}
+                      target={
+                        project.external ? "_blank" : undefined
+                      }
+                      rel={
+                        project.external
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
+                      className="inline-flex items-center gap-2 rounded-full bg-yellow-500 px-5 py-3 text-sm font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
                     >
-                      {tag}
-                    </span>
-                  ))}
+                      {project.action}
+                      <ArrowUpRight size={16} />
+                    </Link>
+                  </div>
                 </div>
+              </article>
+            ))}
+          </div>
 
-                <div className="mt-auto pt-6">
-                  <Link
-                    href="/portfolio"
-                    className="inline-flex items-center rounded-full bg-yellow-500 px-5 py-2.5 text-sm font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
-                  >
-                    View Case Study ↗
-                  </Link>
-                </div>
+          {/* PORTFOLIO LINK */}
 
-              </div>
-            </div>
-
+          <div className="mt-10 text-center">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-yellow-400 transition hover:gap-3 hover:text-yellow-300"
+            >
+              Explore Our Full Portfolio
+              <ArrowUpRight size={17} />
+            </Link>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="mt-24 rounded-[40px] border border-yellow-500/20 bg-yellow-500/[0.05] p-10 text-center md:p-16">
+        {/* FINAL CTA */}
 
-          <p className="text-sm uppercase tracking-[0.35em] text-yellow-400">
-            Have An Idea?
-          </p>
+        <section className="relative mt-24 overflow-hidden rounded-[32px] border border-yellow-500/20 bg-yellow-500/[0.045] p-8 text-center sm:mt-32 sm:rounded-[40px] sm:p-12 lg:p-16">
 
-          <h2 className="mt-5 text-4xl font-black md:text-6xl">
-            Let's build what's next.
-          </h2>
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(234,179,8,0.10),transparent_65%)]" />
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-            Tell us what you're trying to build, and we'll turn the idea into
-            a modern digital product.
-          </p>
+          <div className="relative mx-auto max-w-3xl">
 
-          <Link
-            href="/contact"
-            className="mt-9 inline-flex rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
-          >
-            Start Your Project
-          </Link>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-yellow-400">
+              Build With Aether
+            </p>
 
+            <h2 className="mt-5 text-3xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+              Have a Business Challenge?
+              <br />
+
+              <span className="text-yellow-400">
+                Let's Engineer the Solution.
+              </span>
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-gray-400 sm:text-lg">
+              Whether you need custom software, AI automation,
+              cloud solutions, or a new digital product,
+              let's discuss your requirements and explore
+              the right approach for your business.
+            </p>
+
+            <Link
+              href="/contact"
+              className="mt-9 inline-flex items-center gap-2 rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black transition hover:scale-105 hover:bg-yellow-400"
+            >
+              Start Your Project
+              <ArrowUpRight size={18} />
+            </Link>
+          </div>
         </section>
-
       </div>
     </main>
   );

@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -10,24 +9,28 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    icon: "✦",
-    title: "AI Agents",
-    description: "Intelligent agents for real-world tasks",
+    icon: "⌘",
+    title: "Software Engineering",
+    description:
+      "Custom applications, APIs and scalable digital platforms",
   },
   {
-    icon: "⌘",
-    title: "AI Solutions",
-    description: "Scalable solutions for modern business",
+    icon: "✦",
+    title: "AI & Automation",
+    description:
+      "Intelligent AI agents and automated business workflows",
   },
   {
     icon: "◈",
-    title: "SaaS Products",
-    description: "Launch and grow with confidence",
+    title: "Cloud & DevOps",
+    description:
+      "Cloud infrastructure, deployment and modernization",
   },
   {
     icon: "↗",
-    title: "Automation",
-    description: "Work smarter, achieve more",
+    title: "SaaS & Enterprise",
+    description:
+      "Business systems and next-generation SaaS products",
   },
 ];
 
@@ -59,7 +62,6 @@ export default function Hero() {
       {/* BACKGROUND ATMOSPHERE */}
 
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-
         <div className="absolute -right-40 top-10 h-[450px] w-[450px] rounded-full bg-violet-700/[0.12] blur-[120px] sm:h-[650px] sm:w-[650px] sm:blur-[150px]" />
 
         <div className="absolute -left-40 bottom-0 h-[350px] w-[350px] rounded-full bg-purple-900/[0.12] blur-[110px] sm:h-[450px] sm:w-[450px] sm:blur-[140px]" />
@@ -67,7 +69,6 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_40%,rgba(124,58,237,0.10),transparent_55%)]" />
 
         <div className="absolute inset-0 opacity-[0.10] [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:65px_65px]" />
-
       </div>
 
       {/* SUBTLE PARTICLES */}
@@ -115,10 +116,12 @@ export default function Hero() {
               transition={{ duration: 0.7 }}
               className="mb-6 inline-flex max-w-full items-center gap-2.5 rounded-full border border-violet-400/25 bg-violet-500/[0.07] px-3 py-2.5 backdrop-blur-xl sm:mb-7 sm:gap-3 sm:px-4"
             >
-              <span className="shrink-0 text-violet-400">✦</span>
+              <span className="shrink-0 text-violet-400">
+                ✦
+              </span>
 
-              <span className="text-[9px] font-semibold uppercase tracking-[0.17em] text-violet-200 sm:text-xs sm:tracking-[0.22em]">
-                AI Product Engineering Studio
+              <span className="text-[9px] font-semibold uppercase tracking-[0.13em] text-violet-200 sm:text-xs sm:tracking-[0.18em]">
+                Global Software & AI Engineering
               </span>
             </motion.div>
 
@@ -128,17 +131,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.1 }}
-              className="text-[clamp(2.65rem,9vw,3.5rem)] font-semibold leading-[1.02] tracking-[-0.055em] sm:text-6xl md:text-7xl xl:text-[82px]"
+              className="text-[clamp(2.5rem,8vw,3.5rem)] font-semibold leading-[1.06] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[clamp(3.2rem,4.6vw,4.5rem)] xl:text-[74px]"
             >
               We Engineer
               <br />
-              Intelligence.
+              Software.
               <br />
 
               <span className="bg-gradient-to-r from-violet-300 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-                You Build
+                Build Intelligence.
                 <br />
-                the Future.
+                Power Growth.
               </span>
             </motion.h1>
 
@@ -148,10 +151,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="mt-5 max-w-[510px] text-sm leading-7 text-white/60 sm:mt-7 sm:text-base sm:leading-8"
+              className="mt-5 max-w-[540px] text-sm leading-7 text-white/60 sm:mt-7 sm:text-base sm:leading-8"
             >
-              Building intelligent AI solutions, powerful software and
-              next-generation digital products for ambitious businesses.
+              We build custom software, intelligent AI solutions,
+              cloud infrastructure and scalable digital products
+              for ambitious businesses in India and worldwide.
             </motion.p>
 
             {/* CAPABILITIES */}
@@ -162,13 +166,13 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mt-5 flex flex-wrap items-center gap-x-2.5 gap-y-2 text-[11px] text-white/55 sm:mt-7 sm:gap-x-3 sm:text-sm"
             >
-              <span>AI Agents</span>
+              <span>Software Development</span>
               <span className="text-violet-400">✦</span>
-              <span>AI Software</span>
+              <span>AI Automation</span>
               <span className="text-violet-400">✦</span>
-              <span>Automation</span>
+              <span>Cloud Solutions</span>
               <span className="text-violet-400">✦</span>
-              <span>Data Intelligence</span>
+              <span>Enterprise Systems</span>
             </motion.div>
 
             {/* DIVIDER */}
@@ -189,10 +193,10 @@ export default function Hero() {
               className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4"
             >
               <Link
-                href="/portfolio"
+                href="/contact"
                 className="group inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-full bg-gradient-to-r from-violet-600 to-purple-600 px-7 py-4 text-sm font-semibold text-white shadow-[0_0_35px_rgba(124,58,237,0.3)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(124,58,237,0.5)] sm:w-auto sm:px-8"
               >
-                Explore Our Work
+                Start Your Project
 
                 <span className="transition-transform group-hover:translate-x-1">
                   →
@@ -200,14 +204,13 @@ export default function Hero() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/portfolio"
                 className="inline-flex min-h-[52px] w-full items-center justify-center gap-3 rounded-full border border-white/15 bg-white/[0.035] px-7 py-4 text-sm font-medium text-white transition-all duration-300 hover:border-violet-400/60 hover:bg-violet-500/10 sm:w-auto sm:px-8"
               >
-                Let's Talk
+                Explore Our Work
                 <span>↗</span>
               </Link>
             </motion.div>
-
           </div>
 
           {/* RIGHT VISUAL - AI NEURAL SPHERE */}
@@ -340,7 +343,6 @@ export default function Hero() {
                       ease: "easeInOut",
                     }}
                   />
-
                 </svg>
 
                 {/* AETHER SYMBOL */}
@@ -354,7 +356,6 @@ export default function Hero() {
                 {/* GLASS SHINE */}
 
                 <div className="pointer-events-none absolute left-[15%] top-[10%] h-[35%] w-[55%] rounded-full bg-white/10 blur-2xl" />
-
               </div>
 
               {/* ORBIT LIGHT */}
@@ -397,10 +398,8 @@ export default function Hero() {
                   Think. Build. Scale.
                 </p>
               </div>
-
             </motion.div>
           </motion.div>
-
         </div>
 
         {/* TRUST STRIP */}
@@ -412,14 +411,13 @@ export default function Hero() {
           className="mt-8 border-t border-white/10 pt-6 sm:mt-14 sm:pt-7"
         >
           <p className="text-center text-[9px] font-medium uppercase tracking-[0.2em] text-white/40 sm:text-[10px] sm:tracking-[0.25em]">
-            Intelligence · Engineering · Innovation
+            Software Engineering · Artificial Intelligence · Innovation
           </p>
         </motion.div>
 
         {/* FEATURE CARDS */}
 
         <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4 lg:grid-cols-4">
-
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -444,7 +442,6 @@ export default function Hero() {
               </p>
             </motion.div>
           ))}
-
         </div>
 
         {/* SCROLL INDICATOR */}
@@ -454,9 +451,7 @@ export default function Hero() {
             Scroll to Explore ↓
           </span>
         </div>
-
       </div>
-
     </section>
   );
 }
