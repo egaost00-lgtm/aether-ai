@@ -40,6 +40,16 @@ const tech = [
     category: "Cloud",
   },
   {
+  name: "Amazon Web Services",
+  logo: "/logos/aws.svg",
+  category: "Cloud Infrastructure",
+},
+{
+  name: "AWS Amplify",
+  logo: "/logos/aws-amplify.svg",
+  category: "Hosting & Deployment",
+},
+  {
     name: "OpenAI",
     logo: "/logos/openai.svg",
     category: "Artificial Intelligence",
