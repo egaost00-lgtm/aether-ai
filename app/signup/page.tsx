@@ -1,769 +1,525 @@
+
 "use client";
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
+  Check,
+  CheckCircle2,
   Eye,
   EyeOff,
-  ShieldCheck,
-  Sparkles,
-  Zap,
-  ArrowRight,
-  CheckCircle2,
+  FolderKanban,
   LockKeyhole,
-  Cpu,
+  MessageSquareText,
+  ShieldCheck,
+  Wallet,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
+const inputClass =
+  "w-full rounded-xl border border-white/10 bg-[#0B1220] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-500 hover:border-white/20 focus:border-amber-400/60 focus:ring-4 focus:ring-amber-400/10";
+
+const features = [
+  {
+    icon: FolderKanban,
+    title: "Project visibility",
+    description: "Follow your projects and important milestones.",
+  },
+  {
+    icon: MessageSquareText,
+    title: "Direct communication",
+    description: "Keep conversations connected to your work.",
+  },
+  {
+    icon: Wallet,
+    title: "Billing & documents",
+    description: "Access your payments and shared project files.",
+  },
+];
+
 export default function SignupPage() {
   const [name, setName] = useState("");
-const [company, setCompany] = useState("");
-const [phone, setPhone] = useState("");
-const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState(false);
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const passwordChecks = [
+    { label: "At least 8 characters", valid: password.length >= 8 },
+    { label: "Uppercase letter", valid: /[A-Z]/.test(password) },
+    { label: "Lowercase letter", valid: /[a-z]/.test(password) },
+    { label: "Number", valid: /[0-9]/.test(password) },
+  ];
+
+  const passwordValid = passwordChecks.every((item) => item.valid);
+
   async function handleSignup(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (loading) return;
 
     setMessage("");
     setErrorMessage("");
 
-    if (password !== confirmPassword) {
-      setErrorMessage("Passwords do not match.");
+    if (!name.trim() || !company.trim() || !phone.trim()) {
+      setErrorMessage("Please complete all required fields.");
       return;
     }
 
-    if (password.length < 6) {
-      setErrorMessage("Password must be at least 6 characters.");
+    if (!passwordValid) {
+      setErrorMessage("Please meet all password requirements.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setErrorMessage("Your passwords do not match.");
       return;
     }
 
     setLoading(true);
 
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-      data: {
-  full_name: name,
-  company_name: company,
-  phone: phone,
-},
-        emailRedirectTo: `${window.location.origin}/login`,
-      },
-    });
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim().toLowerCase(),
+        password,
+        options: {
+          data: {
+            full_name: name.trim(),
+            company_name: company.trim(),
+            phone: phone.trim(),
+          },
+          emailRedirectTo: `${window.location.origin}/login`,
+        },
+      });
 
-    if (error) {
-      setErrorMessage(error.message);
+      if (error) {
+        setErrorMessage(error.message);
+        return;
+      }
+
+      if (data.session) {
+        window.location.assign("/client/dashboard");
+        return;
+      }
+
+      setMessage(
+        "Your registration request was received. If email verification is required, check your inbox for a confirmation link before signing in."
+      );
+    } catch {
+      setErrorMessage(
+        "We couldn't complete your registration. Please check your connection and try again."
+      );
+    } finally {
       setLoading(false);
-      return;
     }
-
-    if (data.session) {
-      window.location.href = "/client/dashboard";
-      return;
-    }
-
-    setMessage(
-      "Account created successfully. Please check your email to verify your account."
-    );
-
-    setLoading(false);
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#02050a] px-5 py-10 text-white sm:px-6">
-      {/* ========================================================= */}
-      {/* AETHER AI DIGITAL BACKGROUND */}
-      {/* ========================================================= */}
-
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Deep atmospheric glows */}
-
-        <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/[0.055] blur-[160px]" />
-
-        <div className="absolute -left-40 top-0 h-[550px] w-[550px] rounded-full bg-orange-500/[0.07] blur-[160px]" />
-
-        <div className="absolute -right-40 bottom-0 h-[550px] w-[550px] rounded-full bg-green-500/[0.06] blur-[160px]" />
-
-        {/* Technical grid */}
-
+    <main className="relative min-h-screen overflow-hidden bg-[#070B13] text-white">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-64 top-0 h-[600px] w-[600px] rounded-full bg-amber-500/[0.055] blur-[150px]" />
+        <div className="absolute -right-64 bottom-0 h-[600px] w-[600px] rounded-full bg-blue-500/[0.055] blur-[150px]" />
         <div
-          className="absolute inset-0 opacity-[0.035]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)
-            `,
-            backgroundSize: "70px 70px",
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px)",
+            backgroundSize: "64px 64px",
           }}
-        />
-
-        {/* ===================================================== */}
-        {/* AI NEURAL NETWORK */}
-        {/* ===================================================== */}
-
-        <svg
-          className="absolute inset-0 h-full w-full opacity-50"
-          viewBox="0 0 1200 900"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient
-              id="networkLine"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
-            >
-              <stop offset="0%" stopColor="#22d3ee" stopOpacity="0" />
-              <stop offset="50%" stopColor="#22d3ee" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#22d3ee" stopOpacity="0" />
-            </linearGradient>
-
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          {/* Left network */}
-
-          <g stroke="url(#networkLine)" strokeWidth="1">
-            <line x1="70" y1="160" x2="240" y2="250" />
-            <line x1="240" y1="250" x2="330" y2="170" />
-            <line x1="240" y1="250" x2="350" y2="360" />
-            <line x1="350" y1="360" x2="210" y2="470" />
-            <line x1="210" y1="470" x2="80" y2="390" />
-            <line x1="80" y1="390" x2="70" y2="160" />
-            <line x1="350" y1="360" x2="500" y2="300" />
-          </g>
-
-          {/* Right network */}
-
-          <g stroke="url(#networkLine)" strokeWidth="1">
-            <line x1="1130" y1="150" x2="960" y2="230" />
-            <line x1="960" y1="230" x2="870" y2="150" />
-            <line x1="960" y1="230" x2="850" y2="350" />
-            <line x1="850" y1="350" x2="990" y2="470" />
-            <line x1="990" y1="470" x2="1120" y2="390" />
-            <line x1="1120" y1="390" x2="1130" y2="150" />
-            <line x1="850" y1="350" x2="700" y2="300" />
-          </g>
-
-          {/* Lower network */}
-
-          <g stroke="url(#networkLine)" strokeWidth="1">
-            <line x1="180" y1="760" x2="330" y2="650" />
-            <line x1="330" y1="650" x2="450" y2="730" />
-            <line x1="450" y1="730" x2="600" y2="650" />
-            <line x1="600" y1="650" x2="750" y2="730" />
-            <line x1="750" y1="730" x2="900" y2="650" />
-            <line x1="900" y1="650" x2="1030" y2="760" />
-          </g>
-
-          {/* Network nodes */}
-
-          <g filter="url(#glow)">
-            <circle cx="70" cy="160" r="3" fill="#22d3ee" />
-            <circle cx="240" cy="250" r="4" fill="#22d3ee" />
-            <circle cx="330" cy="170" r="3" fill="#34d399" />
-            <circle cx="350" cy="360" r="4" fill="#22d3ee" />
-            <circle cx="210" cy="470" r="3" fill="#f97316" />
-            <circle cx="80" cy="390" r="3" fill="#22d3ee" />
-
-            <circle cx="1130" cy="150" r="3" fill="#22d3ee" />
-            <circle cx="960" cy="230" r="4" fill="#22d3ee" />
-            <circle cx="870" cy="150" r="3" fill="#34d399" />
-            <circle cx="850" cy="350" r="4" fill="#22d3ee" />
-            <circle cx="990" cy="470" r="3" fill="#f97316" />
-            <circle cx="1120" cy="390" r="3" fill="#22d3ee" />
-
-            <circle cx="180" cy="760" r="3" fill="#22d3ee" />
-            <circle cx="330" cy="650" r="3" fill="#34d399" />
-            <circle cx="450" cy="730" r="3" fill="#22d3ee" />
-            <circle cx="600" cy="650" r="4" fill="#22d3ee" />
-            <circle cx="750" cy="730" r="3" fill="#34d399" />
-            <circle cx="900" cy="650" r="3" fill="#22d3ee" />
-            <circle cx="1030" cy="760" r="3" fill="#f97316" />
-          </g>
-        </svg>
-
-        {/* Animated data pulses */}
-
-        <motion.div
-          animate={{
-            x: ["0vw", "100vw"],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute left-0 top-[27%] h-[2px] w-24 bg-gradient-to-r from-transparent via-cyan-300 to-transparent blur-[1px]"
-        />
-
-        <motion.div
-          animate={{
-            x: ["100vw", "0vw"],
-            opacity: [0, 1, 0],
-          }}
-          transition={{
-            duration: 11,
-            repeat: Infinity,
-            ease: "linear",
-            delay: 2,
-          }}
-          className="absolute left-0 top-[68%] h-[2px] w-28 bg-gradient-to-r from-transparent via-green-300 to-transparent blur-[1px]"
-        />
-
-        {/* Central AI core */}
-
-        <motion.div
-          animate={{
-            scale: [1, 1.06, 1],
-            opacity: [0.45, 0.75, 0.45],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/[0.08] bg-cyan-400/[0.015] blur-[1px]"
-        />
-
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute left-1/2 top-1/2 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-cyan-400/[0.055]"
-        />
-
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute left-1/2 top-1/2 h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.045]"
-        />
-
-        {/* Floating nodes */}
-
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 1, 0.3],
-          }}
-          transition={{
-            duration: 2.5,
-            repeat: Infinity,
-          }}
-          className="absolute left-[8%] top-[22%] h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_25px_rgba(34,211,238,1)]"
-        />
-
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 1, 0.3],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            delay: 1,
-          }}
-          className="absolute right-[9%] top-[26%] h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_25px_rgba(34,211,238,1)]"
-        />
-
-        <motion.div
-          animate={{
-            scale: [1, 1.4, 1],
-            opacity: [0.3, 1, 0.3],
-          }}
-          transition={{
-            duration: 2.8,
-            repeat: Infinity,
-            delay: 0.5,
-          }}
-          className="absolute left-[13%] bottom-[22%] h-2 w-2 rounded-full bg-green-400 shadow-[0_0_25px_rgba(34,197,94,0.9)]"
-        />
-
-        <motion.div
-          animate={{
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 1, 0.3],
-          }}
-          transition={{
-            duration: 3.2,
-            repeat: Infinity,
-            delay: 1.5,
-          }}
-          className="absolute right-[14%] bottom-[24%] h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_25px_rgba(249,115,22,0.9)]"
         />
       </div>
 
-      {/* ========================================================= */}
-      {/* MAIN CONTENT */}
-      {/* ========================================================= */}
-
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl items-center justify-center">
-        <div className="w-full max-w-lg">
-
-          {/* ===================================================== */}
-          {/* BRAND */}
-          {/* ===================================================== */}
-
-          <motion.div
-            initial={{ opacity: 0, y: -25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="mb-7 text-center"
-          >
-            <div className="mb-5 flex justify-center">
-              <div className="relative">
-                <motion.div
-                  animate={{
-                    scale: [1, 1.08, 1],
-                    rotate: [0, 3, -3, 0],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="flex h-16 w-16 items-center justify-center rounded-[20px] border border-white/30 bg-gradient-to-br from-orange-400 via-yellow-400 to-green-500 text-2xl font-black text-white shadow-[0_0_45px_rgba(34,211,238,0.18)]"
-                >
-                  A
-                </motion.div>
-
-                <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#02050a] bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,1)]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                </span>
-              </div>
+      <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-5 py-8 sm:px-8 lg:px-12">
+        {/* Header */}
+        <header className="flex items-center justify-between gap-4">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-amber-300/30 bg-gradient-to-br from-amber-300 to-amber-600 text-xl font-black text-[#111827]">
+              A
             </div>
 
-            <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-cyan-300">
-              AETHER AI SOLUTIONS
-            </p>
+            <div>
+              <p className="text-sm font-bold tracking-[0.13em]">
+                AETHER AI
+              </p>
+              <p className="text-[10px] uppercase tracking-[0.25em] text-slate-400">
+                Solutions
+              </p>
+            </div>
+          </Link>
 
-            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-              Create Account
+          <Link
+            href="/login"
+            className="text-sm font-medium text-slate-300 transition hover:text-amber-300"
+          >
+            Sign in
+            <ArrowRight className="ml-2 inline-block h-4 w-4" />
+          </Link>
+        </header>
+
+        <div className="grid flex-1 items-center gap-8 py-8 lg:grid-cols-[1fr_1.05fr] lg:gap-12">
+          {/* Left content */}
+          <motion.section
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="mx-auto w-full max-w-xl lg:mx-0"
+          >
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-amber-400/20 bg-amber-400/[0.06] px-4 py-2 text-xs font-medium text-amber-300">
+              <ShieldCheck size={15} />
+              Aether Client Experience
+            </div>
+
+            <h1 className="max-w-xl text-4xl font-bold leading-[1.12] tracking-tight sm:text-5xl xl:text-[58px]">
+              Your projects.
+              <br />
+              Your workspace.
+              <br />
+              <span className="text-amber-400">
+                All in one place.
+              </span>
             </h1>
 
-            <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-white/45">
-              Create your secure account and enter the
-              <span className="text-cyan-300">
-                {" "}
-                Aether AI Client Portal.
-              </span>
+            <p className="mt-6 max-w-lg text-base leading-8 text-slate-400">
+              A dedicated client portal designed to make
+              collaboration simple, transparent, and organized
+              throughout your journey with Aether AI Solutions.
             </p>
-          </motion.div>
 
-          {/* ===================================================== */}
-          {/* SYSTEM STATUS */}
-          {/* ===================================================== */}
+            <div className="mt-10 space-y-7">
+              {features.map((feature) => {
+                const Icon = feature.icon;
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
+                return (
+                  <div key={feature.title} className="flex gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-amber-400/15 bg-amber-400/[0.06] text-amber-400">
+                      <Icon size={21} />
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm font-semibold text-white">
+                        {feature.title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-6 text-slate-400">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-12 flex items-center gap-3 border-t border-white/10 pt-6 text-xs text-slate-400">
+              <LockKeyhole size={16} className="text-amber-400" />
+              Secure authentication powered by Supabase
+            </div>
+          </motion.section>
+
+          {/* Signup form */}
+          <motion.section
+            initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mb-4 flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.025] px-4 py-3 backdrop-blur-xl"
+            className="mx-auto w-full max-w-xl"
           >
-            <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-cyan-400/10 bg-cyan-400/[0.06]">
-                <Cpu size={15} className="text-cyan-300" />
+            <div className="rounded-[28px] border border-white/10 bg-[#101725]/95 p-6 shadow-[0_25px_90px_rgba(0,0,0,0.35)] sm:p-7">
+              <div className="mb-8">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-amber-400/20 bg-amber-400/[0.08]">
+                  <ShieldCheck size={22} className="text-amber-400" />
+                </div>
+
+                <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                  Create your account
+                </h2>
+
+                <p className="mt-2 text-sm leading-6 text-slate-400">
+                  Enter your details to get started with the
+                  Aether AI Client Portal.
+                </p>
               </div>
 
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/65">
-                  AI Core
-                </p>
-
-                <p className="mt-0.5 text-[10px] text-white/30">
-                  Authentication system ready
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400 shadow-[0_0_10px_rgba(74,222,128,1)]" />
-
-              <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-green-300">
-                Online
-              </span>
-            </div>
-          </motion.div>
-
-          {/* ===================================================== */}
-          {/* FORM */}
-          {/* ===================================================== */}
-
-          <motion.form
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, delay: 0.15 }}
-            onSubmit={handleSignup}
-            className="relative overflow-hidden rounded-[30px] border border-white/[0.13] bg-white/[0.045] p-6 shadow-[0_30px_100px_rgba(0,0,0,0.55)] backdrop-blur-2xl sm:p-8"
-          >
-            {/* Premium card lighting */}
-
-            <div className="pointer-events-none absolute -right-28 -top-28 h-72 w-72 rounded-full bg-cyan-400/[0.08] blur-[90px]" />
-
-            <div className="pointer-events-none absolute -bottom-28 -left-28 h-72 w-72 rounded-full bg-orange-400/[0.045] blur-[90px]" />
-
-            <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent" />
-
-            <div className="relative">
-
-              {/* Card header */}
-
-              <div className="mb-7 flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <Sparkles size={15} className="text-cyan-300" />
-
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-                      Secure Access
-                    </p>
+              <form onSubmit={handleSignup} className="space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="fullName"
+                      className="mb-2 block text-xs font-medium text-slate-300"
+                    >
+                      Full name
+                    </label>
+                    <input
+                      id="fullName"
+                      type="text"
+                      autoComplete="name"
+                      required
+                      maxLength={100}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Your full name"
+                      className={inputClass}
+                    />
                   </div>
 
-                  <p className="mt-2 text-xs text-white/30">
-                    Initialize your client workspace
-                  </p>
+                  <div>
+                    <label
+                      htmlFor="company"
+                      className="mb-2 block text-xs font-medium text-slate-300"
+                    >
+                      Company name
+                    </label>
+                    <input
+                      id="company"
+                      type="text"
+                      autoComplete="organization"
+                      required
+                      maxLength={120}
+                      value={company}
+                      onChange={(e) => setCompany(e.target.value)}
+                      placeholder="Your company"
+                      className={inputClass}
+                    />
+                  </div>
                 </div>
 
-                <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 sm:flex">
-                  <LockKeyhole size={11} className="text-cyan-300/60" />
-
-                  <span className="font-mono text-[9px] tracking-[0.2em] text-cyan-300/60">
-                    CORE_01
-                  </span>
-                </div>
-              </div>
-
-              {/* ================================================= */}
-              {/* FULL NAME */}
-              {/* ================================================= */}
-
-              <div>
-                <label className="mb-2 block text-xs font-medium text-white/60">
-                  Full Name
-                </label>
-
-                <input
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Your full name"
-                  className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none transition duration-300 placeholder:text-white/20 hover:border-white/20 focus:border-cyan-400/60 focus:bg-cyan-400/[0.025] focus:ring-4 focus:ring-cyan-400/[0.06]"
-                />
-              </div>
-
-              {/* ================================================= */}
-              {/* COMPANY */}
-              {/* ================================================= */}
-
-              <div className="mt-5">
-                <label className="mb-2 block text-xs font-medium text-white/60">
-                  Company Name
-                </label>
-
-                <input
-                  type="text"
-                  required
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  placeholder="Your company"
-                  className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none transition duration-300 placeholder:text-white/20 hover:border-white/20 focus:border-cyan-400/60 focus:bg-cyan-400/[0.025] focus:ring-4 focus:ring-cyan-400/[0.06]"
-                />
-              </div>
-              {/* ================================================= */}
-{/* PHONE */}
-{/* ================================================= */}
-
-<div className="mt-5">
-  <label className="mb-2 block text-xs font-medium text-white/60">
-    Phone Number
-  </label>
-
-  <input
-    type="tel"
-    required
-    value={phone}
-    onChange={(e) => setPhone(e.target.value)}
-    placeholder="+91 98765 43210"
-    className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none transition duration-300 placeholder:text-white/20 hover:border-white/20 focus:border-cyan-400/60 focus:bg-cyan-400/[0.025] focus:ring-4 focus:ring-cyan-400/[0.06]"
-  />
-</div>
-
-              {/* ================================================= */}
-              {/* EMAIL */}
-              {/* ================================================= */}
-
-              <div className="mt-5">
-                <label className="mb-2 block text-xs font-medium text-white/60">
-                  Email Address
-                </label>
-
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
-                  className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none transition duration-300 placeholder:text-white/20 hover:border-white/20 focus:border-cyan-400/60 focus:bg-cyan-400/[0.025] focus:ring-4 focus:ring-cyan-400/[0.06]"
-                />
-              </div>
-
-              {/* ================================================= */}
-              {/* PASSWORD */}
-              {/* ================================================= */}
-
-              <div className="mt-5">
-                <label className="mb-2 block text-xs font-medium text-white/60">
-                  Password
-                </label>
-
-                <div className="relative">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    required
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Minimum 6 characters"
-                    className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5 pr-12 text-sm text-white outline-none transition duration-300 placeholder:text-white/20 hover:border-white/20 focus:border-cyan-400/60 focus:bg-cyan-400/[0.025] focus:ring-4 focus:ring-cyan-400/[0.06]"
-                  />
-
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    aria-label={
-                      showPassword ? "Hide password" : "Show password"
-                    }
-                    className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-xl text-white/30 transition hover:bg-white/10 hover:text-white"
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-2 block text-xs font-medium text-slate-300"
                   >
-                    {showPassword ? (
-                      <EyeOff size={17} />
-                    ) : (
-                      <Eye size={17} />
-                    )}
-                  </button>
-                </div>
-              </div>
-
-              {/* ================================================= */}
-              {/* CONFIRM PASSWORD */}
-              {/* ================================================= */}
-
-              <div className="mt-5">
-                <label className="mb-2 block text-xs font-medium text-white/60">
-                  Confirm Password
-                </label>
-
-                <div className="relative">
+                    Phone number
+                  </label>
                   <input
-                    type={showConfirmPassword ? "text" : "password"}
+                    id="phone"
+                    type="tel"
+                    autoComplete="tel"
                     required
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    placeholder="Repeat your password"
-                    className="w-full rounded-2xl border border-white/10 bg-black/20 px-4 py-3.5 pr-12 text-sm text-white outline-none transition duration-300 placeholder:text-white/20 hover:border-white/20 focus:border-cyan-400/60 focus:bg-cyan-400/[0.025] focus:ring-4 focus:ring-cyan-400/[0.06]"
+                    maxLength={25}
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+91 98765 43210"
+                    className={inputClass}
                   />
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setShowConfirmPassword(!showConfirmPassword)
-                    }
-                    aria-label={
-                      showConfirmPassword
-                        ? "Hide confirm password"
-                        : "Show confirm password"
-                    }
-                    className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-xl text-white/30 transition hover:bg-white/10 hover:text-white"
-                  >
-                    {showConfirmPassword ? (
-                      <EyeOff size={17} />
-                    ) : (
-                      <Eye size={17} />
-                    )}
-                  </button>
                 </div>
-              </div>
 
-              {/* ================================================= */}
-              {/* PASSWORD STATUS */}
-              {/* ================================================= */}
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-xs font-medium text-slate-300"
+                  >
+                    Work email
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    maxLength={254}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@company.com"
+                    className={inputClass}
+                  />
+                </div>
 
-              {confirmPassword.length > 0 && (
-                <div className="mt-3 flex items-center gap-2 text-xs">
-                  {password === confirmPassword ? (
+                <div>
+                  <label
+                    htmlFor="password"
+                    className="mb-2 block text-xs font-medium text-slate-300"
+                  >
+                    Password
+                  </label>
+
+                  <div className="relative">
+                    <input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      autoComplete="new-password"
+                      required
+                      minLength={8}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Create a strong password"
+                      aria-describedby="passwordRequirements"
+                      className={`${inputClass} pr-12`}
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((v) => !v)}
+                      aria-label={
+                        showPassword ? "Hide password" : "Show password"
+                      }
+                      aria-pressed={showPassword}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-white"
+                    >
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                    </button>
+                  </div>
+
+                  <div
+                    id="passwordRequirements"
+                    className="mt-3 grid gap-2 sm:grid-cols-2"
+                  >
+                    {passwordChecks.map((item) => (
+                      <div
+                        key={item.label}
+                        className={`flex items-center gap-2 text-xs ${
+                          item.valid
+                            ? "text-emerald-400"
+                            : "text-slate-500"
+                        }`}
+                      >
+                        <Check
+                          size={13}
+                          aria-hidden="true"
+                          className={
+                            item.valid ? "opacity-100" : "opacity-40"
+                          }
+                        />
+                        {item.label}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="confirmPassword"
+                    className="mb-2 block text-xs font-medium text-slate-300"
+                  >
+                    Confirm password
+                  </label>
+
+                  <div className="relative">
+                    <input
+                      id="confirmPassword"
+                      type={showConfirmPassword ? "text" : "password"}
+                      autoComplete="new-password"
+                      required
+                      value={confirmPassword}
+                      onChange={(e) =>
+                        setConfirmPassword(e.target.value)
+                      }
+                      placeholder="Repeat your password"
+                      className={`${inputClass} pr-12`}
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setShowConfirmPassword((v) => !v)
+                      }
+                      aria-label={
+                        showConfirmPassword
+                          ? "Hide confirm password"
+                          : "Show confirm password"
+                      }
+                      aria-pressed={showConfirmPassword}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-2 text-slate-400 transition hover:bg-white/10 hover:text-white"
+                    >
+                      {showConfirmPassword ? (
+                        <EyeOff size={18} />
+                      ) : (
+                        <Eye size={18} />
+                      )}
+                    </button>
+                  </div>
+
+                  {confirmPassword.length > 0 && (
+                    <p
+                      className={`mt-2 flex items-center gap-2 text-xs ${
+                        password === confirmPassword
+                          ? "text-emerald-400"
+                          : "text-amber-400"
+                      }`}
+                    >
+                      {password === confirmPassword ? (
+                        <>
+                          <CheckCircle2 size={14} />
+                          Passwords match
+                        </>
+                      ) : (
+                        "Passwords do not match yet"
+                      )}
+                    </p>
+                  )}
+                </div>
+
+                {errorMessage && (
+                  <div
+                    role="alert"
+                    className="rounded-xl border border-red-400/20 bg-red-400/[0.07] p-4 text-sm leading-6 text-red-300"
+                  >
+                    {errorMessage}
+                  </div>
+                )}
+
+                {message && (
+                  <div
+                    role="status"
+                    className="rounded-xl border border-emerald-400/20 bg-emerald-400/[0.07] p-4 text-sm leading-6 text-emerald-300"
+                  >
+                    {message}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading || !passwordValid || password !== confirmPassword}
+                  className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-5 py-4 text-sm font-bold text-[#111827] shadow-[0_10px_35px_rgba(245,158,11,0.12)] transition hover:from-amber-300 hover:to-amber-400 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {loading ? (
                     <>
-                      <CheckCircle2
-                        size={14}
-                        className="text-green-400"
-                      />
-
-                      <span className="text-green-300">
-                        Passwords match
-                      </span>
+                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#111827]/30 border-t-[#111827]" />
+                      Creating account...
                     </>
                   ) : (
                     <>
-                      <span className="h-1.5 w-1.5 rounded-full bg-orange-400" />
-
-                      <span className="text-orange-300">
-                        Passwords do not match
-                      </span>
+                      Create account
+                      <ArrowRight
+                        size={17}
+                        className="transition group-hover:translate-x-1"
+                      />
                     </>
                   )}
-                </div>
-              )}
+                </button>
 
-              {/* ================================================= */}
-              {/* ERROR */}
-              {/* ================================================= */}
-
-              {errorMessage && (
-                <motion.div
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-5 rounded-2xl border border-red-400/20 bg-red-400/[0.06] p-4 text-sm text-red-300"
-                >
-                  {errorMessage}
-                </motion.div>
-              )}
-
-              {/* ================================================= */}
-              {/* SUCCESS */}
-              {/* ================================================= */}
-
-              {message && (
-                <motion.div
-                  initial={{ opacity: 0, y: -5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mt-5 rounded-2xl border border-green-400/20 bg-green-400/[0.06] p-4 text-sm leading-5 text-green-300"
-                >
-                  {message}
-                </motion.div>
-              )}
-
-              {/* ================================================= */}
-              {/* CREATE ACCOUNT BUTTON */}
-              {/* ================================================= */}
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="group relative mt-7 flex w-full items-center justify-center gap-2 overflow-hidden rounded-2xl border border-white/20 bg-gradient-to-r from-orange-500 via-orange-400 to-green-500 px-5 py-4 font-semibold text-white shadow-[0_12px_35px_rgba(249,115,22,0.18)] transition duration-300 hover:scale-[1.01] hover:shadow-[0_16px_45px_rgba(34,197,94,0.2)] disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
-
-                {loading ? (
-                  <>
-                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-
-                    <span className="relative">
-                      Creating account...
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <Zap size={17} className="relative" />
-
-                    <span className="relative">
-                      Create Aether Account
-                    </span>
-
-                    <ArrowRight
-                      size={17}
-                      className="relative transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </>
-                )}
-              </button>
-
-              {/* ================================================= */}
-              {/* SECURITY NOTE */}
-              {/* ================================================= */}
-
-              <div className="mt-5 flex items-center justify-center gap-2 text-center text-[10px] leading-4 text-white/30">
-                <ShieldCheck
-                  size={13}
-                  className="shrink-0 text-cyan-400/60"
-                />
-
-                <span>
-                  Your credentials are securely processed through
-                  Aether authentication.
-                </span>
-              </div>
-
-              {/* ================================================= */}
-              {/* LOGIN */}
-              {/* ================================================= */}
-
-              <div className="mt-6 border-t border-white/[0.08] pt-6 text-center">
-                <p className="text-xs text-white/35">
-                  Already have an account?
+                <p className="text-center text-xs leading-5 text-slate-500">
+                  By registering, you agree to use the portal
+                  responsibly and keep your account credentials secure.
                 </p>
+              </form>
 
-                <Link
-                  href="/login"
-                  className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200"
-                >
-                  Sign in to Client Portal
-                  <ArrowRight size={14} />
-                </Link>
+              <div className="mt-7 border-t border-white/10 pt-6 text-center">
+                <p className="text-sm text-slate-400">
+                  Already have an account?{" "}
+                  <Link
+                    href="/login"
+                    className="font-semibold text-amber-400 transition hover:text-amber-300"
+                  >
+                    Sign in
+                  </Link>
+                </p>
               </div>
             </div>
-          </motion.form>
-
-          {/* ===================================================== */}
-          {/* FOOTER */}
-          {/* ===================================================== */}
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="mt-6 text-center"
-          >
-            <div className="flex items-center justify-center gap-2 text-[9px] uppercase tracking-[0.25em] text-white/25">
-              <span>AI CORE</span>
-
-              <span className="h-1 w-1 rounded-full bg-cyan-400/50" />
-
-              <span>SECURE</span>
-
-              <span className="h-1 w-1 rounded-full bg-green-400/50" />
-
-              <span>CONNECTED</span>
-            </div>
-
-            <p className="mt-3 text-xs text-white/20">
-              © {new Date().getFullYear()} Aether AI Solutions
-            </p>
-          </motion.div>
+          </motion.section>
         </div>
+
+        <footer className="border-t border-white/10 py-6 text-center text-xs text-slate-500">
+          © {new Date().getFullYear()} Aether AI Solutions.
+          All rights reserved.
+        </footer>
       </div>
     </main>
   );

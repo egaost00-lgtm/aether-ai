@@ -2,8 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
+  Menu,
   MessageSquare,
   Users,
   FolderOpen,
@@ -52,6 +54,7 @@ type Project = {
 ========================================================= */
 
 export default function AdminPage() {
+  const pathname = usePathname();
   /* =======================================================
      DATA
   ======================================================= */
@@ -71,6 +74,7 @@ export default function AdminPage() {
 
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   /* =======================================================
      SEARCH
@@ -726,17 +730,27 @@ export default function AdminPage() {
             SIDEBAR
         =================================================== */}
 
-        <aside className="hidden w-64 shrink-0 border-r border-white/10 bg-[#07090d] md:flex md:flex-col">
+        <aside className="hidden w-72 shrink-0 border-r border-white/10 bg-gradient-to-b from-[#0d1420] via-[#090e17] to-[#05070a] md:flex md:flex-col">
 
           <div className="border-b border-white/10 px-6 py-7">
 
-            <p className="text-sm font-bold tracking-[0.22em] text-white">
-              AETHER
-            </p>
+           <div className="flex items-center gap-3">
+  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-400/30 bg-cyan-400/10 shadow-lg shadow-cyan-400/10">
+    <span className="text-xl font-black text-cyan-400">
+      A
+    </span>
+  </div>
 
-            <p className="mt-1 text-[9px] font-semibold tracking-[0.25em] text-cyan-400">
-              AI SOLUTIONS
-            </p>
+  <div>
+    <p className="text-base font-bold tracking-[0.18em] text-white">
+      AETHER
+    </p>
+
+    <p className="mt-1 text-[10px] font-semibold tracking-[0.22em] text-cyan-400">
+      AI SOLUTIONS
+    </p>
+  </div>
+</div>
 
             <div className="mt-5 rounded-xl border border-cyan-400/10 bg-cyan-400/[0.04] px-3 py-2.5">
               <p className="text-[10px] uppercase tracking-[0.18em] text-gray-600">
@@ -750,7 +764,7 @@ export default function AdminPage() {
 
           </div>
 
-          <nav className="flex-1 p-4">
+         <nav className="flex-1 space-y-3 px-4 py-6">
 
             <p className="px-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-600">
               Command Center
@@ -818,7 +832,11 @@ export default function AdminPage() {
 
               <Link
                 href="/admin/messages"
-                className="flex w-full items-center justify-between rounded-xl px-3.5 py-3 text-sm text-gray-400 transition hover:bg-white/[0.04] hover:text-white"
+                className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+  pathname.startsWith("/admin/messages")
+    ? "border-cyan-300/70 bg-gradient-to-r from-cyan-500/30 via-blue-500/20 to-cyan-400/15 text-white shadow-[0_0_22px_rgba(34,211,238,0.45)]"
+    : "border-cyan-400/10 bg-[#0b1728]/70 text-gray-300 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-300"
+}`}
               >
 
                 <span className="flex items-center gap-3">
@@ -882,7 +900,7 @@ export default function AdminPage() {
 
         <section className="min-w-0 flex-1">
 
-          <header className="sticky top-0 z-20 flex items-center justify-between border-b border-white/10 bg-[#07090d]/90 px-5 py-4 backdrop-blur-xl sm:px-8">
+          <header className="sticky top-0 z-20 flex items-center justify-between border-b border-cyan-400/10 bg-gradient-to-r from-[#0d1420]/95 via-[#0a101a]/95 to-[#070b12]/95 px-5 py-5 shadow-lg shadow-black/10 backdrop-blur-xl sm:px-8">
 
             <div>
 
@@ -897,7 +915,14 @@ export default function AdminPage() {
             </div>
 
             <div className="flex items-center gap-2">
-
+<button
+  type="button"
+  aria-label="Open mobile navigation"
+  onClick={() => setMobileMenuOpen(true)}
+  className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 transition hover:bg-cyan-400/20 md:hidden"
+>
+  <Menu size={20} />
+</button>
               <button
                 type="button"
                 onClick={
@@ -1105,6 +1130,103 @@ export default function AdminPage() {
 
       </div>
 
+     {/* MOBILE NAVIGATION PANEL */}
+
+{mobileMenuOpen && (
+  <div className="fixed inset-0 z-50 md:hidden">
+
+    <button
+      type="button"
+      aria-label="Close mobile navigation"
+      onClick={() => setMobileMenuOpen(false)}
+      className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+    />
+
+    <div className="absolute left-0 top-0 flex h-full w-72 max-w-[85vw] flex-col border-r border-cyan-400/20 bg-gradient-to-b from-[#111d2c] to-[#05070a] p-6 shadow-2xl">
+
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-bold text-cyan-300">
+          AETHER
+        </h2>
+
+        <button
+          type="button"
+          aria-label="Close menu"
+          onClick={() => setMobileMenuOpen(false)}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-gray-300 transition hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-cyan-300"
+        >
+          <X size={20} />
+        </button>
+      </div>
+
+      <p className="mt-2 text-xs text-gray-500">
+        Admin Command Center
+      </p>
+
+      <nav className="mt-10 space-y-3">
+
+        {(["Overview", "Clients", "Projects"] as const).map(
+          (section) => (
+            <button
+              key={section}
+              type="button"
+              onClick={() => {
+                navigate(section);
+                setMobileMenuOpen(false);
+              }}
+              className={`w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition ${
+               activeSection === section
+  ? "border border-cyan-300/70 bg-gradient-to-r from-cyan-500/30 via-blue-500/20 to-cyan-400/15 text-white shadow-[0_0_22px_rgba(34,211,238,0.45),inset_0_0_14px_rgba(34,211,238,0.15)]"
+  : "border border-cyan-400/10 bg-[#0b1728]/70 text-gray-300 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-300"
+              }`}
+            >
+              <span className="flex items-center gap-3">
+  <span
+    className={`flex h-9 w-9 items-center justify-center rounded-xl border transition-all duration-300 ${
+      activeSection === section
+        ? "border-cyan-300/50 bg-cyan-400/20 text-cyan-200 shadow-[0_0_16px_rgba(34,211,238,0.35)]"
+        : "border-cyan-400/15 bg-cyan-400/5 text-cyan-400"
+    }`}
+  >
+    {section === "Overview" && <LayoutDashboard size={18} />}
+    {section === "Clients" && <Users size={18} />}
+    {section === "Projects" && <FolderOpen size={18} />}
+  </span>
+
+  <span>{section}</span>
+</span>
+            </button>
+          )
+        )}
+
+      <Link
+  href="/admin/messages"
+  onClick={() => setMobileMenuOpen(false)}
+  className="flex w-full items-center gap-3 rounded-xl border border-cyan-400/10 bg-[#0b1728]/70 px-4 py-3 text-sm font-semibold text-gray-300 transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-400/15 hover:text-cyan-300 hover:shadow-[0_0_22px_rgba(34,211,238,0.25)]"
+>
+  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-400/15 bg-cyan-400/5 text-cyan-400">
+    <MessageSquare size={18} />
+  </span>
+
+  <span>Messages</span>
+</Link>
+
+      </nav>
+
+      <div className="mt-auto border-t border-white/10 pt-5">
+        <button
+          type="button"
+          onClick={handleSignOut}
+          className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-300 hover:bg-red-400/10"
+        >
+          <LogOut size={17} />
+          Sign Out
+        </button>
+      </div>
+
+    </div>
+  </div>
+)}
       {/* =======================================================
           CREATE PROJECT MODAL
       ======================================================= */}
@@ -1388,10 +1510,10 @@ function AdminNavButton({
     <button
       type="button"
       onClick={onClick}
-      className={`flex w-full items-center justify-between rounded-xl border px-3.5 py-3 text-sm transition ${
+      className={`flex w-full items-center justify-between rounded-xl border px-4 py-3.5 text-sm font-medium transition-all duration-200 ${
         active
-          ? "border-cyan-400/15 bg-cyan-400/[0.09] text-cyan-300"
-          : "border-transparent text-gray-400 hover:bg-white/[0.04] hover:text-white"
+          ? "border-cyan-400/30 bg-cyan-400/[0.12] text-cyan-300 shadow-[inset_3px_0_0_#22d3ee]"
+          : "border-transparent text-gray-400 hover:border-white/10 hover:bg-white/[0.06] hover:text-white hover:translate-x-1"
       }`}
     >
 
@@ -1455,15 +1577,21 @@ function OverviewSection({
             Overview
           </p>
 
-          <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-            Aether Command Center
-          </h1>
+         <h1 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+  <span className="text-white">Aether </span>
+  <span className="bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+    Command Center
+  </span>
+</h1>
 
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-gray-500">
-            Manage clients, projects and
-            communication from one secure
-            workspace.
-          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-400 sm:text-base">
+  Your central workspace to manage
+  <span className="font-semibold text-cyan-300"> clients</span>,
+  <span className="font-semibold text-cyan-300"> projects</span>,
+  and
+  <span className="font-semibold text-cyan-300"> communications</span>
+  — all in one secure, intelligent command center.
+</p>
 
         </div>
 
@@ -1472,7 +1600,7 @@ function OverviewSection({
           onClick={
             onCreateProject
           }
-          className="inline-flex w-fit items-center gap-2 rounded-xl bg-cyan-400 px-4 py-3 text-sm font-semibold text-black transition hover:bg-cyan-300"
+         className="inline-flex w-fit items-center gap-2 rounded-xl border border-cyan-300/40 bg-gradient-to-r from-cyan-400 to-blue-500 px-5 py-3.5 text-sm font-bold text-white shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-cyan-300 hover:to-blue-400 hover:shadow-cyan-400/30"
         >
           <Plus size={17} />
           Create Project
@@ -1482,7 +1610,7 @@ function OverviewSection({
 
       {/* STATS */}
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:gap-6 xl:grid-cols-4">
 
         <AdminStatCard
           icon={
@@ -1541,12 +1669,12 @@ function OverviewSection({
           onClick={
             onClients
           }
-          className="group rounded-3xl border border-white/10 bg-[#090e16] p-6 text-left transition hover:-translate-y-0.5 hover:border-cyan-400/25"
+          className="group rounded-3xl border border-cyan-400/10 bg-gradient-to-br from-[#111d2c] via-[#0b1420] to-[#070c13] p-6 text-left shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-500/10"
         >
 
           <div className="flex items-start justify-between">
 
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-cyan-400">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-400/20 to-blue-500/10 text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 group-hover:scale-110 group-hover:shadow-cyan-400/25">
               <Users size={22} />
             </div>
 
@@ -1557,11 +1685,11 @@ function OverviewSection({
 
           </div>
 
-          <h3 className="mt-6 text-lg font-semibold">
+          <h3 className="mt-6 text-xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-cyan-300">
             Manage Clients
           </h3>
 
-          <p className="mt-2 text-sm leading-6 text-gray-500">
+          <p className="mt-3 text-sm leading-7 text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
             View registered clients,
             companies, contact details
             and assigned projects.
@@ -1636,7 +1764,7 @@ function OverviewSection({
 
       {/* PROJECT SUMMARY */}
 
-      <div className="mt-8 rounded-3xl border border-white/10 bg-[#090e16] p-6">
+     <div className="mt-10 rounded-3xl border border-cyan-400/10 bg-gradient-to-br from-[#111d2c] via-[#0b1420] to-[#070c13] p-6 shadow-xl shadow-black/20 transition-all duration-300 hover:border-cyan-400/20 sm:p-8">
 
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
 
@@ -1646,14 +1774,14 @@ function OverviewSection({
               Workspace
             </p>
 
-            <h2 className="mt-2 text-xl font-semibold">
-              Project Overview
-            </h2>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+  Project <span className="text-cyan-300">Overview</span>
+</h2>
 
-            <p className="mt-1 text-sm text-gray-500">
-              Current project activity across
-              your client workspace.
-            </p>
+           <p className="mt-3 max-w-xl text-sm leading-7 text-gray-400 sm:text-base">
+  Track project activity, monitor client assignments,
+  and manage your workspace from one centralized dashboard.
+</p>
 
           </div>
 
@@ -1662,7 +1790,7 @@ function OverviewSection({
             onClick={
               onProjects
             }
-            className="inline-flex w-fit items-center gap-2 rounded-xl border border-cyan-400/20 bg-cyan-400/[0.06] px-4 py-2.5 text-sm font-medium text-cyan-300 hover:bg-cyan-400/10"
+            className="group inline-flex w-fit items-center gap-2 rounded-xl border border-cyan-400/30 bg-gradient-to-r from-cyan-400/15 to-blue-500/10 px-5 py-3 text-sm font-semibold text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300/50 hover:from-cyan-400/25 hover:to-blue-500/20 hover:shadow-cyan-400/20"
           >
             View Projects
             <ChevronRight
@@ -1674,21 +1802,29 @@ function OverviewSection({
 
         {projects.length ===
           0 ? (
-          <div className="mt-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 text-center">
+         <div className="mt-8 rounded-2xl border border-dashed border-cyan-400/20 bg-gradient-to-br from-cyan-400/[0.06] via-[#0b1420] to-blue-500/[0.04] px-6 py-12 text-center shadow-inner shadow-black/20 transition-all duration-300 hover:border-cyan-400/40">
 
-            <FolderOpen
-              size={28}
-              className="mx-auto text-gray-600"
-            />
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-400/20 to-blue-500/10 text-cyan-300 shadow-lg shadow-cyan-500/20">
+  <FolderOpen size={30} />
+</div>
 
-            <p className="mt-4 text-sm font-medium text-gray-400">
-              No projects created yet.
-            </p>
+          <h3 className="mt-6 text-xl font-bold tracking-tight text-white">
+  Your Project Workspace Awaits
+</h3>
 
-            <p className="mt-1 text-xs text-gray-600">
-              Create your first project
-              using the button above.
-            </p>
+<p className="mx-auto mt-3 max-w-md text-sm leading-7 text-gray-400">
+  No projects have been created yet.
+  Start by creating your first project and
+  assigning it to a client.
+</p>
+<button
+  type="button"
+  onClick={onCreateProject}
+  className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-300/40 bg-gradient-to-r from-cyan-400 to-blue-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:from-cyan-300 hover:to-blue-400 hover:shadow-cyan-400/30"
+>
+  <Plus size={17} />
+  Create Your First Project
+</button>
 
           </div>
         ) : (
@@ -1702,26 +1838,22 @@ function OverviewSection({
                     key={
                       project.id
                     }
-                    className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-4"
+                    className="group rounded-2xl border border-cyan-400/10 bg-gradient-to-br from-[#111d2c] to-[#080e17] p-5 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-cyan-500/10"
                   >
 
                     <div className="flex items-center gap-3">
 
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-cyan-400">
-                        <FolderOpen
-                          size={17}
-                        />
-                      </div>
+                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-cyan-400/25 bg-gradient-to-br from-cyan-400/20 to-blue-500/10 text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 group-hover:scale-110 group-hover:shadow-cyan-400/20">
+  <FolderOpen size={20} />
+</div>
 
                       <div className="min-w-0">
 
-                        <p className="truncate text-sm font-medium text-white">
-                          {
-                            project.project_name
-                          }
-                        </p>
+                        <p className="truncate text-base font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-cyan-300">
+  {project.project_name}
+</p>
 
-                        <p className="mt-1 truncate text-xs text-gray-600">
+                        <p className="mt-1.5 truncate text-xs font-medium tracking-wide text-slate-400 transition-colors duration-300 group-hover:text-cyan-200/80">
                           {getClientDisplayName(
                             project.client_id
                           )}
@@ -1811,13 +1943,13 @@ function ClientsSection({
 
       </div>
 
-      <div className="mt-8 overflow-hidden rounded-3xl border border-white/10 bg-[#090e16]">
+     <div className="mt-8 overflow-hidden rounded-3xl border border-cyan-400/10 bg-gradient-to-br from-[#111d2c] via-[#0b1420] to-[#070c13] shadow-xl shadow-black/20 transition-all duration-300 hover:border-cyan-400/20">
 
         <div className="border-b border-white/10 px-6 py-5">
 
-          <h2 className="font-semibold">
-            Client Directory
-          </h2>
+        <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+  Client <span className="text-cyan-300">Directory</span>
+</h2>
 
           <p className="mt-1 text-xs text-gray-600">
             {clients.length}{" "}
@@ -1864,7 +1996,7 @@ function ClientsSection({
 
                   <div className="flex min-w-0 items-center gap-4">
 
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-cyan-400/20 bg-cyan-400/10 font-semibold text-cyan-300">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-400/20 to-blue-500/10 text-lg font-bold text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 hover:scale-110 hover:border-cyan-300/50 hover:shadow-cyan-400/20">
                       {client.name
                         ?.charAt(
                           0
@@ -1875,13 +2007,13 @@ function ClientsSection({
 
                     <div className="min-w-0">
 
-                      <p className="truncate text-sm font-semibold text-white">
+                      <p className="truncate text-base font-bold tracking-tight text-white transition-colors duration-300 hover:text-cyan-300 sm:text-lg">
                         {
                           client.name
                         }
                       </p>
 
-                      <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-600">
+                     <div className="mt-2 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-slate-400 transition-colors duration-300">
 
                         <span className="flex items-center gap-1.5">
                           <Mail
@@ -1938,7 +2070,7 @@ function ClientsSection({
                           client
                         )
                       }
-                      className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-3.5 py-2.5 text-xs font-medium text-gray-300 transition hover:border-cyan-400/20 hover:bg-cyan-400/[0.06] hover:text-cyan-300"
+                      className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/30 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 px-4 py-2.5 text-xs font-semibold text-cyan-300 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300/50 hover:from-cyan-400/20 hover:to-blue-500/20 hover:shadow-lg hover:shadow-cyan-500/10"
                     >
 
                       <Eye
@@ -2119,7 +2251,7 @@ function ProjectsSection({
                   key={
                     project.id
                   }
-                  className="p-6 transition hover:bg-white/[0.02]"
+                  className="group m-3 rounded-2xl border border-cyan-400/10 bg-gradient-to-br from-[#111d2c] via-[#0b1420] to-[#080e17] p-6 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/30 hover:shadow-cyan-500/10"
                 >
 
                   <div className="flex flex-col justify-between gap-6 lg:flex-row">
@@ -2128,9 +2260,10 @@ function ProjectsSection({
 
                       <div className="flex flex-wrap items-center gap-3">
 
-                        <span className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] font-medium text-cyan-300">
-                          Assigned
-                        </span>
+                        <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3.5 py-1.5 text-[11px] font-semibold tracking-wide text-emerald-300">
+  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+  Assigned
+</span>
 
                         <span className="flex items-center gap-1.5 text-xs text-gray-600">
                           <UserRound
@@ -2148,16 +2281,16 @@ function ProjectsSection({
 
                       </div>
 
-                      <h3 className="mt-4 text-xl font-semibold text-white">
+                      <h3 className="mt-4 text-xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-cyan-300 sm:text-2xl">
                         {
                           project.project_name
                         }
                       </h3>
 
-                      <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-500">
-                        {project.description ||
-                          "No project description."}
-                      </p>
+                    <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
+  {project.description ||
+    "No project description."}
+</p>
 
                       <div className="mt-5 flex flex-wrap gap-4 text-xs text-gray-600">
 
@@ -2203,7 +2336,7 @@ function ProjectsSection({
                             project
                           )
                         }
-                        className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/15 px-3.5 py-2.5 text-xs font-medium text-cyan-300 transition hover:bg-cyan-400/10"
+                       className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/30 bg-gradient-to-r from-cyan-400/10 to-blue-500/10 px-4 py-2.5 text-xs font-semibold text-cyan-300 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300/50 hover:from-cyan-400/20 hover:to-blue-500/20 hover:shadow-lg hover:shadow-cyan-500/10"
                       >
 
                         <Pencil
@@ -2223,7 +2356,7 @@ function ProjectsSection({
                             project
                           )
                         }
-                        className="inline-flex items-center gap-2 rounded-xl border border-red-400/15 px-3.5 py-2.5 text-xs font-medium text-red-400 transition hover:bg-red-400/10 hover:text-red-300"
+                       className="inline-flex items-center gap-2 rounded-xl border border-red-400/25 bg-gradient-to-r from-red-500/10 to-rose-500/10 px-4 py-2.5 text-xs font-semibold text-red-300 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-red-400/50 hover:from-red-500/20 hover:to-rose-500/20 hover:shadow-lg hover:shadow-red-500/10"
                       >
 
                         <Trash2
@@ -2831,23 +2964,23 @@ function AdminStatCard({
   value: string;
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-[#090e16] p-5 transition hover:border-white/[0.16]">
+   <div className="group rounded-2xl border border-cyan-400/10 bg-gradient-to-br from-[#111d2c] via-[#0b1420] to-[#070c13] p-6 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/30 hover:shadow-xl hover:shadow-cyan-500/10">
 
       <div className="flex items-center justify-between">
 
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/15 bg-cyan-400/[0.07] text-cyan-400">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/25 bg-gradient-to-br from-cyan-400/20 to-blue-500/10 text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 group-hover:scale-110 group-hover:border-cyan-300/40 group-hover:shadow-cyan-400/20">
           {icon}
         </div>
 
-        <span className="text-3xl font-bold tracking-tight text-white">
-          {value}
-        </span>
+        <span className="text-4xl font-extrabold tracking-tight text-white drop-shadow-sm transition-all duration-300 group-hover:text-cyan-300 sm:text-5xl">
+  {value}
+</span>
 
       </div>
 
-      <p className="mt-5 text-sm text-gray-500">
-        {title}
-      </p>
+     <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-gray-400 transition-colors duration-300 group-hover:text-cyan-300">
+  {title}
+</p>
 
     </div>
   );

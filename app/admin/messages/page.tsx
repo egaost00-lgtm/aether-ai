@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   ArrowLeft,
+  Menu,
   MessageSquare,
   Search,
   Send,
   User,
+  X,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
@@ -30,6 +33,7 @@ type Message = {
 };
 
 export default function AdminMessagesPage() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [clients, setClients] = useState<Client[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
@@ -201,6 +205,56 @@ setLoadingMessages(false);
 
   return (
     <main className="min-h-screen bg-[#05070a] text-white">
+      {/* MOBILE NAVIGATION PANEL */}
+{mobileMenuOpen && (
+  <div className="fixed inset-0 z-50 md:hidden">
+    {/* Dark overlay */}
+    <button
+      type="button"
+      aria-label="Close mobile navigation"
+      onClick={() => setMobileMenuOpen(false)}
+      className="absolute inset-0 bg-black/75 backdrop-blur-sm"
+    />
+
+    {/* Sidebar */}
+    <div className="absolute left-0 top-0 flex h-full w-72 max-w-[85vw] flex-col border-r border-cyan-400/20 bg-gradient-to-b from-[#111d2c] to-[#05070a] p-6 shadow-2xl">
+
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-bold text-cyan-300">
+          AETHER
+        </h2>
+
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-label="Close menu"
+          className="rounded-xl border border-white/10 p-2 text-gray-300 hover:text-white"
+        >
+          <X size={20} />
+        </button>
+      </div>
+
+      <p className="mt-2 text-xs text-gray-500">
+        Admin Command Center
+      </p>
+
+      <nav className="mt-10 space-y-3">
+        <Link
+          href="/admin"
+          onClick={() => setMobileMenuOpen(false)}
+          className="flex items-center gap-3 rounded-xl border border-cyan-400/10 bg-[#0b1728]/70 px-4 py-3 text-sm font-semibold text-gray-300 transition hover:border-cyan-400/40 hover:text-cyan-300"
+        >
+          <ArrowLeft size={18} />
+          Back to Dashboard
+        </Link>
+
+      <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-cyan-300/50 bg-cyan-400/20 text-cyan-200 shadow-[0_0_16px_rgba(34,211,238,0.35)]">
+  <MessageSquare size={18} />
+</span>
+      </nav>
+    </div>
+  </div>
+)}
       <div className="flex min-h-screen">
 
         {/* SIDEBAR */}
@@ -238,6 +292,14 @@ setLoadingMessages(false);
 
           {/* HEADER */}
           <header className="border-b border-white/10 px-6 py-5 sm:px-8">
+          <button
+  type="button"
+  onClick={() => setMobileMenuOpen(true)}
+  aria-label="Open mobile navigation"
+  className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-300 transition hover:bg-cyan-400/20 md:hidden"
+>
+  <Menu size={22} />
+</button>
             <p className="text-xs uppercase tracking-[0.2em] text-gray-600">
               Communication
             </p>
@@ -245,6 +307,13 @@ setLoadingMessages(false);
             <h1 className="mt-1 text-xl font-semibold">
               Client Messages
             </h1>
+<Link
+  href="/admin"
+  className="mt-4 inline-flex w-fit items-center gap-2 rounded-xl border border-cyan-400/30 bg-gradient-to-r from-cyan-400/15 to-blue-500/10 px-4 py-2.5 text-sm font-semibold text-cyan-300 shadow-lg shadow-cyan-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-300/50 hover:bg-cyan-400/20"
+>
+  <ArrowLeft size={17} />
+  Back to Dashboard
+</Link>
           </header>
 
           <div className="p-5 sm:p-8">
