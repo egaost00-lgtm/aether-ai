@@ -10,6 +10,8 @@ export default function Trusted() {
     "Tailwind CSS",
     "Vercel",
     "Supabase",
+    "AWS" ,
+    "AWS Amplify" ,
   ];
 
   return (
@@ -46,7 +48,7 @@ export default function Trusted() {
         </motion.div>
 
         {/* Technology cards */}
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-4">
           {technologies.map((technology, index) => (
             <motion.div
               key={technology}
