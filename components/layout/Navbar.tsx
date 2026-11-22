@@ -35,7 +35,7 @@ const solutions = [
     name: "Software Development",
     description: "Custom applications and APIs",
     icon: Code2,
-    href: "/services",
+    href: "/solutions/software-development",
   },
   {
     name: "AI & Automation",
@@ -47,25 +47,25 @@ const solutions = [
     name: "Cloud & DevOps",
     description: "Cloud and infrastructure solutions",
     icon: CloudCog,
-    href: "/services",
+    href: "/solutions/cloud-devops",
   },
   {
     name: "Enterprise IT",
     description: "Business systems and integrations",
     icon: Building2,
-    href: "/services",
+    href: "/solutions/enterprise-it",
   },
   {
     name: "SaaS Engineering",
     description: "Scalable digital products",
     icon: Layers3,
-    href: "/services",
+    href: "/solutions/saas-engineering",
   },
   {
     name: "Managed IT",
     description: "Maintenance and support",
     icon: ShieldCheck,
-    href: "/services",
+    href: "/solutions/managed-it",
   },
 ];
 
