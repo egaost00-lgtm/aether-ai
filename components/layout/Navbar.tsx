@@ -118,14 +118,16 @@ export default function Navbar() {
       className="fixed left-1/2 top-5 z-50 w-[94%] max-w-7xl -translate-x-1/2"
     >
       <div
-        className={`relative rounded-3xl border border-white/[0.14]
-        bg-black/[0.42] backdrop-blur-2xl
+       
+className={`relative rounded-3xl border border-[#50e8df]/[0.18]
+        backdrop-blur-2xl
         transition-all duration-500 lg:rounded-full
         ${
           scrolled
-            ? "bg-black/[0.75] shadow-[0_18px_60px_rgba(0,0,0,0.35)]"
-            : "shadow-[0_10px_45px_rgba(0,0,0,0.20)]"
+            ? "bg-[#060b12]/90 shadow-[0_18px_60px_rgba(0,0,0,0.45),0_0_30px_rgba(80,232,223,0.06)]"
+            : "bg-[#060b12]/45 shadow-[0_10px_45px_rgba(0,0,0,0.20),0_0_25px_rgba(80,232,223,0.05)]"
         }`}
+
       >
         {/* GLASS HIGHLIGHT */}
 
@@ -199,7 +201,7 @@ export default function Navbar() {
 
                   <span
                     className={`absolute bottom-1 left-1/2 h-[2px]
-                    -translate-x-1/2 rounded-full bg-orange-400
+                    -translate-x-1/2 rounded-full bg-[#50e8df]
                     transition-all duration-300
                     ${
                       active
@@ -367,14 +369,16 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="rounded-full border border-orange-300/30
-              bg-gradient-to-r from-orange-500 to-amber-400
-              px-4 py-2.5 text-xs font-semibold text-black
-              shadow-[0_6px_25px_rgba(249,115,22,0.22)]
-              transition-all duration-300
-              hover:-translate-y-0.5
-              hover:from-orange-400 hover:to-yellow-300
-              hover:shadow-[0_10px_35px_rgba(249,115,22,0.35)]"
+             
+className="rounded-full border border-[#50e8df]/40
+bg-[#50e8df] px-4 py-2.5
+text-xs font-semibold text-[#041214]
+shadow-[0_6px_25px_rgba(80,232,223,0.22)]
+transition-all duration-300
+hover:-translate-y-0.5
+hover:bg-[#8dfcf3]
+hover:shadow-[0_10px_35px_rgba(80,232,223,0.35)]"
+
             >
               Let&apos;s Build →
             </Link>
@@ -527,14 +531,15 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={closeMenus}
-                  className="mt-2 rounded-full
-                  bg-gradient-to-r from-orange-500
-                  to-amber-400 px-6 py-3.5
-                  text-center text-sm font-semibold text-black
-                  shadow-[0_8px_25px_rgba(249,115,22,0.22)]
-                  transition-all duration-300
-                  hover:from-orange-400
-                  hover:to-yellow-300"
+                
+className="mt-2 rounded-full
+bg-[#50e8df] px-6 py-3.5
+text-center text-sm font-semibold text-[#041214]
+shadow-[0_8px_25px_rgba(80,232,223,0.22)]
+transition-all duration-300
+hover:bg-[#8dfcf3]
+hover:shadow-[0_10px_35px_rgba(80,232,223,0.35)]"
+
                 >
                   Let&apos;s Build →
                 </Link>
