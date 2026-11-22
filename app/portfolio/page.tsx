@@ -24,7 +24,7 @@ const projects = [
     title: "StreamFlix AI",
     category: "AI Product • Entertainment",
     type: "AI-Powered Streaming Platform",
-    status: "Live Demo",
+    status: "Live Application",
     image: "/streamflix.png",
     description:
       "A modern AI-powered entertainment platform combining intelligent movie discovery, generative AI features, real-time movie data, and a responsive streaming-inspired digital experience.",
@@ -408,10 +408,10 @@ export default function PortfolioPage() {
               </h2>
             </div>
 
-            <p className="max-w-md text-sm leading-7 text-gray-400 sm:text-base">
-              A collection of product builds, live demos,
-              development projects, and technical case studies.
-            </p>
+           <p className="max-w-md text-sm leading-7 text-gray-400 sm:text-base">
+  Explore our live applications, AI-powered products,
+  software engineering projects, and technical case studies.
+</p>
           </div>
 
           {/* PROJECT LIST */}
@@ -588,7 +588,7 @@ export default function PortfolioPage() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-2 rounded-full bg-yellow-400 px-5 py-3.5 text-sm font-semibold text-black transition hover:bg-yellow-300"
                           >
-                            View Live Demo
+                            Launch Application
                             <ExternalLink size={16} />
                           </a>
                         )}
