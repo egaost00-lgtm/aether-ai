@@ -57,7 +57,7 @@ const projects = [
       "Cloud Deployment",
     ],
     caseStudy: null,
-    live: "https://aether-ai-council.vercel.app",
+    live: "https://ai.aetheraisolutions.in",
     github: null,
   },
   {

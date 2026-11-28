@@ -12,7 +12,7 @@ const projects = [
     status: "Live",
     statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
     tags: ["Next.js", "Agentic AI", "Groq", "GPT-OSS 120B"],
-    demo: "https://aether-ai-council.vercel.app",
+    demo: "https://ai.aetheraisolutions.in",
     github: null,
   },
   {
