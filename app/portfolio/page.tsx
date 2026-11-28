@@ -101,7 +101,7 @@ const projects = [
     title: "The Pulse",
     category: "Digital Product • News & Media",
     type: "Digital News & Media Platform",
-    status: "Live Demo",
+    status: "Live Platform",
     image: "/the-pulse.png",
     description:
       "A digital news platform designed to deliver breaking news, curated headlines, live news coverage, and real-time updates through a premium newspaper-style experience across devices.",
@@ -136,7 +136,7 @@ const projects = [
     title: "ExamAI",
     category: "AI Product • Education",
     type: "AI-Powered Exam Preparation Platform",
-    status: "Live Demo",
+    status: "Live Application",
     image: "/examai.png",
     description:
       "An AI-powered exam preparation platform designed to support competitive exam aspirants through practice questions, mock tests, structured learning, and performance improvement.",
@@ -171,7 +171,7 @@ const projects = [
     title: "BharatPlay",
     category: "Cloud Product • Entertainment",
     type: "Entertainment Web Platform",
-    status: "Live Demo",
+    status: "Live Application",
     image: "/bharatplay.png",
     description:
       "An AI-powered entertainment platform featuring an immersive viewing experience, interactive content, responsive design, and cloud deployment using AWS technologies.",
@@ -197,7 +197,7 @@ const projects = [
       "Product Engineering",
     ],
     caseStudy: "/portfolio/bharatplay",
-    live: "https://bharatplay-liart.vercel.app",
+    live: "https://bharatplay.aetheraisolutions.in",
     github: "https://github.com/egaost00-lgtm/bharatplay",
   },
   {

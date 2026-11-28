@@ -45,12 +45,12 @@ export default function BharatPlayCaseStudy() {
 
             <div className="mt-10 flex flex-wrap gap-4">
               <a
-                href="https://main.d38trio0q0je1z.amplifyapp.com"
+                href="https://bharatplay.aetheraisolutions.in"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-yellow-400 px-8 py-4 font-semibold text-black transition hover:scale-105 hover:bg-yellow-300"
               >
-                View Live Demo ↗
+                Launch BharatPlay ↗
               </a>
 
               <a
@@ -325,7 +325,7 @@ export default function BharatPlayCaseStudy() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
-              href="https://bharatplay-liart.vercel.app"
+              href="https://bharatplay.aetheraisolutions.in"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-yellow-400 px-8 py-4 font-semibold text-black transition hover:scale-105 hover:bg-yellow-300"
