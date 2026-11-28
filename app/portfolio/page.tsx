@@ -19,6 +19,48 @@ import {
 
 const projects = [
   {
+    id: "aether-ai-council",
+    number: "07",
+    title: "Aether AI Council",
+    category: "AI Product • Agentic Intelligence",
+    type: "Multi-Agent AI Intelligence Platform",
+    status: "Live MVP",
+    image: "/aether-ai-council.png",
+    description:
+      "Beyond a single intelligence. Aether AI Council is a multi-agent artificial intelligence platform where five specialized AI agents collaborate, debate, analyze complex problems, and deliver unified recommendations through a real-time intelligent council experience. Built by Aether AI Solutions.",
+    features: [
+      "Five specialized AI agents",
+      "Multi-agent collaboration and debate",
+      "Four intelligent council modes",
+      "Real-time AI response streaming",
+      "Custom agent selection and instructions",
+      "Unified council verdict and conversation history",
+      "Research and technical reasoning",
+      "API rate limiting and request validation",
+    ],
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Groq AI",
+      "GPT-OSS 120B",
+      "Upstash Redis",
+      "Server-Sent Events",
+      "Vercel",
+    ],
+    services: [
+      "Agentic AI Development",
+      "Multi-Agent Systems",
+      "AI Product Engineering",
+      "API Engineering",
+      "Cloud Deployment",
+    ],
+    caseStudy: null,
+    live: "https://aether-ai-council.vercel.app",
+    github: null,
+  },
+  {
     id: "streamflix",
     number: "01",
     title: "StreamFlix AI",
@@ -439,14 +481,7 @@ export default function PortfolioPage() {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />
 
-                  {/* PROJECT NUMBER */}
-
-                  <div className="absolute left-4 top-4 sm:left-6 sm:top-6">
-
-                    <span className="rounded-full border border-yellow-400/30 bg-black/75 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-yellow-400 backdrop-blur-md">
-                      Project {project.number}
-                    </span>
-                  </div>
+                
 
                   {/* STATUS */}
 

@@ -4,6 +4,18 @@ import { ArrowUpRight, Code2 } from "lucide-react";
 
 const projects = [
   {
+    title: "Aether AI Council",
+    category: "Multi-Agent AI Intelligence",
+    description:
+      "An advanced multi-agent AI intelligence platform where five specialized AI agents collaborate, debate, research, and solve complex problems through collective intelligence and real-time reasoning.",
+    image: "/aether-ai-council.png",
+    status: "Live",
+    statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
+    tags: ["Next.js", "Agentic AI", "Groq", "GPT-OSS 120B"],
+    demo: "https://aether-ai-council.vercel.app",
+    github: null,
+  },
+  {
     title: "StreamFlix AI",
     category: "AI-Powered Digital Product",
     description:
