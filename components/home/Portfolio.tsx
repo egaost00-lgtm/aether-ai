@@ -24,7 +24,7 @@ const projects = [
     status: "Live",
     statusStyle: "bg-green-500/15 text-green-400 border-green-500/20",
     tags: ["Next.js", "Tailwind", "AI"],
-    demo: "https://streamflix-ai.vercel.app",
+    demo: "https://streamflix.aetheraisolutions.in",
     github: "https://github.com/egaost00-lgtm/streamflix-ai",
   },
     {

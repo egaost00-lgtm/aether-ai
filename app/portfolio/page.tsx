@@ -92,7 +92,7 @@ const projects = [
       "Product Engineering",
     ],
     caseStudy: "/portfolio/streamflix-ai",
-    live: "https://streamflix-ai.vercel.app",
+    live: "https://streamflix.aetheraisolutions.in",
     github: "https://github.com/egaost00-lgtm/streamflix-ai",
   },
   {

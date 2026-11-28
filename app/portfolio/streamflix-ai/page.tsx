@@ -41,7 +41,7 @@ export default function StreamFlixCaseStudy() {
                 rel="noopener noreferrer"
                 className="rounded-full bg-yellow-400 px-8 py-4 font-semibold text-black transition hover:scale-105 hover:bg-yellow-300"
               >
-                View Live Demo ↗
+                Explore StreamFlix AI ↗ ↗
               </a>
 
               <a
@@ -123,7 +123,7 @@ export default function StreamFlixCaseStudy() {
               <div>
                 <p className="text-sm text-gray-500">Status</p>
                 <p className="mt-1 font-semibold text-yellow-400">
-                  Live Demo
+                  Live Product
                 </p>
               </div>
             </div>
@@ -294,12 +294,12 @@ export default function StreamFlixCaseStudy() {
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a
-              href="https://streamflix-ai.vercel.app"
+              href="https://streamflix.aetheraisolutions.in"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-yellow-400 px-8 py-4 font-semibold text-black transition hover:scale-105 hover:bg-yellow-300"
             >
-              Launch Live Demo ↗
+              Launch StreamFlix AI ↗ ↗
             </a>
 
             <a
